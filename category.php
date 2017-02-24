@@ -1,19 +1,18 @@
-<?php get_header();
-get_template_part( 'parts/content', 'breadcrumbs' );
-$title = single_cat_title("", false);
-?>
+<?php get_header();?>
 
-<main class="container">
+<main>
 
-		<div class="row valign-wrapper" role="main">
-
+		<div class="row" role="main">
 			<div class="col s12">
+
 				<header>
-					<h1 class="page-title center"><?php echo $title;?></h1>
+					<h1 class="page-title center"><?php single_cat_title();?></h1>
 				</header>
 
-		    <div class="col s12 l9">
-
+		    <div class="col s12">
+					<div class="col s12">
+						<a class="chip" href="#modal2">Filter Articles<i class="filter material-icons">filter_list</i></a>
+					</div>
 
 
 			    <?php if (have_posts()) : while (have_posts()) : the_post();
@@ -32,14 +31,14 @@ $title = single_cat_title("", false);
 
 					<?php endif; ?>
 
-			</div>
+			</div> <!-- end .col s9 -->
 
-			<?php get_sidebar('archives'); ?>
 
-		</div> <!-- end #main -->
-	</div>
+		</div> <!-- end .col s12 -->
+	</div> <!-- end .row -->
+
 </main> <!-- end main -->
 
-
+	<?php get_template_part( 'parts/loop', 'filter' ); ?>
 
 <?php get_footer(); ?>

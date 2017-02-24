@@ -3,7 +3,17 @@
 	<header class="article-header">
 
 		<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
-		<label class="byline">Written by <?php the_author_posts_link(); ?>	on <?php echo the_time('F j, Y');?>
+		<label class="byline">Written by <?php the_author_posts_link(); ?>	on <?php echo the_time('F j, Y') . '. ';?>
+			<?php
+			if(is_singular('publications')) {
+				echo 'Posted in '. get_the_term_list( '', 'publication_type', '', ', ', '' );
+			} elseif (is_singular('post')) {
+				echo 'Posted in '. get_the_category_list(', ');
+			} else {
+				
+			}
+
+			?>
 		<?php get_template_part( 'parts/content', 'share' ); ?></label>
     </header> <!-- end article header -->
 

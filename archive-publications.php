@@ -1,22 +1,25 @@
-<?php get_header();
-$title = get_the_archive_title();
-?>
+<?php get_header();?>
 
-<main class="container">
+<main>
 
 		<div class="row" role="main">
 			<div class="col s12">
+
 				<header>
-					<h1 class="page-title center">Publications</h1>
+					<h1 class="page-title center"><?php post_type_archive_title(); ?></h1>
+
 				</header>
 
-		    <div class="col s12 l9">
 
 
+		    <div class="col s12">
+					<div class="col s12">
+						<a class="chip" href="#modal2">Filter Publications<i class="filter material-icons">filter_list</i></a>
+					</div>
 
 			    <?php if (have_posts()) : while (have_posts()) : the_post();
 
-					get_template_part( 'parts/loop', 'blog' );
+					get_template_part( 'parts/loop', 'publications' );
 
 					?>
 
@@ -30,14 +33,13 @@ $title = get_the_archive_title();
 
 					<?php endif; ?>
 
-			</div>
+			</div> <!-- end .col s9 -->
 
-			<?php get_sidebar('archives'); ?>
 
-				</div> <!-- end .row -->
-
-		</div> <!-- end .row -->
+		</div> <!-- end .col s12 -->
+	</div> <!-- end .row -->
 
 </main> <!-- end main -->
+		<?php get_template_part( 'parts/loop', 'filter' ); ?>
 
 <?php get_footer(); ?>

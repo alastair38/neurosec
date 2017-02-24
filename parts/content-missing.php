@@ -14,8 +14,8 @@
 
 	<?php else: ?>
 
-		<section class="entry-content">
-			<p><?php _e("No content published.", "jointswp");?></p>
+		<section class="entry-content center">
+			<p><?php _e("No content published in this section. Please check back shortly.", "jointswp");?></p>
 		</section>
 
 

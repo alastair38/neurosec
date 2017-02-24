@@ -3,7 +3,7 @@ get_template_part( 'parts/content', 'breadcrumbs' );
 $title = single_cat_title("", false);
 ?>
 
-<main class="container">
+<main>
 
 		<div class="row" role="main">
 			<div class="col s12">
@@ -17,13 +17,15 @@ $title = single_cat_title("", false);
 
 				</header>
 
-		    <div class="col s12 l9">
+		    <div class="col s12">
 
-
+					<div class="col s12">
+						<a class="chip" href="#modal2">Filter Articles<i class="filter material-icons">filter_list</i></a>
+					</div>
 
 			    <?php if (have_posts()) : while (have_posts()) : the_post();
 
-					get_template_part( 'parts/loop', 'blog' );
+					get_template_part( 'parts/loop', 'publications' );
 
 					endwhile;
 
@@ -39,10 +41,10 @@ $title = single_cat_title("", false);
 
 				</div>
 
-			<?php get_sidebar('archives'); ?>
+
 
 		</div> <!-- end #main -->
 	</div>
 </main> <!-- end main -->
-
+	<?php get_template_part( 'parts/loop', 'filter' ); ?>
 <?php get_footer(); ?>

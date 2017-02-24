@@ -63,20 +63,29 @@
 
 </section> <!-- end article -->
 
-<section id="key_pages">
+<section class="row">
 <?php
 // check if the repeater field has rows of data
 if( have_rows('key_pages') ):
   while ( have_rows('key_pages') ) : the_row();
 	$page_ID = get_sub_field('page_name');
 ?>
+<div class="entry-content col s12 m4 l4">
+	<article class="s12 card">
+		<div class="card-content">
+			<span class="card-title"><?php echo get_the_title($page_ID);?></span>
+				<p>
+					<?php the_sub_field('page_byline');?>
+				</p>
+			<img src="<?php the_sub_field('page_image');?>"/>
 
-	<aside class="col s12 l4">
-					<a class="black-text hoverable" href="<?php the_permalink($page_ID);?>">
-					<h2><?php echo get_the_title($page_ID);?></h2>
-					<i class="material-icons"><?php the_sub_field('page_icon');?></i>
-					</a>
-	</aside>
+		</div>
+		<div class="card-action blue-grey darken-1">
+
+		</div>
+	</article>
+</div>
+
 <?php
 	endwhile;
 	else :

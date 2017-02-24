@@ -16,7 +16,7 @@ get_header(); ?>
 
 				<div class="row center">
 
-					<h4 style="font-style:italic; letter-spacing: 2px;" aria-hidden="true" class="grey-text thin">neuroscience, ethics and society</h4>
+					<h4 style="font-style:italic; letter-spacing: 2px;" aria-hidden="true" class="">Neuroscience, Ethics and Society</h4>
 					<a href="#starting"><i class="material-icons">keyboard_arrow_down</i></a>
 				</div>
 

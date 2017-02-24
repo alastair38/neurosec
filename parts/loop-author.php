@@ -1,6 +1,6 @@
 <?php //if(  has_term( 'writing', 'category' ) ) { - this will be to output different styles depending on whether a video etc is being shown ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class('grey-text text-darken-4 col s12 m6 l4'); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class('grey-text text-darken-4 col s12 m6 l6'); ?>>
 	<article class="card">
 		<div class="card-image">
 				<?php the_post_thumbnail('thumb', array('class' => 'responsive-img')); ?>
@@ -17,7 +17,7 @@
 
 				<label class="authors">Written by <?php the_author_posts_link(); ?>	on <?php echo the_time('F j, Y') . '.';?>
 				<?php
-		
+
 					echo 'Posted in '. get_the_category_list(', ');
 
 				?>

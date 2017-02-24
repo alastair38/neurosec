@@ -16,7 +16,7 @@ $title = single_cat_title("", false);
 
 			    <?php if (have_posts()) : while (have_posts()) : the_post();
 
-					get_template_part( 'parts/loop', 'blog' );
+					get_template_part( 'parts/loop', 'author' );
 
 					endwhile;
 

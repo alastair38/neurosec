@@ -27,7 +27,7 @@
   		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
   		<?php wp_head(); ?>
-      
+
 		<!-- Drop Google Analytics here -->
 		<!-- end analytics -->
 
@@ -46,4 +46,4 @@
 
 
 
-    <main class="wrapper">
+    <div class="wrapper">

@@ -1,4 +1,4 @@
-		</main> <!-- end .wrapper -->
+		</div> <!-- end .wrapper -->
 
 		<footer id="contact" class="page-footer center">
 

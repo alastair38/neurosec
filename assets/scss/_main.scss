@@ -274,7 +274,7 @@ HEADER STYLES
   #logo {
     vertical-align: middle;
     margin-right: .5rem;
-    height: 40px;
+    height: 62px;
     width: auto;
     @media #{$small-and-down} {
     	height: 25px;
@@ -576,6 +576,16 @@ body.home {
   margin-bottom: 0em;
 }
 
+.blog article, .category article, .author article {
+  &.card {
+    height: 420px;
+    img {
+      height: 250px;
+    }
+  }
+
+}
+
 
 .card-content h2 {
   font-size: $h5-fontsize;
@@ -622,7 +632,16 @@ article section {
 }
 .resource-page-title {
   font-size: $h3-fontsize;
+}
 
+label.authors {
+  display: block;
+  padding: 1rem 0;
+  font-style: italic;
+}
+
+.video-container {
+  margin-bottom: 1rem;
 }
 
 h6.card-sub-title {

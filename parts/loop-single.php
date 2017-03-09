@@ -10,7 +10,7 @@
 			} elseif (is_singular('post')) {
 				echo 'Posted in '. get_the_category_list(', ');
 			} else {
-				
+
 			}
 
 			?>
@@ -19,10 +19,12 @@
 
     <section class="entry-content" itemprop="articleBody">
 		<?php
-		the_post_thumbnail('large', array('class' => 'responsive-img'));
+
 		$video = get_field('video');
 		if($video){
 			echo '<div class="video-container">' . $video . '</div>';
+		} elseif (is_singular('post')) {
+			the_post_thumbnail('large', array('class' => 'responsive-img'));
 		}
 		the_content(); ?>
 	</section> <!-- end article section -->

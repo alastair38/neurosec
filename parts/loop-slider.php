@@ -7,8 +7,8 @@
 	$post_type = get_field('content_type'); // these custom fields control post_type and post_per_page
 	$items = get_field('items_to_show'); // set the values in the edit screen for the home page
 	$args = array(
-		'posts_per_page' => 3,
-		'post_type' => 'post',
+		'posts_per_page' => $items,
+		'post_type' => $post_type,
 		// 'meta_key'=>'event_date',
 		// 'orderby' => 'meta_value',
 		'order' => DESC
@@ -27,13 +27,18 @@
 	<div style="background: url(<?php echo $thumb_url;?>) no-repeat center center; background-size: cover;">
 
 		 <article class="col s12 l6 waves-effect">
-			 <h3 class="light"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+			 <a href="<?php the_permalink() ?>">
+			 <h3 class="light"><?php the_title(); ?></h3>
 			 <label class="grey-text lighten-3">
 				Published <?php echo the_time('F j, Y');?>
-			</label><br />
-			 <?php
-			 $content = get_the_content();
-			 echo wp_trim_words($content, 10);?>
+			</label><br / />
+			<p class="white-text">
+				<?php
+				$content = get_the_content();
+				echo wp_trim_words($content, 10);?>
+			</p>
+
+			 </a>
 		 </article>
 	</div>
 

@@ -37,7 +37,7 @@ function neurosec_project() {
       'capability_type' => 'page',
       'hierarchical' => true,
       /* the next one is important, it tells what's enabled in the post editor */
-      'supports' => array( 'title', 'editor', 'page-attributes')
+      'supports' => array( 'title', 'editor', 'page-attributes', 'thumbnail')
     ) /* end of options */
   ); /* end of register post type */
 
@@ -78,7 +78,7 @@ function neurosec_publications() {
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array( 'title', 'editor')
+			'supports' => array( 'title', 'editor', 'thumbnail')
 	 	) /* end of options */
 	); /* end of register post type */
 
@@ -141,7 +141,7 @@ function neurosec_publications() {
     			'capability_type' => 'post',
     			'hierarchical' => false,
     			/* the next one is important, it tells what's enabled in the post editor */
-    			'supports' => array( 'title', 'editor')
+    			'supports' => array( 'title', 'editor', 'thumbnail')
     	 	) /* end of options */
     	); /* end of register post type */
 

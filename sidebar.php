@@ -53,7 +53,9 @@ $args = array(
 
 $children = get_posts( $args );
 
-if ($children) {
+if (!$children) {
+	the_post_thumbnail('large', array('class' => 'responsive-img'));
+} else {
 echo '<h3 class="search-title grey darken-3 white-text center">Latest from YPAG</h3>
 			<ul class="col s12">';
 foreach ($children as $child) {
@@ -97,13 +99,6 @@ if($blogusers){
 	}
 	echo '</div>';
 }
-}?>
-
-<?php if(is_author()) {
-	$author = get_queried_object();
-    $author_id = $author->ID;
-	echo '<div class="col s12"><h5 class="light center">' . get_the_author_meta( 'display_name', $author_id ) . '</h5><img class="responsive-img" src="' . get_field('user_image', 'user_' . $author_id  . '') . '" />' . get_the_author_meta( 'description', $author_id ) . '</div>';
-
 }?>
 
 </div>

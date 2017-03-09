@@ -6,7 +6,7 @@ $title = single_cat_title("", false);
 <?php
 if (  is_home() || is_category() || is_post_type_archive('publications') || is_tax('publication_type') ) {?>
 
-	<div id="modal2" class="modal bottom-sheet">
+	<div id="filter" class="modal bottom-sheet">
 	    <div class="modal-content col s4">
 
 				<?php //	$my_search->the_form();
@@ -39,7 +39,7 @@ if (  is_home() || is_category() || is_post_type_archive('publications') || is_t
 			 ?>
 	    </div>
 	    <div class="modal-footer">
-	      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+	      <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
 	    </div>
 	  </div>
 	<?php

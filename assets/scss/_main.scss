@@ -245,8 +245,19 @@ h1, .h1 {
   }
 }
 
+h1#home-header {
+  font-size: $h4-fontsize;
+  font-style:italic;
+  letter-spacing: 2px;
+  margin: 0.5em;
+}
+
 .archive h2 {
     font-size: $h3-fontsize;
+}
+
+h2#author-content {
+  font-size: $h4-fontsize;
 }
 
 h2, .h2 {

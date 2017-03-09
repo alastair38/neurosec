@@ -5,7 +5,7 @@ Template Name: Home
 
 get_header(); ?>
 
-	<main class="contaier">
+	<main>
 			<div class="row">
 				<?php
 
@@ -16,8 +16,8 @@ get_header(); ?>
 
 				<div class="row center">
 
-					<h4 style="font-style:italic; letter-spacing: 2px;" aria-hidden="true" class="">Neuroscience, Ethics and Society</h4>
-					<a href="#starting"><i class="material-icons">keyboard_arrow_down</i></a>
+					<h1 id="home-header" class="no-padding"><?php the_title();?></h1>
+					<a href="#more"><i class="material-icons">keyboard_arrow_down</i></a>
 				</div>
 
 

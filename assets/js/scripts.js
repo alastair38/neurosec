@@ -43,12 +43,12 @@ var headerHeight = $("header").height();
 
 var options = [
     {selector: '#about-pathways', offset: 50, callback: 'Materialize.fadeInImage("#about-pathways")' },
-    {selector: '#starting', offset: 50, callback: 'Materialize.fadeInImage("#starting")' }
+    {selector: '#more', offset: 50, callback: 'Materialize.fadeInImage("#starting")' }
 ];
 Materialize.scrollFire(options);
 $('.modal').modal();
 $('.modal-action').click(function(){
-  $('#modal2').modal('close');
+  $('#filter').modal('close');
 })
   // Initialize collapse button
   $(".button-collapse").sideNav();
@@ -69,17 +69,6 @@ $(".dropdown-button").dropdown();
   // //
   });
   // //
-  // //
-  $('.slider').slick({
-  	    //dots:true,
-  			arrows: true,
-    	  autoplay:true,
-    		infinite: true,
-        //fade: true,
-
-  	  });
-
-
 
 window.cookieconsent_options = {
        learnMore: 'More info',

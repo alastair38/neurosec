@@ -11,7 +11,7 @@
 
 		    <div class="col s12">
 					<div class="col s12">
-						<a class="chip" href="#modal2">Filter Articles<i class="filter material-icons">filter_list</i></a>
+						<a class="chip" href="#filter">Filter Articles<i class="filter material-icons">filter_list</i></a>
 					</div>
 
 

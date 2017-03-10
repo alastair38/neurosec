@@ -39,7 +39,7 @@ if( have_rows('secondary_pages') ):
 <div class="entry-content col s12 m6 l6">
 	<article class="s12 card">
 		<div class="card-content">
-			<span class="card-title"><?php echo get_the_title($page_ID);?></span>
+			<h3 class="card-title"><a href="<?php the_permalink($page_ID) ?>"><?php echo get_the_title($page_ID);?></a></h3>
 				<p>
 					<?php the_sub_field('secondary_page_byline');?>
 				</p>

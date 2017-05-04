@@ -1,6 +1,6 @@
 <!-- This adds some basic  functionality whereever the partial is included -->
 
-	<!-- <div id="breadcrumbs" class="col s12 center" aria-hidden="true" role="navigation">
+	<div id="breadcrumbs" class="col s12 center" aria-hidden="true" role="navigation">
 		<a class="" href="<?php echo get_option('home')?>"> Home</a>
 
 		<?php if($post->post_parent){?>
@@ -27,4 +27,4 @@
 		?>
 		<span class=""> <?php echo 'You are viewing the network ' . $title; ?></span>
 		<?php }?>
-	</div> -->
+	</div>

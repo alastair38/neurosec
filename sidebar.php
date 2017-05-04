@@ -1,9 +1,9 @@
 <?php
 $title = single_cat_title("", false);
 ?>
-<aside id="sidebar1" class="col s12 l3 valign" role="complementary">
+<aside id="sidebar1" class="white col s12 l3 valign" role="complementary">
 
-	<div class="row search-related card">
+	<div class="row search-related">
 <div role="search">
 <?php
 if (  is_home() || is_category() || is_singular('post') ) {?>
@@ -40,66 +40,135 @@ $terms = get_terms( 'publication_type', array(
 
 <?php if(is_singular('projects')) {
 
-//here we get the children of the current project. This will allow individual content pieces for each project, if required
-$id = get_the_ID();
-$args = array(
-'orderby'          => 'post_date',
-'order'            => 'DESC',
-'post_type'        => 'projects',
-'post_parent'      => $id,
-'post_status'      => 'publish',
-'suppress_filters' => true
-);
+	$id = get_the_id();
+	$args = array(
+		'blog_id'      => $GLOBALS['blog_id'],
+		'role'         => '',
+		'role__in'     => array(),
+		'role__not_in' => array(),
+		'meta_key'     => 'your_projects',
+		'meta_value'   => $id,
+		'meta_compare' => 'LIKE',
+		'meta_query'   => array(),
+		'date_query'   => array(),
+		'include'      => array(),
+		'exclude'      => array(),
+		'orderby'      => 'login',
+		'order'        => 'ASC',
+		'offset'       => '',
+		'search'       => '',
+		'number'       => '',
+		'count_total'  => false,
+		'fields'       => 'all',
+		'who'          => ''
+	 );
+	$blogusers = get_users( $args );
+	if($blogusers){
+		echo '<div class="col card s12 z-depth-0"><h5 class="light center">Project Members</h5>';
+		foreach ( $blogusers as $user ) {
 
-$children = get_posts( $args );
+		echo '<div class="chip block white"><img class="" src="' . get_field('user_image', 'user_' . $user->ID . '') . '" /><a href="' . get_author_posts_url($user->ID, $user->user_nicename) . '">' . $user->display_name . '</a></div>' ;
+		}
+		echo '</div>';
+	}
 
-if (!$children) {
-	the_post_thumbnail('large', array('class' => 'responsive-img'));
-} else {
-echo '<h3 class="search-title grey darken-3 white-text center">Latest from YPAG</h3>
-			<ul class="col s12">';
-foreach ($children as $child) {
-$trimmed = wp_trim_words( $child->post_content, $num_words = 10, $more = null );
- echo '<li class="cardcontent">
- <a href="' . $child->guid . '">' . $child->post_title . '</a></li>';
+	$children_args = array(
+		'sort_order' => 'asc',
+		'sort_column' => 'post_title',
+		'hierarchical' => 1,
+		'exclude' => '',
+		'include' => '',
+		'meta_key' => '',
+		'meta_value' => '',
+		'authors' => '',
+		'child_of' => $post->ID,
+		'parent' => -1,
+		'exclude_tree' => '',
+		'number' => '',
+		'offset' => 0,
+		'post_type' => 'projects',
+		'post_status' => 'publish'
+	);
+	$children = get_pages($children_args);
+			//GET CHILD PAGES IF THERE ARE ANY
+
+			//GET PARENT PAGE IF THERE IS ONE
+			$parent = $post->post_parent;
+
+			//DO WE HAVE SIBLINGS?
+			$sibling_args = array(
+				'sort_order' => 'asc',
+				'sort_column' => 'post_title',
+				'hierarchical' => 1,
+				'exclude' => '',
+				'include' => '',
+				'meta_key' => '',
+				'meta_value' => '',
+				'authors' => '',
+				'child_of' => $parent,
+				'parent' => -1,
+				'exclude_tree' => '',
+				'number' => '',
+				'offset' => 0,
+				'post_type' => 'projects',
+				'post_status' => 'publish'
+			);
+			$siblings = get_pages($sibling_args);
+
+
+			if( $parent != 0) {
+					$args = array(
+							 'depth' => 1,
+							 'title_li' => '',
+							 'exclude' => $post->ID,
+							 'child_of' => $parent,
+								'post_type' => 'projects'
+						 );
+				} else {
+
+			}
+			//Show pages if this page has more than one sibling
+			// and if it has children
+			if($parent == 0 && !is_null($args))
+			{?>
+
+
+					 <?php
+					 wp_list_pages($args);  ?>
+
+
+			<?php }
+
 }
-} echo '</ul>';
+if (is_page_template( 'ypag-template.php' )) {
+	$children_args = array(
+		'sort_order' => 'asc',
+		'sort_column' => 'post_title',
+		'hierarchical' => 1,
+		'exclude' => '',
+		'include' => '',
+		'meta_key' => '',
+		'meta_value' => '',
+		'authors' => '',
+		'child_of' => $post->ID,
+		'parent' => $post->ID,
+		'exclude_tree' => '',
+		'number' => '',
+		'offset' => 0,
+		'post_type' => 'projects',
+		'post_status' => 'publish'
+	);
+	$children = get_pages($children_args);
+	if ($children) {
+	echo '<div class="col card s12 z-depth-0"><h5 class="light center">Project Links</h5>';
+	foreach ($children as $child) {
+	$trimmed = wp_trim_words( $child->post_content, $num_words = 20, $more = null );
+	 echo '<div class="chip center block white"><a href="' . $child->guid . '">' . $child->post_title . '</a></div>';
+ } echo '</div>';
+}
+};
 
 ?>
-<?php
-
-$id = get_the_id();
-$args = array(
-	'blog_id'      => $GLOBALS['blog_id'],
-	'role'         => '',
-	'role__in'     => array(),
-	'role__not_in' => array(),
-	'meta_key'     => 'your_projects',
-	'meta_value'   => $id,
-	'meta_compare' => 'LIKE',
-	'meta_query'   => array(),
-	'date_query'   => array(),
-	'include'      => array(),
-	'exclude'      => array(),
-	'orderby'      => 'login',
-	'order'        => 'ASC',
-	'offset'       => '',
-	'search'       => '',
-	'number'       => '',
-	'count_total'  => false,
-	'fields'       => 'all',
-	'who'          => ''
- );
-$blogusers = get_users( $args );
-if($blogusers){
-	echo '<div class="col s12"><h5 class="light center">Project Members</h5>';
-	foreach ( $blogusers as $user ) {
-
-	echo '<div class="chip block white"><img class="" src="' . get_field('user_image', 'user_' . $user->ID . '') . '" /><a href="' . get_author_posts_url($user->ID, $user->user_nicename) . '">' . $user->display_name . '</a></div>' ;
-	}
-	echo '</div>';
-}
-}?>
 
 </div>
 

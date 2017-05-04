@@ -46,3 +46,10 @@ require_once(get_template_directory().'/assets/functions/custom-post-type.php');
 
 // Customize the WordPress admin
 require_once(get_template_directory().'/assets/functions/admin.php');
+
+function my_acf_init() {
+
+	acf_update_setting('google_api_key', 'AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA');
+}
+
+add_action('acf/init', 'my_acf_init');

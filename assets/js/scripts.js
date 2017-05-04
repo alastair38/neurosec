@@ -39,6 +39,7 @@ var headerHeight = $("header").height();
             window.location.hash = target ;
         });
     });
+
 });
 
 var options = [
@@ -46,6 +47,7 @@ var options = [
     {selector: '#more', offset: 50, callback: 'Materialize.fadeInImage("#starting")' }
 ];
 Materialize.scrollFire(options);
+$('.materialboxed').materialbox();
 $('.modal').modal();
 $('.modal-action').click(function(){
   $('#filter').modal('close');

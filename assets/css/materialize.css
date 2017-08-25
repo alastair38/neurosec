@@ -6981,6 +6981,11 @@ body.home {
   .blog article.card img, .category article.card img, .author article.card img {
     height: 250px; }
 
+.author .container header {
+  padding: 1rem; }
+  .author .container header img {
+    padding: .5rem; }
+
 .card-content h2 {
   font-size: 1.64rem; }
 

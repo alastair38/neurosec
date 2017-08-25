@@ -3,6 +3,7 @@ get_template_part( 'parts/content', 'breadcrumbs' );
 $author = get_queried_object();
 $author_id = $author->ID;
 $user_image = get_field('user_image', 'user_' . $author_id  . '');
+
 $work_title = get_field('work_title', 'user_' . $author_id  . '');
 $work_phone = get_field('work_phone', 'user_' . $author_id  . '');
 $user_email = get_the_author_meta( 'email', $author_id );
@@ -19,7 +20,7 @@ $user_email = get_the_author_meta( 'email', $author_id );
 
 					<?php
 						if ($user_image) {
-							echo '<div class="col s12"><img class="responsive-img circle col s2 offset-s5" src="' . $user_image . '" /></div>';
+							echo '<div class="col s12"><img class="responsive-img circle col s2 offset-s5" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div>';
 						}
 						if ($work_title){
 							echo '<div class="col s12">' . $work_title . '</div>';

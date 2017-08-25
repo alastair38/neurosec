@@ -66,8 +66,8 @@ $terms = get_terms( 'publication_type', array(
 	if($blogusers){
 		echo '<div class="col card s12 z-depth-0"><h5 class="light center">Project Members</h5>';
 		foreach ( $blogusers as $user ) {
-
-		echo '<div class="chip block white"><img class="" src="' . get_field('user_image', 'user_' . $user->ID . '') . '" /><a href="' . get_author_posts_url($user->ID, $user->user_nicename) . '">' . $user->display_name . '</a></div>' ;
+		$user_image = get_field('user_image', 'user_' . $user->ID . '');
+		echo '<div class="chip block white"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /><a href="' . get_author_posts_url($user->ID, $user->user_nicename) . '">' . $user->display_name . '</a></div>' ;
 		}
 		echo '</div>';
 	}

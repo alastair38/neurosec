@@ -81,10 +81,10 @@
 
 		<?php
 
-		$video = get_field('meeting_video');
-		if($video){
-			echo '<div class="video-container">' . $video . '</div>';
-		} elseif (is_singular('post')) {
+			$video = get_field('meeting_video');
+			if($video){
+				echo '<div class="video-container">' . $video . '</div>';
+			} elseif (is_singular('post')) {
 			the_post_thumbnail('large', array('class' => 'responsive-img'));
 		}
 

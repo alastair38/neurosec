@@ -2,6 +2,9 @@
 get_template_part( 'parts/content', 'breadcrumbs' );
 $author = get_queried_object();
 $author_id = $author->ID;
+$user_image = get_field('user_image', 'user_' . $author_id  . '');
+$work_title = get_field('work_title', 'user_' . $author_id  . '');
+$user_email = get_the_author_meta( 'email', $author_id );
 ?>
 
 <main class="container">
@@ -16,7 +19,15 @@ $author_id = $author->ID;
 					</header>
 
 					<?php
-						echo '<div ><img class="responsive-img col s4 offset-s4" src="' . get_field('user_image', 'user_' . $author_id  . '') . '" /><p class="col s12">' . get_the_author_meta( 'description', $author_id ) . '</p></div>';
+						if ($user_image) {
+							echo '<div class="col red s12"><img class="responsive-img circle col s2 offset-s5" src="' . $user_image . '" /></div>';
+						}
+						if ($work_title){
+							echo '<div class="col s12 center">' . $work_title . '</div>';
+						}
+						echo '<div class="col s12 center"><a href="mailto:' . $user_email . '" target="_blank">' . $user_email . '</a></div>
+
+						<div class="col">' . get_the_author_meta( 'description', $author_id ) . '</div>';
 					?>
 
 					<h2 id="author-content" class="col s12 light center">Contributions</h2>

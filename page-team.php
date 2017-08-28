@@ -40,50 +40,42 @@ $posts_array = get_posts( $args );
 foreach ($posts_array as $posts) {
 	$title = $posts->post_title;
 	$link = $posts->guid;
-	$args = array(
-		'blog_id'      => $GLOBALS['blog_id'],
-		'role'         => '',
-		'role__in'     => array(),
-		'role__not_in' => array(),
-		'meta_key'     => 'your_projects',
-		'meta_value'   => $posts->ID,
-		'meta_compare' => 'LIKE',
-		'meta_query'   => array(),
-		'date_query'   => array(),
-		'include'      => array(),
-		'exclude'      => array(),
-		'orderby'      => 'login',
-		'order'        => 'ASC',
-		'offset'       => '',
-		'search'       => '',
-		'number'       => '',
-		'count_total'  => false,
-		'fields'       => 'all',
-		'who'          => ''
-	 );
-	$blogusers = get_users( $args );
-	if($blogusers) {
+	// $args = array(
+	// 	'blog_id'      => $GLOBALS['blog_id'],
+	// 	'role'         => '',
+	// 	'role__in'     => array(),
+	// 	'role__not_in' => array(),
+	// 	'meta_key'     => 'your_projects',
+	// 	'meta_value'   => $posts->ID,
+	// 	'meta_compare' => 'LIKE',
+	// 	'meta_query'   => array(),
+	// 	'date_query'   => array(),
+	// 	'include'      => $user_order,
+	// 	'exclude'      => array(),
+	// 	'orderby'      => 'include',
+	// 	'order'        => 'ASC',
+	// 	'offset'       => '',
+	// 	'search'       => '',
+	// 	'number'       => '',
+	// 	'count_total'  => false,
+	// 	'fields'       => 'all',
+	// 	'who'          => ''
+	//  );
+	// $blogusers = get_users( $args );
+	$members = get_field("team_member", $posts->ID);
+	if($members){
 		echo "<div class='row'><div class='col s12'><h5><a href='" . $link . "'>" . $title . "</a></h5></div>";
-	foreach ( $blogusers as $user ) {
-		?>
-			 <div class="col s6 m4 l2">
-				 <article class="card large">
-						<div class="card-image waves-effect waves-block waves-light">
-							<?php echo '<img class="" src="' . get_field('user_image', 'user_' . $user->ID . '') . '" />' ?>
-						</div>
-						<div class="card-content">
-							<h6 >
-								<a href="<?php echo  get_author_posts_url($user->ID, $user->user_nicename) . '">' . $user->display_name;?></a>
-							</h6>
+		foreach ( $members as $user ) {
+		$user_image = get_field('user_image', 'user_' . $user['ID'] . '');
 
-						</div>
-					</article>
-
-			 </div>
-
+		echo '<div class="col s6 m4 l2"><article class="card large"><div class="card-image waves-effect waves-block waves-light"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content">
+			<h6><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a></h6></div></article></div>' ;
+		}
+		echo '</div>';
+	}
+	?>
 			 <?php
-	} echo "</div>";
-}
+
 }
  ?>
 

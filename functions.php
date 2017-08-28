@@ -54,6 +54,13 @@ function my_acf_init() {
 
 add_action('acf/init', 'my_acf_init');
 
+//add options page-navi
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page();
+
+}
+
 //disable WordPress sanitization to allow more than just $allowedtags from /wp-includes/kses.php
 remove_filter('pre_user_description', 'wp_filter_kses');
 //add sanitization for WordPress posts

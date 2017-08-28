@@ -3,7 +3,7 @@ get_template_part( 'parts/content', 'breadcrumbs' );
 $author = get_queried_object();
 $author_id = $author->ID;
 $user_image = get_field('user_image', 'user_' . $author_id  . '');
-
+$work_projects = get_field('your_projects', 'user_' . $author_id  . '');
 $work_title = get_field('work_title', 'user_' . $author_id  . '');
 $work_phone = get_field('work_phone', 'user_' . $author_id  . '');
 $user_email = get_the_author_meta( 'email', $author_id );

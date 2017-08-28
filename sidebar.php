@@ -39,38 +39,49 @@ $terms = get_terms( 'publication_type', array(
 ?>
 
 <?php if(is_singular('projects')) {
+	// $members = get_field("team_member");
+	//
+	// foreach ($members as $member) {
+	//
+	//  $user_image = get_field('user_image', 'user_' . $member['ID'] . '');
+	//  echo '<div class="chip block white"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /><a href="' . get_author_posts_url($member['ID'], $member['user_nicename']) . '">' . $member['display_name'] . '</a></div>' ;
+	//
+	// }
 
-	$id = get_the_id();
-	$args = array(
-		'blog_id'      => $GLOBALS['blog_id'],
-		'role'         => '',
-		'role__in'     => array(),
-		'role__not_in' => array(),
-		'meta_key'     => 'your_projects',
-		'meta_value'   => $id,
-		'meta_compare' => 'LIKE',
-		'meta_query'   => array(),
-		'date_query'   => array(),
-		'include'      => array(),
-		'exclude'      => array(),
-		'orderby'      => 'login',
-		'order'        => 'ASC',
-		'offset'       => '',
-		'search'       => '',
-		'number'       => '',
-		'count_total'  => false,
-		'fields'       => 'all',
-		'who'          => ''
-	 );
-	$blogusers = get_users( $args );
-	if($blogusers){
+	// $id = get_the_id();
+	// $args = array(
+	// 	'blog_id'      => $GLOBALS['blog_id'],
+	// 	'role'         => '',
+	// 	'role__in'     => array(),
+	// 	'role__not_in' => array(),
+	// 	'meta_key'     => 'your_projects',
+	// 	'meta_value'   => $id,
+	// 	'meta_compare' => 'LIKE',
+	// 	'meta_query'   => array(),
+	// 	'date_query'   => array(),
+	// 	'include'      => array(9,7,31),
+	// 	'exclude'      => array(),
+	// 	'orderby'      => 'include',
+	// 	'order'        => 'ASC',
+	// 	'offset'       => '',
+	// 	'search'       => '',
+	// 	'number'       => '',
+	// 	'count_total'  => false,
+	// 	'fields'       => 'all',
+	// 	'who'          => ''
+	//  );
+	// $blogusers = get_users( $args );
+	$members = get_field("team_member");
+	if($members){
 		echo '<div class="col card s12 z-depth-0"><h5 class="light center">Project Members</h5>';
-		foreach ( $blogusers as $user ) {
-		$user_image = get_field('user_image', 'user_' . $user->ID . '');
-		echo '<div class="chip block white"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /><a href="' . get_author_posts_url($user->ID, $user->user_nicename) . '">' . $user->display_name . '</a></div>' ;
+		foreach ( $members as $user ) {
+		$user_image = get_field('user_image', 'user_' . $user['ID'] . '');
+		echo '<div class="chip block white"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a></div>' ;
 		}
 		echo '</div>';
 	}
+
+
 
 	$children_args = array(
 		'sort_order' => 'asc',

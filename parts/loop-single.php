@@ -19,6 +19,11 @@
 			} elseif (is_singular('post')) {
 				echo 'Written by' . the_author_posts_link() .	' on ' . the_time('F j, Y') . '. Posted in '. get_the_category_list(', ');
 			} elseif (is_singular('projects')) {
+				$contactName = get_field('project_contact');
+				$contactEmail = get_field('project_email');
+				if($contactEmail) {
+					echo 'Project Contact: <a class="tooltipped" data-position="right" data-delay="50" data-tooltip="Contact the project by email" href="mailto:' . $contactEmail . '" target="_blank">' . $contactName . '</a>';
+				}
 				$meetingDate = get_field('meeting_date');
 				if($meetingDate) {
 					echo $meetingDate;

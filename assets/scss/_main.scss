@@ -186,16 +186,6 @@ main {
 /*********************
 LINK STYLES
 *********************/
-#main {
-  a:hover, a:focus {
-  }
-}
-
-#sidebar1 {
-  a:hover, a:focus {
-    color: $off-black;
-  }
-}
 
 a, a:visited {
 
@@ -503,6 +493,12 @@ POSTS & CONTENT STYLES
   margin: 1em;
 }
 
+#more {
+  .card-title {
+    padding-bottom: 1rem;
+  }
+}
+
 #key_pages {
   aside {
     text-align: center;
@@ -536,6 +532,12 @@ POSTS & CONTENT STYLES
   color: $link-color;
 }
 
+.page-template-page-team h5 {
+  background: $secondary-color;
+  color: white;
+  padding: .5rem;
+  margin: 1rem 0;
+}
 
 .intro {
   padding-bottom: 1em;

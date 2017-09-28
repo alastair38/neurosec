@@ -139,13 +139,13 @@ if( $images ): ?>
 			$link_url = get_sub_field('link_url');
 		?>
 		<div class="col s12 m6">
-			<article class="s12 card z-depth-0 teal">
+			<div class="s12 card large z-depth-0 teal">
 				<div class="card-content center">
 					<h3 class="card-title"><a class="white-text" href="<?php echo $link_url; ?>"><?php echo $link_text;?></a></h3>
 
 				</div>
 
-			</article>
+			</div>
 		</div>
 
 		<?php

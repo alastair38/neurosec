@@ -26,21 +26,12 @@
 
 
 	<ul id="slide-out" class="side-nav">
-		<div class="center black">
-			<img id="logo"
-				<?php
-				$logo_image = get_theme_mod( 'tcx_logo_image' );
-				if ($logo_image){?>
-					src="<?php echo $logo_image;?>" alt=""
-					<?php
-					} else {?>
-					src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt=""
-					<?php }?>
-						/><?php bloginfo('name'); ?></a>
+		<div class="center teal white-text">
+			<?php bloginfo('name'); ?>
       </div>
 		<?php joints_top_nav(); ?>
   </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse right"><i class="material-icons">menu</i></a>
+  <a href="" data-activates="slide-out" class="button-collapse right"><i class="material-icons">menu</i></a>
 		</div>
 </nav>
 </div>

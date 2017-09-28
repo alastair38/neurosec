@@ -6,12 +6,12 @@ get_header(); ?>
 
 	<div class="row">
 
-		<div class="col s12 l9" role="main">
+		<div class="col s12 l8" role="main">
 
 		    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 		    	<?php get_template_part( 'parts/loop', 'single' );
-					
+
 					$sibling_args = array(
 						'sort_order' => 'asc',
 						'sort_column' => 'post_title',
@@ -60,7 +60,7 @@ get_header(); ?>
 		?>
 
 		</div>
-		<aside id="sidebar1" class="col white s12 l3 valign" role="complementary">
+		<aside id="sidebar1" class="col white s12 l4 valign" role="complementary">
 		<div class="col center card s12 z-depth-0"><h5 class="light">Project Links</h5>
 			<?php if($post->post_parent){?>
 	<div class="chip white"><a class="" href="<?php echo get_the_permalink($post->post_parent); ?>"><?php echo ' ' . get_the_title($post->post_parent); ?></a></div>

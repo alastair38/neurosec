@@ -6,7 +6,7 @@ get_header(); ?>
 
 	<div class="row">
 
-		<div class="col s12 l9" role="main">
+		<div class="col s12 l8" role="main">
 
 		    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -60,21 +60,21 @@ get_header(); ?>
 		?>
 
 		</div>
-		<aside id="sidebar1" class="col white s12 l3 valign" role="complementary">
-		<div class="col center card s12 z-depth-0"><h5 class="light">Links</h5>
+		<aside id="sidebar1" class="col white s12 l4 valign" role="complementary">
+		<ul class="col center card s12 z-depth-0"><h5 class="light">Links</h5>
 			<?php if($post->post_parent){?>
-	<div class="links white"><a class="" href="<?php echo get_the_permalink($post->post_parent); ?>"><?php echo ' ' . get_the_title($post->post_parent); ?></a></div>
+	<li class="links"><a class="" href="<?php echo get_the_permalink($post->post_parent); ?>"><?php echo ' ' . get_the_title($post->post_parent); ?></a></li>
 	<?php }?>
 
 <?php
 		if ($siblings) {
 		foreach ($siblings as $sibling) {
-		 echo '<div class="chip white"><a href="' . $sibling->guid . '">' . $sibling->post_title . '</a></div>';
+		 echo '<li class="links"><a href="' . $sibling->guid . '">' . $sibling->post_title . '</a></li>';
 		}
 	}
 ?>
 
-</div>
+</ul>
 </aside>
 
 	<?php endwhile; ?>

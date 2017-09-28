@@ -1,7 +1,7 @@
 <?php
 $title = single_cat_title("", false);
 ?>
-<aside id="sidebar1" class="col s12 l3 valign" role="complementary">
+<aside id="sidebar1" class="col s12 l4 valign" role="complementary">
 
 	<div class="row search-related">
 <div role="search">
@@ -77,7 +77,12 @@ $terms = get_terms( 'publication_type', array(
 		foreach ( $members as $user ) {
 		$user_image = get_field('user_image', 'user_' . $user['ID'] . '');
 		$work_title = get_field('work_title', 'user_' . $user['ID'] . '');
-		echo '<div class="col s12 m6 l12"><div class="card z-depth-1 white"><div class="card-image"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content"><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a><label class="block">' . $work_title . '</label></div></div></div>' ;
+	  $begood_project = get_field('begood_subproject', 'user_' . $user['ID'] . '');
+		echo '<div class="col s12 m6 l12"><div class="card z-depth-1 white"><div class="card-image"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content"><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a><label class="block">' . $work_title . '</label>';
+		if ($begood_project) {
+			echo '<label class="block">' . $begood_project . '</label>';
+		}
+		echo '</div></div></div>' ;
 		}
 		echo '</div>';
 	}
@@ -172,11 +177,11 @@ if (is_page_template( 'ypag-template.php' )) {
 	);
 	$children = get_pages($children_args);
 	if ($children) {
-	echo '<div class="col card s12 z-depth-0"><h5 class="light center">Links</h5>';
+	echo '<ul class="col card s12 z-depth-0 center"><h5 class="light">Links</h5>';
 	foreach ($children as $child) {
 	$trimmed = wp_trim_words( $child->post_content, $num_words = 20, $more = null );
-	 echo '<div class="center block white"><a href="' . $child->guid . '">' . $child->post_title . '</a></div>';
- } echo '</div>';
+	 echo '<li class=""><a href="' . $child->guid . '">' . $child->post_title . '</a></li>';
+ } echo '</ul>';
 }
 };
 

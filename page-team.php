@@ -14,28 +14,49 @@ $pi_title = get_field('pi_title');
 
 	<main class="container">
 			<div class="row">
-				<header class="article-header">
+				<header class="article-header col s12">
 
 
 					<h2 class="page-title center"><?php the_title(); ?></h2>
 
 
 				</header> <!-- end article header -->
-				<div class='row'><div class='col s12'>
+				<div id="pi" class="col s12">
+					<h5 class="center"><?php echo $pi_title;?></h5>
+				<div class="col s12">
 				<div class="card horizontal">
 				<?php $pi_image = get_field('user_image', 'user_' . $pi['ID'] . '');
 				echo '<div class="card-image waves-effect waves-block waves-light"><img src="' . $pi_image['url'] . '" alt="' . $pi_image['alt'] . '" /></div>';
 				?>
 				<div class="card-stacked">
         <div class="card-content">
-					<h5><?php echo $pi_title;?></h5>
-          <p><a href="<?php echo get_author_posts_url($pi['ID'], $pi['user_nicename']) . '">' . $pi['display_name'];?></a>
+
+          <p><a href="<?php echo get_author_posts_url($pi['ID'], $pi['user_nicename']);?>"><?php echo $pi['display_name'];?></a>
 					<?php echo $pi_description;?>
 					</p>
         </div>
 
-      </div>
-</div></div></div>
+		      </div>
+				</div>
+			</div>
+		</div>
+
+<?php
+
+$admins = get_field('admins');
+
+if($admins){
+	echo "<div id='admins' class='col s12'><h5 class='center'>Admins</h5>";
+	foreach ( $admins as $admin ) {
+	$user_image = get_field('user_image', 'user_' . $admin['ID'] . '');
+	$work_title = get_field('work_title', 'user_' . $admin['ID'] . '');
+	echo '<div class="col s6 m4 l3"><article class="card large"><div class="card-image waves-effect waves-block waves-light"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content">
+		<h6><a href="' . get_author_posts_url($admin['ID'], $admin['user_nicename']) . '">' . $admin['display_name'] . '</a></h6><label class="block">' . $work_title . '</label></div></article></div>' ;
+
+	}
+	echo '</div>';
+}?>
+
 	<?php $args = array(
 	'posts_per_page'   => 10,
 	'offset'           => 0,
@@ -84,20 +105,24 @@ foreach ($posts_array as $posts) {
 	// $blogusers = get_users( $args );
 	$members = get_field("team_member", $posts->ID);
 	if($members){
-		echo "<div class='row'><div class='col s12'><h5><a href='" . $link . "'>" . $title . "</a></h5></div>";
+		echo "<div class='col s12 projects'>
+		<h5 class='center'><a class='white-text' href='" . $link . "'>" . $title . "</a></h5>";
 		foreach ( $members as $user ) {
 		if ($user['ID'] != $pi['ID']) {
 		$user_image = get_field('user_image', 'user_' . $user['ID'] . '');
 		$work_title = get_field('work_title', 'user_' . $user['ID'] . '');
+		$begood_project = get_field('begood_subproject', 'user_' . $user['ID'] . '');
 		echo '<div class="col s6 m4 l3"><article class="card large"><div class="card-image waves-effect waves-block waves-light"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content">
-			<h6><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a></h6><label class="block">' . $work_title . '</label></div></article></div>' ;
+			<h6><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a></h6><label class="block">' . $work_title . '</label>';
+			if ($begood_project) {
+				echo '<label class="block">' . $begood_project . '</label>';
+			}
+
+			echo '</div></article></div>' ;
 			}
 		}
 		echo '</div>';
 	}
-	?>
-			 <?php
-
 }
  ?>
 

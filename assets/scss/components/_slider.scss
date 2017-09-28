@@ -14,7 +14,10 @@ $slick-opacity-not-active: 0.25 !default;
   animation: show 2300ms 1;
   position: relative;
   width: 100%;
-  border-bottom: 6px solid color('blue-grey', 'darken-2');
+  border-bottom: 6px solid $secondary-color;
+  a {
+    color: $secondary-color;
+  }
   .slick-slide {
     height: 400px;
   }

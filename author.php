@@ -7,6 +7,7 @@ $work_projects = get_field('your_projects', 'user_' . $author_id  . '');
 $work_title = get_field('work_title', 'user_' . $author_id  . '');
 $work_phone = get_field('work_phone', 'user_' . $author_id  . '');
 $user_email = get_the_author_meta( 'email', $author_id );
+$begood_project = get_field('begood_subproject', 'user_' . $author_id  . '');
 ?>
 
 <main class="container">
@@ -34,9 +35,15 @@ $user_email = get_the_author_meta( 'email', $author_id );
     <?php foreach( $work_projects as $post): // variable must be called $post (IMPORTANT) ?>
         <?php setup_postdata($post); ?>
         <li>
-            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            <a href="<?php the_permalink(); ?>"><?php the_title();
+							if ($begood_project) {
+								echo ' / ' . $begood_project . '';
+							}?>
+						</a>
         </li>
-    <?php endforeach; ?>
+    <?php endforeach;
+
+		?>
     </ul>
     <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 <?php endif; ?>

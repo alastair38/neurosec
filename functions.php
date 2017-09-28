@@ -65,3 +65,10 @@ add_action('acf/init', 'my_acf_init');
 remove_filter('pre_user_description', 'wp_filter_kses');
 //add sanitization for WordPress posts
 add_filter( 'pre_user_description', 'wp_filter_post_kses');
+
+
+function wpa_82004(){
+    global $wp_rewrite;
+    $wp_rewrite->author_base = 'team-member'; // or whatever
+}
+add_action('init','wpa_82004');

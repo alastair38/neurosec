@@ -4,7 +4,13 @@
 Template Name: Users
 */
 
-get_header(); ?>
+get_header();
+
+$pi = get_field('pi');
+$pi_description = get_field('pi_description');
+$pi_title = get_field('pi_title');
+
+?>
 
 	<main class="container">
 			<div class="row">
@@ -15,7 +21,21 @@ get_header(); ?>
 
 
 				</header> <!-- end article header -->
+				<div class='row'><div class='col s12'>
+				<div class="card horizontal">
+				<?php $pi_image = get_field('user_image', 'user_' . $pi['ID'] . '');
+				echo '<div class="card-image waves-effect waves-block waves-light"><img src="' . $pi_image['url'] . '" alt="' . $pi_image['alt'] . '" /></div>';
+				?>
+				<div class="card-stacked">
+        <div class="card-content">
+					<h5><?php echo $pi_title;?></h5>
+          <p><a href="<?php echo get_author_posts_url($pi['ID'], $pi['user_nicename']) . '">' . $pi['display_name'];?></a>
+					<?php echo $pi_description;?>
+					</p>
+        </div>
 
+      </div>
+</div></div></div>
 	<?php $args = array(
 	'posts_per_page'   => 10,
 	'offset'           => 0,
@@ -66,10 +86,12 @@ foreach ($posts_array as $posts) {
 	if($members){
 		echo "<div class='row'><div class='col s12'><h5><a href='" . $link . "'>" . $title . "</a></h5></div>";
 		foreach ( $members as $user ) {
+		if ($user['ID'] != $pi['ID']) {
 		$user_image = get_field('user_image', 'user_' . $user['ID'] . '');
-
-		echo '<div class="col s6 m4 l2"><article class="card large"><div class="card-image waves-effect waves-block waves-light"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content">
-			<h6><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a></h6></div></article></div>' ;
+		$work_title = get_field('work_title', 'user_' . $user['ID'] . '');
+		echo '<div class="col s6 m4 l3"><article class="card large"><div class="card-image waves-effect waves-block waves-light"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content">
+			<h6><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a></h6><label class="block">' . $work_title . '</label></div></article></div>' ;
+			}
 		}
 		echo '</div>';
 	}

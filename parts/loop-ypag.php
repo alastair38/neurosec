@@ -11,9 +11,10 @@
     <section class="entry-content" itemprop="articleBody">
 		<?php
 		the_content();
-		
+
 
 		?>
+		<?php get_template_part( 'parts/content', 'contact' );?>
 	</section> <!-- end article section -->
 
 	<footer class="article-footer">

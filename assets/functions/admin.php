@@ -91,27 +91,27 @@ add_filter('admin_footer_text', 'charly_custom_admin_footer');
 function revcon_change_post_label() {
     global $menu;
     global $submenu;
-    $menu[5][0] = 'News + Blog';
+    $menu[5][0] = 'Blog + Media';
     $submenu['edit.php'][5][0] = 'All Content';
-    $submenu['edit.php'][10][0] = 'Add News';
+    $submenu['edit.php'][10][0] = 'Add Blog + Media Item';
     $submenu['edit.php'][16][0] = 'Tags';
 }
 function revcon_change_post_object() {
     global $wp_post_types;
     $labels = &$wp_post_types['post']->labels;
-    $labels->name = 'News';
-    $labels->singular_name = 'News';
-    $labels->add_new = 'Add News';
-    $labels->add_new_item = 'Add News';
-    $labels->edit_item = 'Edit News';
-    $labels->new_item = 'News';
-    $labels->view_item = 'View News';
-    $labels->search_items = 'Search News';
-    $labels->not_found = 'No News found';
-    $labels->not_found_in_trash = 'No News found in Trash';
-    $labels->all_items = 'All News';
-    $labels->menu_name = 'News';
-    $labels->name_admin_bar = 'News';
+    $labels->name = 'Blog + Media';
+    $labels->singular_name = 'Blog + Media';
+    $labels->add_new = 'Add Blog + Media Item';
+    $labels->add_new_item = 'Add Blog + Media Item';
+    $labels->edit_item = 'Edit Blog + Media Item';
+    $labels->new_item = 'Blog + Media Item';
+    $labels->view_item = 'View Blog + Media Item';
+    $labels->search_items = 'Search Blog + Media Items';
+    $labels->not_found = 'No Blog + Media Items found';
+    $labels->not_found_in_trash = 'No Blog + Media Items found in Trash';
+    $labels->all_items = 'All Blog + Media Items';
+    $labels->menu_name = 'Blog + Media';
+    $labels->name_admin_bar = 'Blog + Media Item';
 }
 
 add_action( 'admin_menu', 'revcon_change_post_label' );

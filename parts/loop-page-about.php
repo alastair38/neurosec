@@ -8,6 +8,7 @@
   <div class="entry-content" itemprop="articleBody">
 	    <?php the_content(); ?>
 	    <?php wp_link_pages(); ?>
+			<?php get_template_part( 'parts/content', 'contact' );?>
 	</div> <!-- end article section -->
 
 	<footer class="article-footer">
@@ -21,7 +22,7 @@
 	  if ($children) {
 		foreach ($children as $child) {
 		$trimmed = wp_trim_words( $child->post_content, $num_words = 20, $more = null );
-	   echo '<section class="col s12 l4"><div class="black-text card large"><h4 class="center"><a href="' . $child->guid . '">' . $child->post_title . '</a></h4>' . $trimmed . '</div></section>';
+	   echo '<section class="col s12 l4"><div class="teal card large"><h4 class="light center"><a class="white-text" href="' . $child->guid . '">' . $child->post_title . '</a></h4></div></section>';
 		}
 	} ?>
 </aside>

@@ -4,9 +4,9 @@
 <div class="navbar-fixed">
 
 <nav>
-	
 
-	<div class="nav-wrapper container"><a href="<?php bloginfo('url'); ?>"><img id="logo" class="center"
+
+	<div class="nav-wrapper"><a id="logo_link" href="<?php bloginfo('url'); ?>"><img id="logo" class="center"
 		<?php
 		$logo_image = get_theme_mod( 'tcx_logo_image' );
 		if ($logo_image){?>

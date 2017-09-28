@@ -2,7 +2,7 @@
 
 /*
 Template Name: YPAG Main
-Template Post Type: projects
+Template Post Type: engagement
 */
 
 get_header(); ?>

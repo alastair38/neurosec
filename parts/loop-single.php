@@ -1,6 +1,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 	<header class="article-header">
+	<!-- <?php if (is_singular('projects')) {?>
 		<link href="http://addtocalendar.com/atc/1.5/atc-style-blue.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript">(function () {
 					 if (window.addtocalendar)if(typeof window.addtocalendar.start == "function")return;
@@ -10,20 +11,25 @@
 							 s.src = ('https:' == window.location.protocol ? 'https' : 'http')+'://addtocalendar.com/atc/1.5/atc.min.js';
 							 var h = d[g]('body')[0];h.appendChild(s); }})();
 	 </script>
-
+ <?php } ?> -->
 		<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
 		<label class="byline">
 			<?php
 			if(is_singular('publications')) {
 				echo 'Posted in '. get_the_term_list( '', 'publication_type', '', ', ', '' );
-			} elseif (is_singular('post')) {
-				echo 'Written by' . the_author_posts_link() .	' on ' . the_time('F j, Y') . '. Posted in '. get_the_category_list(', ');
-			} elseif (is_singular('projects')) {
-				$contactName = get_field('project_contact');
-				$contactEmail = get_field('project_email');
-				if($contactEmail) {
-					echo 'Project Contact: <a class="tooltipped" data-position="right" data-delay="50" data-tooltip="Contact the project by email" href="mailto:' . $contactEmail . '" target="_blank">' . $contactName . '</a>';
-				}
+			} elseif (is_singular('post')) {?>
+				Written by <?php the_author_posts_link(); ?>	on <?php echo the_time('F j, Y') . '.';?>
+				<?php
+
+					echo 'Posted in '. get_the_category_list(', ');
+
+				?>
+				<?php
+
+				 ?>
+
+			<?php } elseif (is_singular('projects')) {
+
 				$meetingDate = get_field('meeting_date');
 				if($meetingDate) {
 					echo $meetingDate;
@@ -36,7 +42,7 @@
 
 			?>
 		<?php get_template_part( 'parts/content', 'share' ); ?></label>
-	</headif er> <!-- end article header -->
+	</header> <!-- end article header -->
 
     <section class="entry-content" itemprop="articleBody">
 
@@ -53,6 +59,8 @@
 			<li class="collection-item avatar">
 <i class="material-icons circle green">event</i>
 <label class="secondarycontent"><?php the_sub_field('upcoming_meeting_date');?> at <?php the_sub_field('upcoming_meeting_address');?> </label>
+
+<!-- addtocalendar markup
 <span aria-hidden="true" class="secondary-content addtocalendar atc-style-blue">
 <var class="atc_event">
 <var class="atc_date_start"><?php the_sub_field('upcoming_meeting_date');?></var>
@@ -64,6 +72,7 @@
 <var class="atc_organizer_email"><?php the_sub_field('upcoming_meeting_contact');?></var>
 </var>
 </span>
+ -->
 						<h3 class="title"><?php the_sub_field('upcoming_meeting_title');?></h3>
 
 							<p class="light">
@@ -115,7 +124,38 @@ if( $images ): ?>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
+ 	<?php get_template_part( 'parts/content', 'contact' );?>
+
+
+
 	</section> <!-- end article section -->
+
+
+		<?php
+		if( have_rows('project_links') ):
+			echo '<aside id="project_links" class="row"><h2 class="center light">For more information about specific projects</h2>';
+		  while ( have_rows('project_links') ) : the_row();
+			$link_text = get_sub_field('link_text');
+			$link_url = get_sub_field('link_url');
+		?>
+		<div class="col s12 m6">
+			<article class="s12 card z-depth-0 teal">
+				<div class="card-content center">
+					<h3 class="card-title"><a class="white-text" href="<?php echo $link_url; ?>"><?php echo $link_text;?></a></h3>
+
+				</div>
+
+			</article>
+		</div>
+
+		<?php
+			endwhile;
+			echo '</aside>';
+			else :
+			    // no rows found
+			endif;
+		?>
+
 
 	<footer class="article-footer">
 		<p class="tags"><?php // the_category(); ?></p>	</footer>

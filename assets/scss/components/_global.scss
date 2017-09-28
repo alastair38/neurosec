@@ -39,7 +39,7 @@ a {
 
 .card a:not(.btn):hover {
   color: $link-color-hover;
-  border-bottom: 1px dotted $link-color-hover;
+  border-bottom: 1px dotted;
 }
 
 
@@ -104,10 +104,11 @@ a {
 
 //  Blockquote
 
-blockquote {
+blockquote, .contact-details {
   margin: 20px 0;
-  padding-left: 1.5rem;
-  border-left: 5px solid $primary-color;
+  padding: .75rem 1.5rem;
+  border-left: 5px solid $secondary-color;
+  font-size: 1rem;
 }
 
 // Icon Styles

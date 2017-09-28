@@ -1976,7 +1976,7 @@ a {
 
 .card a:not(.btn):not(.btn-large):hover {
   color: #0fa4fc;
-  border-bottom: 1px dotted #0fa4fc; }
+  border-bottom: 1px dotted; }
 
 .valign-wrapper {
   display: flex;
@@ -2021,10 +2021,11 @@ a {
   overflow: hidden;
   background-color: #e0e0e0; }
 
-blockquote {
+blockquote, .contact-details {
   margin: 20px 0;
-  padding-left: 1.5rem;
-  border-left: 5px solid white; }
+  padding: .75rem 1.5rem;
+  border-left: 5px solid #26a69a;
+  font-size: 1rem; }
 
 i {
   line-height: inherit; }
@@ -3104,11 +3105,11 @@ nav {
 
 @media only screen and (min-width: 601px) {
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
-    height: 64px;
-    line-height: 64px; }
+    height: 128px;
+    line-height: 128px; }
 
   .navbar-fixed {
-    height: 64px; } }
+    height: 128px; } }
 @font-face {
   font-family: "Roboto";
   src: local(Roboto Thin), url("../font/roboto/Roboto-Thin.eot");
@@ -3193,7 +3194,7 @@ em {
   font-style: italic; }
 
 strong {
-  font-weight: 400; }
+  font-weight: 500; }
 
 small {
   font-size: 75%; }
@@ -6565,7 +6566,8 @@ body {
   flex-direction: column; }
 
 main {
-  flex: 1 0 auto; }
+  flex: 1 0 auto;
+  font-size: 1.2rem; }
 
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
@@ -6722,6 +6724,7 @@ h1, .h1 {
 h1#home-header {
   font-size: 2.28rem;
   font-style: italic;
+  font-weight: 600;
   letter-spacing: 2px;
   margin: 0.5em; }
 
@@ -6729,7 +6732,15 @@ h1#home-header {
   font-size: 2.92rem; }
 
 h2#author-content {
-  font-size: 2.28rem; }
+  font-size: 2.28rem;
+  margin-top: 4rem; }
+
+#project_links h2 {
+  font-size: 1.64rem;
+  margin-top: 4rem; }
+@media only screen and (min-width: 993px) {
+  #project_links .card {
+    min-height: 180px; } }
 
 @media only screen and (max-width: 992px) {
   h2, .h2 {
@@ -6751,11 +6762,14 @@ HEADER STYLES
 .header #logo {
   vertical-align: middle;
   margin-right: .5rem;
-  height: 62px;
+  height: 98%;
   width: auto; }
   @media only screen and (max-width: 600px) {
     .header #logo {
       height: 25px; } }
+.header a#logo_link {
+  display: inline-block;
+  height: 128px; }
 .header .brand-logo {
   animation: show 1000ms 1; }
   @media only screen and (max-width: 600px) {
@@ -6764,6 +6778,9 @@ HEADER STYLES
 
 .lean-overlay {
   height: 0; }
+
+hr {
+  margin-bottom: 2rem; }
 
 /*********************
 NAVIGATION STYLES
@@ -6785,12 +6802,13 @@ i.mdi.mdi-menu {
 
 #breadcrumbs {
   position: fixed;
-  top: 64px;
+  top: 128px;
   width: 100% !important;
   margin-left: 0 !important;
   z-index: 999 !important;
   background: white;
-  opacity: 0;
+  opacity: 1;
+  display: none;
   transition: 250ms; }
   #breadcrumbs a:before {
     content: '\E5CC';
@@ -6983,8 +7001,8 @@ body.home {
 
 .author .container header {
   padding: 1rem; }
-  .author .container header img {
-    padding: .5rem; }
+  .author .container header img.circle {
+    padding: 2rem; }
 
 .card-content h2 {
   font-size: 1.64rem; }
@@ -7011,13 +7029,16 @@ footer.card-content {
 .article-header {
   margin-bottom: 2rem; }
 
+.single-projects article, .single-engagement article {
+  padding: 0 2rem; }
+
 .single-title,
 .page-title {
-  font-size: 3.56rem;
+  font-size: 2.92rem;
   margin: 1em 0 0 0; }
 
 .single #sidebar1, .author #sidebar1 {
-  margin-top: 3.5rem; }
+  margin-top: 2.5rem; }
 
 .resource-page-title {
   font-size: 2.92rem; }

@@ -50,6 +50,7 @@ body {
 
 main {
   flex: 1 0 auto;
+  font-size: 1.2rem;
 }
 
 
@@ -248,6 +249,7 @@ h1, .h1 {
 h1#home-header {
   font-size: $h4-fontsize;
   font-style:italic;
+  font-weight: 600;
   letter-spacing: 2px;
   margin: 0.5em;
 }
@@ -258,6 +260,19 @@ h1#home-header {
 
 h2#author-content {
   font-size: $h4-fontsize;
+  margin-top: 4rem;
+}
+
+#project_links {
+  h2 {
+    font-size: $h5-fontsize;
+    margin-top: 4rem;
+  }
+  @media #{$large-and-up} {
+    .card {
+      min-height: 180px;
+    }
+  }
 }
 
 h2, .h2 {
@@ -285,11 +300,15 @@ HEADER STYLES
   #logo {
     vertical-align: middle;
     margin-right: .5rem;
-    height: 62px;
+    height: 98%;
     width: auto;
     @media #{$small-and-down} {
     	height: 25px;
   	}
+  }
+  a#logo_link {
+    display: inline-block;
+    height: $navbar-height;
   }
   .brand-logo {
     animation: show 1000ms 1;
@@ -303,6 +322,9 @@ HEADER STYLES
   height: 0;
 }
 
+hr {
+  margin-bottom: 2rem;
+}
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -329,9 +351,14 @@ button.btn-floating.btn.green.modal-trigger.waves-effect.waves-light {
 }
 
 #breadcrumbs {
-  position: fixed; top: 64px; width: 100% !important; margin-left: 0 !important; z-index: 999 !important;
+  position: fixed;
+  top: $navbar-height;
+  width: 100% !important;
+  margin-left: 0 !important;
+  z-index: 999 !important;
   background: $primary-color;
-  opacity: 0;
+  opacity: 1;
+  display: none;
   transition: 250ms;
    a:before {
     content: '\E5CC';
@@ -598,8 +625,8 @@ body.home {
 
 .author .container header {
   padding: 1rem;
-  img {
-    padding: .5rem;
+  img.circle {
+    padding: 2rem;
   }
 }
 
@@ -632,14 +659,18 @@ article section {
   margin-bottom: 2rem;
 }
 
+.single-projects article, .single-engagement article {
+  padding: 0 2rem;
+}
+
 .single-title,
 .page-title {
-  font-size: $h2-fontsize;
+  font-size: $h3-fontsize;
   margin: 1em 0 0 0;
 }
 
 .single #sidebar1, .author #sidebar1 {
-  margin-top: 3.5rem;
+  margin-top: 2.5rem;
 }
 
 

@@ -1,7 +1,7 @@
 <?php
 $title = single_cat_title("", false);
 ?>
-<aside id="sidebar1" class="white col s12 l3 valign" role="complementary">
+<aside id="sidebar1" class="col s12 l3 valign" role="complementary">
 
 	<div class="row search-related">
 <div role="search">
@@ -76,7 +76,8 @@ $terms = get_terms( 'publication_type', array(
 		echo '<div class="col card s12 z-depth-0"><h5 class="light center">Project Members</h5>';
 		foreach ( $members as $user ) {
 		$user_image = get_field('user_image', 'user_' . $user['ID'] . '');
-		echo '<div class="chip block white"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a></div>' ;
+		$work_title = get_field('work_title', 'user_' . $user['ID'] . '');
+		echo '<div class="col s12 m6 l12"><div class="card z-depth-1 white"><div class="card-image"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content"><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a><label class="block">' . $work_title . '</label></div></div></div>' ;
 		}
 		echo '</div>';
 	}
@@ -166,15 +167,15 @@ if (is_page_template( 'ypag-template.php' )) {
 		'exclude_tree' => '',
 		'number' => '',
 		'offset' => 0,
-		'post_type' => 'projects',
+		'post_type' => 'engagement',
 		'post_status' => 'publish'
 	);
 	$children = get_pages($children_args);
 	if ($children) {
-	echo '<div class="col card s12 z-depth-0"><h5 class="light center">Project Links</h5>';
+	echo '<div class="col card s12 z-depth-0"><h5 class="light center">Links</h5>';
 	foreach ($children as $child) {
 	$trimmed = wp_trim_words( $child->post_content, $num_words = 20, $more = null );
-	 echo '<div class="chip center block white"><a href="' . $child->guid . '">' . $child->post_title . '</a></div>';
+	 echo '<div class="center block white"><a href="' . $child->guid . '">' . $child->post_title . '</a></div>';
  } echo '</div>';
 }
 };

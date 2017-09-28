@@ -45,6 +45,47 @@ function neurosec_project() {
 
 add_action( 'init', 'neurosec_project');
 
+function neurosec_engagement() {
+  // creating (registering) the custom type
+  register_post_type( 'engagement', /* (http://codex.wo rdpress.org/Function_Reference/register_post_type) */
+    // let's now add all the options for this post type
+    array('labels' => array(
+      'name' => __('Engagement', 'neurosectheme'), /* This is the Title of the Group */
+      'singular_name' => __('Engagement', 'neurosectheme'), /* This is the individual type */
+      'all_items' => __('All Engagement Items', 'neurosectheme'), /* the all items menu item */
+      'add_new' => __('Add New Engagement Item', 'neurosectheme'), /* The add new menu item */
+      'add_new_item' => __('Add New Engagement Item', 'neurosectheme'), /* Add New Display Title */
+      'edit' => __( 'Edit', 'neurosectheme' ), /* Edit Dialog */
+      'edit_item' => __('Edit Engagement Item', 'neurosectheme'), /* Edit Display Title */
+      'new_item' => __('New Engagement Item', 'neurosectheme'), /* New Display Title */
+      'view_item' => __('View Engagement Item', 'neurosectheme'), /* View Display Title */
+      'search_items' => __('Search Engagement', 'neurosectheme'), /* Search Custom Type Title */
+      'not_found' =>  __('Nothing found in the Database.', 'neurosectheme'), /* This displays if there are no entries yet */
+      'not_found_in_trash' => __('Nothing found in Trash', 'neurosectheme'), /* This displays if there is nothing in the trash */
+      'parent_item_colon' => ''
+      ), /* end of arrays */
+      'description' => __( 'Neurosec Engagement', 'neurosectheme' ), /* Custom Type Description */
+
+      'public' => true,
+      'publicly_queryable' => true,
+      'exclude_from_search' => false,
+      'show_ui' => true,
+      'query_var' => true,
+      'menu_position' => 6, /* this is what order you want it to appear in on the left hand side menu */
+      'menu_icon' => 'dashicons-megaphone', /* the icon for the custom post type menu */
+      'rewrite'	=> array( 'slug' => 'engagement', 'with_front' => false ), /* you can specify its url slug */
+      'has_archive' => true, /* you can rename the slug here */
+      'capability_type' => 'page',
+      'hierarchical' => true,
+      /* the next one is important, it tells what's enabled in the post editor */
+      'supports' => array( 'title', 'editor', 'page-attributes', 'thumbnail')
+    ) /* end of options */
+  ); /* end of register post type */
+
+}
+
+add_action( 'init', 'neurosec_engagement');
+
 function neurosec_publications() {
 	// creating (registering) the custom type
 	register_post_type( 'publications', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -72,7 +113,7 @@ function neurosec_publications() {
 			'show_ui' => true,
 			'query_var' => true,
 			'menu_position' => 6, /* this is what order you want it to appear in on the left hand side menu */
-			'menu_icon' => 'dashicons-media-document', /* the icon for the custom post type menu */
+			'menu_icon' => 'dashicons-media-text', /* the icon for the custom post type menu */
 			'rewrite'	=> array( 'slug' => 'publications', 'with_front' => false ), /* you can specify its url slug */
 			'has_archive' => true, /* you can rename the slug here */
 			'capability_type' => 'post',
@@ -110,19 +151,19 @@ function neurosec_publications() {
 
     function neurosec_events() {
     	// creating (registering) the custom type
-    	register_post_type( 'events', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
+    	register_post_type( 'news_events', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
     	 	// let's now add all the options for this post type
     		array('labels' => array(
-    			'name' => __('Engagement Events', 'neurosectheme'), /* This is the Title of the Group */
-    			'singular_name' => __('Event', 'neurosectheme'), /* This is the individual type */
-    			'all_items' => __('All Events', 'neurosectheme'), /* the all items menu item */
-    			'add_new' => __('Add New Event', 'neurosectheme'), /* The add new menu item */
-    			'add_new_item' => __('Add New Event', 'neurosectheme'), /* Add New Display Title */
+    			'name' => __('News + Events', 'neurosectheme'), /* This is the Title of the Group */
+    			'singular_name' => __('News + Events', 'neurosectheme'), /* This is the individual type */
+    			'all_items' => __('All News + Event items', 'neurosectheme'), /* the all items menu item */
+    			'add_new' => __('Add News + Event item', 'neurosectheme'), /* The add new menu item */
+    			'add_new_item' => __('Add News + Event item', 'neurosectheme'), /* Add New Display Title */
     			'edit' => __( 'Edit', 'neurosectheme' ), /* Edit Dialog */
-    			'edit_item' => __('Edit Event', 'neurosectheme'), /* Edit Display Title */
-    			'new_item' => __('New Event', 'neurosectheme'), /* New Display Title */
-    			'view_item' => __('View Event', 'neurosectheme'), /* View Display Title */
-    			'search_items' => __('Search Events', 'neurosectheme'), /* Search Custom Type Title */
+    			'edit_item' => __('Edit News + Event item', 'neurosectheme'), /* Edit Display Title */
+    			'new_item' => __('New News + Event item', 'neurosectheme'), /* New Display Title */
+    			'view_item' => __('View News + Event item', 'neurosectheme'), /* View Display Title */
+    			'search_items' => __('Search News + Event items', 'neurosectheme'), /* Search Custom Type Title */
     			'not_found' =>  __('Nothing found in the Database.', 'neurosectheme'), /* This displays if there are no entries yet */
     			'not_found_in_trash' => __('Nothing found in Trash', 'neurosectheme'), /* This displays if there is nothing in the trash */
     			'parent_item_colon' => ''
@@ -135,7 +176,7 @@ function neurosec_publications() {
     			'show_ui' => true,
     			'query_var' => true,
     			'menu_position' => 6, /* this is what order you want it to appear in on the left hand side menu */
-    			'menu_icon' => 'dashicons-calendar', /* the icon for the custom post type menu */
+    			'menu_icon' => 'dashicons-media-document', /* the icon for the custom post type menu */
     			'rewrite'	=> array( 'slug' => 'engagement/events', 'with_front' => false ), /* you can specify its url slug */
     			'has_archive' => true, /* you can rename the slug here */
     			'capability_type' => 'post',

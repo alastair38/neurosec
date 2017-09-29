@@ -70,7 +70,7 @@ if($admins){
 	'meta_value'       => '',
 	'post_type'        => 'projects',
 	'post_mime_type'   => '',
-	'post_parent'      => '',
+	'post_parent'      => '0',
 	'author'	   => '',
 	'author_name'	   => '',
 	'post_status'      => 'publish',

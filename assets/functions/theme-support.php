@@ -9,6 +9,8 @@ function joints_theme_support() {
 	// Default thumbnail size
 	set_post_thumbnail_size(125, 125, true);
 
+	add_image_size( 'custom-size', 500, 300, true );
+
 	// Add RSS Support
 	add_theme_support( 'automatic-feed-links' );
 

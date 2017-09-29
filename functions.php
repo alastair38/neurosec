@@ -72,3 +72,35 @@ function wpa_82004(){
     $wp_rewrite->author_base = 'team-member'; // or whatever
 }
 add_action('init','wpa_82004');
+
+
+// updating projects archive to hide child projects
+
+add_action( 'pre_get_posts','hide_children' );
+
+function hide_children( $query )
+{
+    remove_action( 'pre_get_posts', current_filter() );
+
+    if ( is_admin() or ! $query->is_main_query() )
+        return;
+
+    if ( ! $query->is_post_type_archive( 'projects' ) )
+        return;
+
+    // only top level posts
+    $query->set( 'post_parent', 0 );
+}
+
+// updating projects archive to orderby title
+
+add_action( 'pre_get_posts', 'my_change_sort_order');
+    function my_change_sort_order($query){
+        if(is_post_type_archive('projects')):
+
+           //Set the order ASC or DESC
+           $query->set( 'order', 'ASC' );
+           //Set the orderby
+           $query->set( 'orderby', 'title' );
+        endif;
+    };

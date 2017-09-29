@@ -5,16 +5,18 @@
 // check if the repeater field has rows of data
 if( have_rows('key_pages') ):
   while ( have_rows('key_pages') ) : the_row();
-	$page_ID = get_sub_field('page_name');
+	$image = get_sub_field('page_image');
+  $link_text = get_sub_field('page_byline');
 ?>
-<div class="col s12 m6">
+<div class="col s12 m4">
      <div class="card teal">
        <div class="cardimage">
-         <img class="responsive-img" src="<?php the_sub_field('page_image');?>"/>
+         <?php echo wp_get_attachment_image( $image, "custom-size", "", array( "class" => "responsive-img", "alt" => "Photograph for the Neurosec " . $link_text . " page"  ) );  ?>
+
 
        </div>
        <div class="center">
-          <h3 class="card-title"><a class="white-text" href="<?php the_permalink($page_ID) ?>"><?php echo get_the_title($page_ID);?></a></h3>
+          <h3 class="card-title"><a class="white-text" href="<?php the_sub_field('page_name'); ?>"><?php echo $link_text ;?></a></h3>
        </div>
      </div>
    </div>

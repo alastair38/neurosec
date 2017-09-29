@@ -9,7 +9,7 @@ get_header();
 $pi = get_field('pi');
 $pi_description = get_field('pi_description');
 $pi_title = get_field('pi_title');
-
+$hide_projects = get_field('hide_projects');
 ?>
 
 	<main class="container">
@@ -65,7 +65,7 @@ if($admins){
 	'orderby'          => 'title',
 	'order'            => 'ASC',
 	'include'          => '',
-	'exclude'          => '',
+	'exclude'          => $hide_projects,
 	'meta_key'         => '',
 	'meta_value'       => '',
 	'post_type'        => 'projects',
@@ -105,6 +105,7 @@ foreach ($posts_array as $posts) {
 	// $blogusers = get_users( $args );
 	$members = get_field("team_member", $posts->ID);
 	if($members){
+
 		echo "<div class='col s12 projects'>
 		<h5 class='light center'><a class='white-text' href='" . $link . "'>" . $title . "</a></h5>";
 		foreach ( $members as $user ) {

@@ -34,7 +34,7 @@ $begood_project = get_field('begood_subproject', 'user_' . $author_id  . '');
 
 									<?php foreach( $work_projects as $post): // variable must be called $post (IMPORTANT) ?>
 											<?php
-
+											
 											$new_arr[] = '<a href="' . $post->guid .'">' . $post->post_title . '</a>';
 											endforeach;
 											echo '<p><strong>Project(s): </strong>' . implode(', ', $new_arr) . '</p>';

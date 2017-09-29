@@ -244,6 +244,10 @@ h1#home-header {
   margin: 0.5em;
 }
 
+.post-type-archive-projects h1.page-title {
+  margin-bottom: 2rem;
+}
+
 .archive h2 {
     font-size: $h3-fontsize;
 }
@@ -251,6 +255,11 @@ h1#home-header {
 h2#author-content {
   font-size: $h4-fontsize;
   margin-top: 4rem;
+}
+
+.profile-details {
+  font-size: 1rem;
+  line-height: 1;
 }
 
 #project_links {

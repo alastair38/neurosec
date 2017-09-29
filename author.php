@@ -18,35 +18,37 @@ $begood_project = get_field('begood_subproject', 'user_' . $author_id  . '');
 						<h1 class="page-title light"><?php echo get_the_author_meta( 'display_name', $author_id );?> </h1>
 
 
+							<div class="profile-details">
 
-					<?php
-						if ($user_image) {
-							echo '<div class="col s12"><img class="responsive-img circle col s4 offset-s4" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div>';
-						}
-						if ($work_title){
-							echo '<div class="col s12">' . $work_title . '</div>';
-						}
-						echo '<label>Email</label><div class="col s12"><a href="mailto:' . $user_email . '" target="_blank">' . $user_email . '</a></div>';
-						if ($work_phone){
-							echo '<label>Phone</label><div class="col s12">' . $work_phone . '</div>';
-						} if( $work_projects ): ?>
-    <ul>
-			<label>Projects</label>
-    <?php foreach( $work_projects as $post): // variable must be called $post (IMPORTANT) ?>
-        <?php setup_postdata($post); ?>
-        <li>
-            <a href="<?php the_permalink(); ?>"><?php the_title();
-							if ($begood_project) {
-								echo ' / ' . $begood_project . '';
-							}?>
-						</a>
-        </li>
-    <?php endforeach;
+								<?php
+									if ($user_image) {
+										echo '<div class="col s12"><img class="responsive-img circle col s4 offset-s4" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div>';
+									}
+									if ($work_title){
+										echo '<p><strong>Position: </strong>' . $work_title . '</p>';
+									}
+									echo '<p><strong>Email: </strong><a href="mailto:' . $user_email . '" target="_blank">' . $user_email . '</a></p>';
+									if ($work_phone){
+										echo '<p><strong>Phone: </strong>' . $work_phone . '</p>';
+									} if( $work_projects): ?>
 
-		?>
-    </ul>
-    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
-<?php endif; ?>
+									<?php foreach( $work_projects as $post): // variable must be called $post (IMPORTANT) ?>
+											<?php
+
+											$new_arr[] = '<a href="' . $post->guid .'">' . $post->post_title . '</a>';
+											endforeach;
+											echo '<p><strong>Project(s): </strong>' . implode(', ', $new_arr) . '</p>';
+									?>
+
+					<?php wp_reset_postdata();
+
+					// IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+			<?php endif; ?>
+
+
+
+							</div>
+
 						</header>
 					<?php
 						echo '<hr /><div class="col s12">' . get_the_author_meta( 'description', $author_id ) . '</div>';

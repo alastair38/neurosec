@@ -1,12 +1,25 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article">
-	<section>
-		<h2><a href="<?php the_permalink() ?>" class="center" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-			<?php get_template_part( 'parts/content', 'byline' ); ?>
-		<?php the_field('description'); ?>
-	</section>
-	<footer class="card-content flow-text">
-			<?php get_template_part( 'parts/content', 'meta-archives' ); ?>
+<?php //if(  has_term( 'writing', 'category' ) ) { - this will be to output different styles depending on whether a video etc is being shown ?>
 
-	</footer>
+<div id="post-<?php the_ID(); ?>" <?php post_class('grey-text text-darken-4 col s6'); ?>>
+	<article class="card center">
+		<div class="card-image">
+			<img src="<?php the_post_thumbnail_url('medium');?>">
+		</div>
+		<div class="card-content">
 
-</article>
+			<h2 class="card-title"><?php the_title(); ?></h2>
+
+
+
+
+
+
+			<a href="<?php the_permalink();?>" class="btn grey darken-3">View Details</a>
+
+			</div>
+
+	</article>
+
+	<?php //get_template_part( 'parts/content', 'share' ); ?>
+
+</div>

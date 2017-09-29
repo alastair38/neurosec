@@ -47,8 +47,12 @@
     <section class="entry-content" itemprop="articleBody">
 
 
-
+			<div class="center project_logo">
+				<?php
+				the_post_thumbnail('full');?>
+			</div>
 			<?php
+
 			the_content();
 			// check if the repeater field has rows of data
 			if( have_rows('details_of_meetings') ):

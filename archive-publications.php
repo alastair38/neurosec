@@ -14,7 +14,7 @@
 
 		    <div class="col s12">
 					<div class="col s12">
-						<a class="chip" href="#filter">Filter Publications<i class="filter material-icons">filter_list</i></a>
+						<a class="chip" href="#filter">Filter <?php post_type_archive_title(); ?><i class="filter material-icons">filter_list</i></a>
 					</div>
 
 			    <?php if (have_posts()) : while (have_posts()) : the_post();

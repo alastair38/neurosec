@@ -22,7 +22,7 @@ $pi_title = get_field('pi_title');
 
 				</header> <!-- end article header -->
 				<div id="pi" class="col s12">
-					<h5 class="center"><?php echo $pi_title;?></h5>
+					<h5 class="light center"><?php echo $pi_title;?></h5>
 				<div class="col s12">
 				<div class="card horizontal">
 				<?php $pi_image = get_field('user_image', 'user_' . $pi['ID'] . '');
@@ -46,7 +46,7 @@ $pi_title = get_field('pi_title');
 $admins = get_field('admins');
 
 if($admins){
-	echo "<div id='admins' class='col s12'><h5 class='center'>Admins</h5>";
+	echo "<div id='admins' class='col s12'><h5 class='light center'>Admins</h5>";
 	foreach ( $admins as $admin ) {
 	$user_image = get_field('user_image', 'user_' . $admin['ID'] . '');
 	$work_title = get_field('work_title', 'user_' . $admin['ID'] . '');
@@ -70,7 +70,7 @@ if($admins){
 	'meta_value'       => '',
 	'post_type'        => 'projects',
 	'post_mime_type'   => '',
-	'post_parent'      => '0',
+	'post_parent'      => '',
 	'author'	   => '',
 	'author_name'	   => '',
 	'post_status'      => 'publish',
@@ -106,7 +106,7 @@ foreach ($posts_array as $posts) {
 	$members = get_field("team_member", $posts->ID);
 	if($members){
 		echo "<div class='col s12 projects'>
-		<h5 class='center'><a class='white-text' href='" . $link . "'>" . $title . "</a></h5>";
+		<h5 class='light center'><a class='white-text' href='" . $link . "'>" . $title . "</a></h5>";
 		foreach ( $members as $user ) {
 		if ($user['ID'] != $pi['ID']) {
 		$user_image = get_field('user_image', 'user_' . $user['ID'] . '');

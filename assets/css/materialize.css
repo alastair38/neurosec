@@ -6727,12 +6727,19 @@ h1#home-header {
   letter-spacing: 2px;
   margin: 0.5em; }
 
+.post-type-archive-projects h1.page-title {
+  margin-bottom: 2rem; }
+
 .archive h2 {
   font-size: 2.92rem; }
 
 h2#author-content {
   font-size: 2.28rem;
   margin-top: 4rem; }
+
+.profile-details {
+  font-size: 1rem;
+  line-height: 1; }
 
 #project_links h2 {
   font-size: 1.64rem;

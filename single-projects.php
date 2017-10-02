@@ -87,9 +87,14 @@ if($members){
 	$user_image = get_field('user_image', 'user_' . $user['ID'] . '');
 	$work_title = get_field('work_title', 'user_' . $user['ID'] . '');
 	$begood_project = get_field('begood_subproject', 'user_' . $user['ID'] . '');
+	$aewg_position = get_field('aewg_position', 'user_' . $user['ID'] . '');
+
 	echo '<div class="col s12 m6 l12"><div class="card z-depth-1 white"><div class="card-image"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content"><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a><label class="block">' . $work_title . '</label>';
 	if ($begood_project) {
-		echo '<label class="block">' . $begood_project . '</label>';
+		echo '<label class="block">BeGOOD: ' . implode(', ', $begood_project) . '</label>';
+	}
+	if ($aewg_position) {
+		echo '<label class="block"><strong>' . $aewg_position . '</strong></label>';
 	}
 	echo '</div></div></div>' ;
 	}

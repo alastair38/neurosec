@@ -28,11 +28,11 @@
 
 				 ?>
 
-			<?php } elseif (is_singular('projects')) {
+			<?php } elseif (is_singular('engagement')) {
 
 				$meetingDate = get_field('meeting_date');
 				if($meetingDate) {
-					echo $meetingDate;
+					echo 'Meeting held on ' . $meetingDate;
 				}
 				$meetingLocation = get_field('meeting_location');
 				if($meetingLocation) {
@@ -54,47 +54,14 @@
 			<?php
 
 			the_content();
-			// check if the repeater field has rows of data
-			if( have_rows('details_of_meetings') ):
-				echo '<ul class="collection">';
-			  while ( have_rows('details_of_meetings') ) : the_row();
 
-			?>
-			<li class="collection-item avatar">
-<i class="material-icons circle green">event</i>
-<label class="secondarycontent"><?php the_sub_field('upcoming_meeting_date');?> at <?php the_sub_field('upcoming_meeting_address');?> </label>
+			$import_upm = get_field('forthcoming_meetings_page', 'options'); // get the forthcoming meetings page id
 
-<!-- addtocalendar markup
-<span aria-hidden="true" class="secondary-content addtocalendar atc-style-blue">
-<var class="atc_event">
-<var class="atc_date_start"><?php the_sub_field('upcoming_meeting_date');?></var>
-<var class="atc_date_end"><?php the_sub_field('upcoming_meeting_date');?></var>
-<var class="atc_timezone">Europe/London</var>
-<var class="atc_title"><?php the_sub_field('upcoming_meeting_title');?></var>
-<var class="atc_description"><?php the_sub_field('upcoming_meeting_description');?></var>
-<var class="atc_location"><?php the_sub_field('upcoming_meeting_address');?></var>
-<var class="atc_organizer_email"><?php the_sub_field('upcoming_meeting_contact');?></var>
-</var>
-</span>
- -->
-						<h3 class="title"><?php the_sub_field('upcoming_meeting_title');?></h3>
+			if($import_upm == get_the_id()) { // check to see if current page id matches $import_upm
 
-							<p class="light">
-								<?php the_sub_field('upcoming_meeting_description');?>
-								<img src="<?php the_sub_field('upcoming_meeting_image');?>">
-<br />
-							</p>
-							<label>
-								Contact <a href="mailto:<?php the_sub_field('upcoming_meeting_contact');?>"><?php the_sub_field('upcoming_meeting_contact');?></a> for more information
-							</label>
-			</li>
+				get_template_part( 'parts/content', 'forthcoming-meetings' ); // if above condition is true, get partial to import forthcoming meetings content json
+			}
 
-			<?php
-				endwhile;
-				echo '</ul>';
-				else :
-				    // no rows found
-				endif;
 			?>
 
 		<?php

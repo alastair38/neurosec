@@ -8,6 +8,8 @@ $work_title = get_field('work_title', 'user_' . $author_id  . '');
 $work_phone = get_field('work_phone', 'user_' . $author_id  . '');
 $user_email = get_the_author_meta( 'email', $author_id );
 $begood_project = get_field('begood_subproject', 'user_' . $author_id  . '');
+$aewg_position = get_field('aewg_position', 'user_' . $author_id  . '');
+$biog = get_field('work_biog', 'user_' . $author_id  . '');
 ?>
 
 <main class="container">
@@ -34,10 +36,13 @@ $begood_project = get_field('begood_subproject', 'user_' . $author_id  . '');
 
 									<?php foreach( $work_projects as $post): // variable must be called $post (IMPORTANT) ?>
 											<?php
-											
+
 											$new_arr[] = '<a href="' . $post->guid .'">' . $post->post_title . '</a>';
 											endforeach;
 											echo '<p><strong>Project(s): </strong>' . implode(', ', $new_arr) . '</p>';
+										if($begood_project) {
+											echo '<p>' . implode(', ', $begood_project) . '</p>';
+										}
 									?>
 
 					<?php wp_reset_postdata();
@@ -51,7 +56,7 @@ $begood_project = get_field('begood_subproject', 'user_' . $author_id  . '');
 
 						</header>
 					<?php
-						echo '<hr /><div class="col s12">' . get_the_author_meta( 'description', $author_id ) . '</div>';
+						echo '<hr /><div id="user_biog" class="col s12">' . $biog . '</div>';
 					?>
 
 					<h2 id="author-content" class="col s12 light center">Contributions</h2>

@@ -116,7 +116,7 @@ foreach ($posts_array as $posts) {
 		echo '<div class="col s6 m4 l3"><article class="card large"><div class="card-image waves-effect waves-block waves-light"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content">
 			<h6><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a></h6><label class="block">' . $work_title . '</label>';
 			if ($begood_project) {
-				echo '<label class="block">' . $begood_project . '</label>';
+				echo '<label class="block">' . implode(', ', $begood_project) . '</label>';
 			}
 
 			echo '</div></article></div>' ;

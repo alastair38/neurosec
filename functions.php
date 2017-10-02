@@ -47,6 +47,9 @@ require_once(get_template_directory().'/assets/functions/custom-post-type.php');
 // Customize the WordPress admin
 require_once(get_template_directory().'/assets/functions/admin.php');
 
+
+
+
 function my_acf_init() {
 
 	acf_update_setting('google_api_key', 'AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA');
@@ -54,12 +57,15 @@ function my_acf_init() {
 
 add_action('acf/init', 'my_acf_init');
 
-// //add options page-navi
-// if( function_exists('acf_add_options_page') ) {
-//
-// 	acf_add_options_page();
-//
-// }
+if (function_exists('acf_add_options_page')) {
+  acf_add_options_page(array(
+    'page_title' => 'Content Sync',
+    'menu_title' => 'Content Sync',
+    'menu_slug'  => 'content-sync',
+    'capability' => 'edit_posts',
+    'redirect'   => false
+  ));
+}
 
 //disable WordPress sanitization to allow more than just $allowedtags from /wp-includes/kses.php
 remove_filter('pre_user_description', 'wp_filter_kses');
@@ -104,3 +110,9 @@ add_action( 'pre_get_posts', 'my_change_sort_order');
            $query->set( 'orderby', 'title' );
         endif;
     };
+
+$enable_import = get_field('enable_import', 'options');
+
+if ($enable_import) {
+	require_once(get_template_directory().'/assets/functions/trigger-update.php');
+}

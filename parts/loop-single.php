@@ -1,17 +1,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 	<header class="article-header">
-	<!-- <?php if (is_singular('projects')) {?>
-		<link href="http://addtocalendar.com/atc/1.5/atc-style-blue.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript">(function () {
-					 if (window.addtocalendar)if(typeof window.addtocalendar.start == "function")return;
-					 if (window.ifaddtocalendar == undefined) { window.ifaddtocalendar = 1;
-							 var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-							 s.type = 'text/javascript';s.charset = 'UTF-8';s.async = true;
-							 s.src = ('https:' == window.location.protocol ? 'https' : 'http')+'://addtocalendar.com/atc/1.5/atc.min.js';
-							 var h = d[g]('body')[0];h.appendChild(s); }})();
-	 </script>
- <?php } ?> -->
+
 		<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
 		<label class="byline">
 			<?php
@@ -46,12 +36,9 @@
 
     <section class="entry-content" itemprop="articleBody">
 
-
-			<div class="center project_logo">
-				<?php
-				the_post_thumbnail('full');?>
-			</div>
-			<?php
+		<?php if(is_singular('projects')) {
+			echo '<div class="project_logo">' . the_post_thumbnail('full') . '</div>';
+		}
 
 			the_content();
 

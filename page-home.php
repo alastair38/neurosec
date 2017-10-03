@@ -5,8 +5,8 @@ Template Name: Home
 
 get_header(); ?>
 
-	<main>
-			<div class="row">
+	<div>
+			<div class="row" role="main">
 				<?php
 
 							get_template_part( 'parts/loop', 'slider' );
@@ -28,11 +28,11 @@ get_header(); ?>
 					endwhile; endif;
 				?>
 
-			 <!-- end #main -->
+			 <!-- end main -->
 
 
 
-	</main> <!-- end main -->
+	</div> <!-- end div-->
 
 
 

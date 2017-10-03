@@ -4,46 +4,38 @@ These functions make sure WordPress
 and Materialize play nice together.
 */
 
-// $(document).ready(function(){
+
+
+
+
+
 //
-//   $('a[href*="#"]:not([href="#"])').click(function() {
-//   if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-//     var target = $(this.hash);
-//     target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-//     if (target.length) {
-//       $('html, body').animate({
-//         scrollTop: target.offset().top - 400
-//       }, 1000);
-//       return false;
-//     }
-//   }
-// });
+//         $(document).ready(function(){
+//         var headerHeight = $("header").height();
+//     $('a[href^="#more"]').on('click',function (e) {
+//         e.preventDefault();
+//
+//         var target = this.hash,
+//         $target = $(target);
+//
+//         $('html, body').stop().animate({
+//             'scrollTop': $target.offset().top - headerHeight
+//         }, 1200, 'swing', function () {
+//             window.location.hash = target ;
+//         });
+//     });
 //
 // });
 
-
-
-var headerHeight = $("header").height();
-
-
-        $(document).ready(function(){
-    $('a[href^="#"]').on('click',function (e) {
-        e.preventDefault();
-
-        var target = this.hash,
-        $target = $(target);
-
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top - headerHeight
-        }, 1200, 'swing', function () {
-            window.location.hash = target ;
-        });
-    });
-
+$('body').on('click','a[href^="#"]',function(event){
+    event.preventDefault();
+    var target_offset = $(this.hash).offset() ? $(this.hash).offset().top : 0;
+    //change this number to create the additional off set
+    var customoffset = $("header").height();
+    $('html, body').animate({scrollTop:target_offset - customoffset}, 900);
 });
 
 var options = [
-    {selector: '#about-pathways', offset: 50, callback: 'Materialize.fadeInImage("#about-pathways")' },
     {selector: '#more', offset: 50, callback: 'Materialize.fadeInImage("#starting")' }
 ];
 Materialize.scrollFire(options);

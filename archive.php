@@ -3,8 +3,7 @@ get_template_part( 'parts/content', 'breadcrumbs' );
 $title = single_cat_title("", false);
 ?>
 
-<main>
-
+<div>
 		<div class="row" role="main">
 			<div class="col s12">
 
@@ -45,8 +44,8 @@ $title = single_cat_title("", false);
 
 
 
-		</div> <!-- end #main -->
-	</div>
-</main> <!-- end main -->
+		</div>
+	</div> <!-- end main -->
+</div> <!-- end div -->
 	<?php get_template_part( 'parts/loop', 'filter' ); ?>
 <?php get_footer(); ?>

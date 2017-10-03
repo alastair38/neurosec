@@ -37,12 +37,17 @@ a {
   border-bottom: 1px dotted transparent;
 }
 
-main a:not(.btn):hover {
+article a:not(.btn):hover, #sidebar1 a:not(.btn):hover, .profile-details a:hover, footer a:hover {
   color: $link-color-hover;
   border-bottom: 1px dotted;
 }
 
-
+.share-links a:hover {
+    border-bottom: 1px dotted transparent !important;
+    ~ svg {
+      fill: #444;
+    }
+}
 // Positioning
 .valign-wrapper {
   display: flex;

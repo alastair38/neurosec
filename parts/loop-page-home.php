@@ -9,8 +9,8 @@ if( have_rows('key_pages') ):
   $link_text = get_sub_field('page_byline');
 ?>
 <div class="col s12 m4">
-     <div class="card teal">
-       <div class="cardimage">
+     <div class="card small teal">
+       <div class="card-image">
          <?php echo wp_get_attachment_image( $image, "custom-size", "", array( "class" => "responsive-img", "alt" => "Photograph for the Neurosec " . $link_text . " page"  ) );  ?>
 
 

@@ -1,9 +1,9 @@
 <?php //if(  has_term( 'writing', 'category' ) ) { - this will be to output different styles depending on whether a video etc is being shown ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('grey-text text-darken-4 col s12 m6 l6'); ?>>
-	<article class="card">
+	<article class="card medium">
 		<div class="card-image">
-				<?php the_post_thumbnail('thumb', array('class' => 'responsive-img')); ?>
+				<?php the_post_thumbnail('custom-size', array('class' => '')); ?>
 				<h2 class="card-title"><?php the_title(); ?></h2>
 		</div>
 
@@ -27,7 +27,7 @@
 			</label>
 
 
-			<a href="<?php the_permalink();?>" class="btn grey darken-3" data-position="top" data-delay="50" data-tooltip="This link takes you to an external website">View this article </a>
+			<a href="<?php the_permalink();?>" class="btn grey darken-3">View this article </a>
 
 			</div>
 

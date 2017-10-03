@@ -7,7 +7,7 @@ Template Post Type: engagement
 
 get_header(); ?>
 
-<main class="container">
+<div class="container">
 
 	<div class="row">
 
@@ -28,6 +28,6 @@ get_header(); ?>
 	<?php endif; ?>
 
 </div> <!-- end row -->
-</main> <!-- end main -->
+</div> <!-- end container -->
 
 <?php get_footer(); ?>

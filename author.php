@@ -12,7 +12,7 @@ $aewg_position = get_field('aewg_position', 'user_' . $author_id  . '');
 $biog = get_field('work_biog', 'user_' . $author_id  . '');
 ?>
 
-<main class="container">
+<div class="container">
 
 		<div class="row" role="main">
 
@@ -59,9 +59,11 @@ $biog = get_field('work_biog', 'user_' . $author_id  . '');
 						echo '<hr /><div id="user_biog" class="col s12">' . $biog . '</div>';
 					?>
 
-					<h2 id="author-content" class="col s12 light center">Contributions</h2>
 
-			    <?php if (have_posts()) : while (have_posts()) : the_post();
+
+			    <?php if (have_posts()) :?>
+					<h2 id="author-content" class="col s12 light center">Contributions</h2>
+					<?php while (have_posts()) : the_post();
 
 					get_template_part( 'parts/loop', 'author' );
 
@@ -71,20 +73,14 @@ $biog = get_field('work_biog', 'user_' . $author_id  . '');
 
 					else :
 
-					get_the_author();
-
-					get_template_part( 'parts/content', 'missing-author' );
+					
 
 					endif;
 
 					?>
 
+		</div> <!-- end main -->
 
-
-			<?php //get_sidebar('archives'); ?>
-
-		</div> <!-- end #main -->
-
-</main> <!-- end main -->
+</div> <!-- end container-->
 
 <?php get_footer(); ?>

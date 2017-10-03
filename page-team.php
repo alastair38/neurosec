@@ -12,7 +12,7 @@ $pi_title = get_field('pi_title');
 $hide_projects = get_field('hide_projects');
 ?>
 
-	<main class="container">
+	<div class="container">
 			<div class="row">
 				<header class="article-header col s12">
 
@@ -130,7 +130,7 @@ foreach ($posts_array as $posts) {
 		</div> <!-- end #row -->
 
 
-	</main> <!-- end main -->
+	</div> <!-- end container -->
 
 
 <?php get_footer(); ?>

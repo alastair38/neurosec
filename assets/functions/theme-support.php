@@ -60,17 +60,3 @@ add_action( 'init', 'my_add_excerpts_to_pages' );
 function my_add_excerpts_to_pages() {
      add_post_type_support( 'page', 'excerpt' );
 }
-
-
-// limits search to locations custom post type
-
-function searchfilter($query) {
-
-    if ($query->is_search && !is_admin() ) {
-        $query->set('post_type',array('locations'));
-    }
-
-return $query;
-}
-
-add_filter('pre_get_posts','searchfilter');

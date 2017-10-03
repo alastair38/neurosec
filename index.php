@@ -1,6 +1,6 @@
 <?php get_header();?>
 
-<main>
+<div>
 
 		<div class="row" role="main">
 			<div class="col s12">
@@ -37,7 +37,7 @@
 		</div> <!-- end .col s12 -->
 	</div> <!-- end .row -->
 
-</main> <!-- end main -->
+</div> <!-- end div-->
 
 	<?php get_template_part( 'parts/loop', 'filter' ); ?>
 

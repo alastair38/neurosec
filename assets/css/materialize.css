@@ -1974,9 +1974,14 @@ a {
   -webkit-tap-highlight-color: transparent;
   border-bottom: 1px dotted transparent; }
 
-main a:not(.btn):not(.btn-large):hover {
+article a:not(.btn):not(.btn-large):hover, #sidebar1 a:not(.btn):not(.btn-large):hover, .profile-details a:hover, footer a:hover {
   color: #0fa4fc;
   border-bottom: 1px dotted; }
+
+.share-links a:hover {
+  border-bottom: 1px dotted transparent !important; }
+  .share-links a:hover ~ svg {
+    fill: #444; }
 
 .valign-wrapper {
   display: flex;
@@ -3313,6 +3318,8 @@ small {
     height: 400px; }
   .card.large {
     max-height: 500px; }
+  .card.projects-cards {
+    height: 540px; }
   .card.horizontal {
     display: flex; }
     .card.horizontal.small .card-image, .card.horizontal.medium .card-image, .card.horizontal.large .card-image {
@@ -6744,9 +6751,12 @@ h2#author-content {
 #project_links h2 {
   font-size: 1.64rem;
   margin-top: 4rem; }
+#project_links h3.card-title {
+  font-size: 20px;
+  line-height: 40px; }
 @media only screen and (min-width: 993px) {
   #project_links .card {
-    min-height: 180px; } }
+    min-height: 160px; } }
 
 @media only screen and (max-width: 992px) {
   h2, .h2 {
@@ -7021,6 +7031,10 @@ body.home {
 
 .card-content h2 {
   font-size: 1.64rem; }
+
+.post-type-archive-projects .card-title {
+  font-size: 20px;
+  line-height: 40px !important; }
 
 .card .btn, .card .btn-large {
   width: 100%; }

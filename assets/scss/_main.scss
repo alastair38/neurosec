@@ -267,9 +267,13 @@ h2#author-content {
     font-size: $h5-fontsize;
     margin-top: 4rem;
   }
+  h3.card-title {
+    font-size: 20px;
+    line-height: 40px;
+  }
   @media #{$large-and-up} {
     .card {
-      min-height: 180px;
+      min-height: 160px;
     }
   }
 }
@@ -644,6 +648,11 @@ body.home {
 
 .card-content h2 {
   font-size: $h5-fontsize;
+}
+
+.post-type-archive-projects .card-title {
+  font-size: 20px;
+  line-height: 40px !important;
 }
 
 .card .btn {

@@ -7428,6 +7428,14 @@ FOOTER STYLES
   .home footer.page-footer h4 {
     font-size: 1.5em; }
 
+#twitter_feed {
+  padding: 2rem;
+  font-size: 1rem !important; }
+  #twitter_feed .rotatingtweet.cycle-slide {
+    width: 100%; }
+  #twitter_feed .rtw_icon img {
+    border-radius: 50% !important; }
+
 #logos {
   margin-top: -20px; }
 

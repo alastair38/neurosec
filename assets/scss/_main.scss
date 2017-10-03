@@ -1343,6 +1343,17 @@ FOOTER STYLES
   }
 }
 
+#twitter_feed {
+  padding: 2rem;
+  font-size: 1rem !important;
+  .rotatingtweet.cycle-slide {
+    width: 100%;
+  }
+  .rtw_icon img {
+    border-radius: 50% !important;
+  }
+}
+
 #logos {
   margin-top: -20px;
 }

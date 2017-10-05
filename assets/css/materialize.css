@@ -3110,11 +3110,10 @@ nav {
 
 @media only screen and (min-width: 601px) {
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
-    height: 128px;
-    line-height: 128px; }
+    height: auto; }
 
   .navbar-fixed {
-    height: 128px; } }
+    height: 225px; } }
 @font-face {
   font-family: "Roboto";
   src: local(Roboto Thin), url("../font/roboto/Roboto-Thin.eot");
@@ -6785,7 +6784,7 @@ HEADER STYLES
       height: 25px; } }
 .header a#logo_link {
   display: inline-block;
-  height: 128px; }
+  height: auto; }
 .header .brand-logo {
   animation: show 1000ms 1; }
   @media only screen and (max-width: 600px) {
@@ -6818,7 +6817,7 @@ i.mdi.mdi-menu {
 
 #breadcrumbs {
   position: fixed;
-  top: 128px;
+  top: auto;
   width: 100% !important;
   margin-left: 0 !important;
   z-index: 999 !important;
@@ -7427,6 +7426,9 @@ FOOTER STYLES
   margin-top: 0px; }
   .home footer.page-footer h4 {
     font-size: 1.5em; }
+
+footer img {
+  height: 150px !important; }
 
 #twitter_feed {
   padding: 2rem;

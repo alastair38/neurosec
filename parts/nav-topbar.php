@@ -1,12 +1,13 @@
 <!-- By default, this menu will use off-canvas for small
 	 and a topbar for medium-up -->
-<?php $logo_image = get_theme_mod( 'tcx_logo_image' );?>
+<?php $logo_image = get_theme_mod( 'tcx_logo_image' );
+			$header_logo = get_field('header_logo', 'options');
+?>
 <div class="navbar-fixed">
 
 <nav>
-
-
-	<div class="nav-wrapper"><a id="logo_link" href="<?php bloginfo('url'); ?>"><img id="logo" class="center"
+	<div style="background: url(<?php echo $header_logo; ?>)
+	no-repeat; background-size: 20%; background-position: 98% center;"><a id="log_link" href="<?php bloginfo('url'); ?>"><img id="logo" class="center"
 		<?php
 		$logo_image = get_theme_mod( 'tcx_logo_image' );
 		if ($logo_image){?>
@@ -15,11 +16,13 @@
 			} else {?>
 			src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt=""
 			<?php }?>
-			  /></a>
+				/></a></div>
+
+	<div class="nav-wrapper">
 <h1 class="screen-reader-text"><?php bloginfo('name'); ?></h1>
 
 
-			<div class="hide-on-med-and-down right">
+			<div class="center hide-on-med-and-down">
 				<?php joints_top_nav(); ?>
 
 			</div>

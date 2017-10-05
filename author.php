@@ -7,6 +7,7 @@ $work_projects = get_field('your_projects', 'user_' . $author_id  . '');
 $work_title = get_field('work_title', 'user_' . $author_id  . '');
 $work_phone = get_field('work_phone', 'user_' . $author_id  . '');
 $user_email = get_the_author_meta( 'email', $author_id );
+$user_site = get_the_author_meta( 'user_url', $author_id );
 $begood_project = get_field('begood_subproject', 'user_' . $author_id  . '');
 $aewg_position = get_field('aewg_position', 'user_' . $author_id  . '');
 $biog = get_field('work_biog', 'user_' . $author_id  . '');
@@ -28,6 +29,9 @@ $biog = get_field('work_biog', 'user_' . $author_id  . '');
 									}
 									if ($work_title){
 										echo '<p><strong>Position: </strong>' . $work_title . '</p>';
+									}
+									if ($user_site){
+										echo '<p><strong>University of Oxford Profile: </strong><a href="' . $user_site . '" target="_blank">' . $user_site . '</a></p>';
 									}
 									echo '<p><strong>Email: </strong><a href="mailto:' . $user_email . '" target="_blank">' . $user_email . '</a></p>';
 									if ($work_phone){
@@ -73,7 +77,7 @@ $biog = get_field('work_biog', 'user_' . $author_id  . '');
 
 					else :
 
-					
+
 
 					endif;
 

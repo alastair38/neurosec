@@ -59,9 +59,9 @@ add_action('acf/init', 'my_acf_init');
 
 if (function_exists('acf_add_options_page')) {
   acf_add_options_page(array(
-    'page_title' => 'Content Sync',
-    'menu_title' => 'Content Sync',
-    'menu_slug'  => 'content-sync',
+    'page_title' => 'Neurosec Settings',
+    'menu_title' => 'Neurosec Settings',
+    'menu_slug'  => 'neurosec-settings',
     'capability' => 'edit_posts',
     'redirect'   => false
   ));

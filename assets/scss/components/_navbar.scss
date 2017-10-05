@@ -185,6 +185,9 @@ nav {
     //line-height: $navbar-height;
   }
   .navbar-fixed {
-    height: 225px;
+    height: $navbar-height-mobile + $logo-wrapper-height;
+  }
+  .logo_wrapper {
+    height: $logo-wrapper-height;
   }
 }

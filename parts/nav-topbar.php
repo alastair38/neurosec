@@ -6,7 +6,7 @@
 <div class="navbar-fixed">
 
 <nav>
-	<div style="background: url(<?php echo $header_logo; ?>)
+	<div class="logo_wrapper" style="background: url(<?php echo $header_logo; ?>)
 	no-repeat; background-size: 20%; background-position: 98% center;"><a id="log_link" href="<?php bloginfo('url'); ?>"><img id="logo" class="center"
 		<?php
 		$logo_image = get_theme_mod( 'tcx_logo_image' );

@@ -48,21 +48,60 @@ $('.modal-action').click(function(){
   $(".button-collapse").sideNav();
   // Initialize collapsible (uncomment the line below if you use the dropdown variation)
   //$('.collapsible').collapsible();
-$(".dropdown-button").dropdown();
-  $(".dropdown-button").click(function(){
+  // $('.dropdown-button').dropdown({
+  //     inDuration: 300,
+  //     outDuration: 225,
+  //     constrain_width: true, // Does not change width of dropdown to that of the activator
+  //     hover: false, // Activate on hover
+  //     stopPropagation: true,
+  //     belowOrigin: true, // Displays dropdown below the button
+  //     alignment: 'left' // Displays dropdown with edge aligned to the left of button
+  // });
+
+// $('.dropdown-button').click(function(event) {
+//   if($(this).hasClass('active')) {
+//     $(this).removeClass('active');
+//   } else {
+//     $(this).addClass('active');
+//   }
+//
+// });
 
 
-  // //   $width = $("li.dropdown").width();
-  $id = $(this).parent().attr("id");
-  // //
-  //$( "li" ).not(document.getElementById("#"+$id+"")).children( "a" ).removeClass("active");
-  // $( "li" ).not(document.getElementById("#"+$id+"")).children( "ul" ).toggleClass("block");
-  // // $("#"+$id+"").children("ul").toggleClass("block").css("min-width", $("li.dropdown").width());
-  $("#"+$id+" a i").toggleClass("rotate");
-  // //   $("#"+$id+" a").toggleClass("activate");
-  // //
-  });
-  // //
+
+
+  jQuery('.dropdown').click(function(event){
+         //remove all pre-existing active classes
+$('.dropdown-button').removeClass('active');
+
+ //
+         $('.material-icons').removeClass('rotate');
+  //       $("a", this).addClass("active");
+
+
+
+
+
+         // //add the active class to the link we clicked
+         if($("a", this).hasClass("active")) {
+
+           //jQuery('.dropdown-button').removeClass('active');
+           $("a", this).removeClass('active').children().removeClass('rotate');
+         } else {
+
+           $("a", this).addClass('active').children().addClass('rotate');
+         }
+
+
+         //Load the content
+         //e.g.
+         //load the page that the link was pointing to
+         //$('#content').load($(this).find(a).attr('href'));
+
+         //event.preventDefault();
+     });
+
+
 
 window.cookieconsent_options = {
        learnMore: 'More info',

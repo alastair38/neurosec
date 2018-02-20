@@ -26,7 +26,7 @@ $hide_projects = get_field('hide_projects');
 				<div class="col s12">
 				<div class="card horizontal">
 				<?php $pi_image = get_field('user_image', 'user_' . $pi['ID'] . '');
-				echo '<div class="card-image waves-effect waves-block waves-light"><img src="' . $pi_image['url'] . '" alt="' . $pi_image['alt'] . '" /></div>';
+				echo '<div class="card-image"><img src="' . $pi_image['url'] . '" alt="' . $pi_image['alt'] . '" /></div>';
 				?>
 				<div class="card-stacked">
         <div class="card-content">
@@ -50,7 +50,7 @@ if($admins){
 	foreach ( $admins as $admin ) {
 	$user_image = get_field('user_image', 'user_' . $admin['ID'] . '');
 	$work_title = get_field('work_title', 'user_' . $admin['ID'] . '');
-	echo '<div class="col s6 m4 l3"><article class="card large"><div class="card-image waves-effect waves-block waves-light"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content">
+	echo '<div class="col s6 m4 l3"><article class="card large"><div class="card-image"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content">
 		<h6><a href="' . get_author_posts_url($admin['ID'], $admin['user_nicename']) . '">' . $admin['display_name'] . '</a></h6><label class="block">' . $work_title . '</label></div></article></div>' ;
 
 	}

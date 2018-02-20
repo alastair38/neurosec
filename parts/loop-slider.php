@@ -32,7 +32,7 @@
 			 <label class="grey-text lighten-3">
 				Published <?php echo the_time('F j, Y');?>
 			</label><br / />
-			<p class="white-text">
+			<p>
 				<?php
 				$content = get_the_content();
 				echo wp_trim_words($content, 10);?>

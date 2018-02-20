@@ -259,7 +259,6 @@ h2#author-content {
 
 .profile-details {
   font-size: 1rem;
-  line-height: 1;
 }
 
 #project_links {
@@ -730,6 +729,18 @@ h6.card-sub-title {
   }
 }
 
+.social-media a svg {
+  margin: 0 5px;
+  vertical-align:text-top;
+  fill: color("oxford-blue", "base");
+  background: white;
+  border-radius: 50%;
+  padding: 2px;
+  &:hover {
+    fill: color("blue", "base");
+  }
+}
+
 .byline {
   display: inline-block;
   width: 100%;
@@ -851,7 +862,12 @@ h6.card-sub-title {
 		max-width: 100%;
 		height: auto;
 	}
-
+  ul {
+    padding-left: 2em;
+    li {
+      list-style-type: disc;
+    }
+  }
 	.alignleft, img.alignleft {
 		margin-right: 1.5em;
 		display: inline;
@@ -1417,13 +1433,13 @@ FOOTER STYLES
     }
     a {
       @extend .white-text;
-      border-bottom: 1px dotted;
+
     }
   }
 }
 
 .home footer {
-  background: rgba(38,38,38,.85);
+  background: #e05050b8;//Neurosec pink
 }
 
 

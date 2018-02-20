@@ -4,7 +4,7 @@
 	<article class="card">
 		<div class="card-image">
 				<?php the_post_thumbnail('thumb', array('class' => 'responsive-img')); ?>
-				<h2 class="card-title"><?php the_title(); ?></h2>
+
 		</div>
 
 		<div class="card-content">
@@ -13,11 +13,11 @@
 					}
 			?>
 
+				<a href="<?php the_permalink();?>"><h2 class="cardtitle"><?php the_title(); ?></h2></a>
 
-
-				<label class="authors">Written by <?php the_author_posts_link(); ?>	on <?php echo the_time('F j, Y') . '.';?>
+				<label class="authors"><?php echo the_time('F j, Y') . '.';?>
 				<?php
-		
+
 					echo 'Posted in '. get_the_category_list(', ');
 
 				?>
@@ -27,7 +27,7 @@
 			</label>
 
 
-			<a href="<?php the_permalink();?>" class="btn grey darken-3" data-position="top" data-delay="50" data-tooltip="This link takes you to an external website">View this article </a>
+
 
 			</div>
 

@@ -1,14 +1,19 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+	<?php $hide_title = get_field('hide_title');
+	if($hide_title) {
+		$hide_title = "screen-reader-text";
+	} else {
+		$hide_title = null;
+	}?>
+	<header class="article-header <?php echo $hide_title;?>">
 
-	<header class="article-header">
-
-		<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
+		<h1 class="entry-title single-title " itemprop="headline"><?php the_title(); ?></h1>
 		<label class="byline">
 			<?php
 			if(is_singular('publications')) {
 				echo 'Posted in '. get_the_term_list( '', 'publication_type', '', ', ', '' );
 			} elseif (is_singular('post')) {?>
-				Written by <?php the_author_posts_link(); ?>	on <?php echo the_time('F j, Y') . '.';?>
+				<?php echo the_time('F j, Y') . '.';?>
 				<?php
 
 					echo 'Posted in '. get_the_category_list(', ');
@@ -28,6 +33,8 @@
 				if($meetingLocation) {
 					echo ' at ' . $meetingLocation;
 				}
+			} elseif (is_singular('news_events')) {
+				echo the_time('F j, Y') . '.';
 			}
 
 			?>
@@ -54,11 +61,13 @@
 		<?php
 
 			$video = get_field('meeting_video');
+			$video2 = get_field('video');
 			if($video){
 				echo '<div class="video-container">' . $video . '</div>';
-			} elseif (is_singular('post')) {
-			the_post_thumbnail('large', array('class' => 'responsive-img'));
-		}
+			}
+			if ($video2) {
+				echo '<div class="video-container">' . $video2 . '</div>';
+			}
 
   ?>
 
@@ -81,7 +90,24 @@ if( $images ): ?>
             </div>
         <?php endforeach; ?>
     </div>
+
+
 <?php endif; ?>
+<?php
+// check if the repeater field has rows of data
+if( have_rows('logos_funder') ):
+	echo '<div class="row">';
+	while ( have_rows('logos_funder') ) : the_row();
+	$img = get_sub_field('logo_img_funder');
+	$logo_name = get_sub_field('logo_name_funder');
+	$logo_link = get_sub_field('logo_link_funder');
+	echo '<div class="col s4"><a href="' . $logo_link . '" target="_blank"><img class="responsive-img" src="' . $img . '" alt="' . $logo_name . ' logo"></a></div>';
+	endwhile;
+	echo '</div>';
+	else :
+			// no rows found
+	endif;
+?>
  	<?php get_template_part( 'parts/content', 'contact' );?>
 
 

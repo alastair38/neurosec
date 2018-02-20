@@ -37,7 +37,7 @@ a {
   border-bottom: 1px dotted transparent;
 }
 
-article a:not(.btn):hover, #sidebar1 a:not(.btn):hover, .profile-details a:hover, footer a:hover {
+article a:not(.btn):hover, #sidebar1 a:not(.btn):hover, .profile-details a:hover {
   color: $link-color-hover;
   border-bottom: 1px dotted;
 }
@@ -704,7 +704,7 @@ nav ul a span.badge {
     height: 4px;
     display: block;
     width: 100%;
-    background-color: lighten($progress-bar-color, 40%);
+    background-color: color("blue", "darken-4");
     border-radius: 2px;
     margin: $element-top-margin 0 $element-bottom-margin 0;
     overflow: hidden;

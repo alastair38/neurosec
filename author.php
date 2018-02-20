@@ -31,7 +31,7 @@ $biog = get_field('work_biog', 'user_' . $author_id  . '');
 										echo '<p><strong>Position: </strong>' . $work_title . '</p>';
 									}
 									if ($user_site){
-										echo '<p><strong>University of Oxford Profile: </strong><a href="' . $user_site . '" target="_blank">' . $user_site . '</a></p>';
+										echo '<p><a href="' . $user_site . '" target="_blank"><strong>University of Oxford Profile</strong></a></p>';
 									}
 									echo '<p><strong>Email: </strong><a href="mailto:' . $user_email . '" target="_blank">' . $user_email . '</a></p>';
 									if ($work_phone){

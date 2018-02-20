@@ -44,7 +44,9 @@
     <section class="entry-content" itemprop="articleBody">
 
 		<?php if(is_singular('projects')) {
-			echo '<div class="project_logo">' . the_post_thumbnail('full') . '</div>';
+			 if ( has_post_thumbnail() ) : ?>
+	<img class="aligncenter" src="<?php the_post_thumbnail_url('full'); ?>"/>
+<?php endif;
 		}
 
 			the_content();

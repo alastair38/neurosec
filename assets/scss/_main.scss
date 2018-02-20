@@ -898,6 +898,11 @@ h6.card-sub-title {
 
 }
 
+.pub-content {
+  font-size: 1rem;
+  padding: 1rem 0;
+}
+
 img.hide-on-med-and-up {
     width: 100%;
 }
@@ -1440,6 +1445,10 @@ FOOTER STYLES
 
 .home footer {
   background: #e05050b8;//Neurosec pink
+}
+
+#inner-footer {
+  padding-top: 2rem;
 }
 
 

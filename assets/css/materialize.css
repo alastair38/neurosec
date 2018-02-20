@@ -2291,7 +2291,7 @@ ul.staggered-list li {
 footer.page-footer {
   margin-top: 20px;
   padding-top: 20px;
-  background-color: rgba(38, 38, 38, 0.85); }
+  background-color: #e05050b8; }
   footer.page-footer .footer-copyright {
     overflow: hidden;
     height: 50px;
@@ -7288,6 +7288,10 @@ h6.card-sub-title {
     border: 1px solid #cecece;
     padding: 10px; }
 
+.pub-content {
+  font-size: 1rem;
+  padding: 1rem 0; }
+
 img.hide-on-med-and-up {
   width: 100%; }
 
@@ -7542,7 +7546,7 @@ footer img {
   margin-top: -20px; }
 
 .page-footer {
-  background: rgba(38, 38, 38, 0.85);
+  background: #e05050b8;
   font-weight: 400; }
   .page-footer ul {
     font-size: 0;
@@ -7561,7 +7565,7 @@ footer img {
       height: 1.75em;
       line-height: 1.75em; }
     .page-footer li a:hover .mdi, .page-footer li a:focus .mdi {
-      color: rgba(38, 38, 38, 0.85); }
+      color: #e05050b8; }
   .page-footer li:not(:first-of-type) {
     border-left: 1px solid #fff; }
     @media only screen and (max-width: 600px) {
@@ -7581,6 +7585,9 @@ footer img {
 
 .home footer {
   background: #e05050b8; }
+
+#inner-footer {
+  padding-top: 2rem; }
 
 /********
 PLUGIN STYLES

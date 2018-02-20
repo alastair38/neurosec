@@ -45,7 +45,7 @@
 
 		<?php if(is_singular('projects')) {
 			 if ( has_post_thumbnail() ) : ?>
-	<img class="aligncenter" src="<?php the_post_thumbnail_url('full'); ?>"/>
+	<img class="aligncenter featured-img" src="<?php the_post_thumbnail_url('full'); ?>"/>
 <?php endif;
 		}
 
@@ -98,12 +98,14 @@ if( $images ): ?>
 <?php
 // check if the repeater field has rows of data
 if( have_rows('logos_funder') ):
-	echo '<div class="row">';
+	$count = get_post_meta(get_the_ID(), 'logos_funder', true);
+	$col_count = 12 / $count;
+	echo '<div class="row center">';
 	while ( have_rows('logos_funder') ) : the_row();
 	$img = get_sub_field('logo_img_funder');
 	$logo_name = get_sub_field('logo_name_funder');
 	$logo_link = get_sub_field('logo_link_funder');
-	echo '<div class="col s4"><a href="' . $logo_link . '" target="_blank"><img class="responsive-img" src="' . $img . '" alt="' . $logo_name . ' logo"></a></div>';
+	echo '<div class="col s' . $col_count . '"><a href="' . $logo_link . '" target="_blank"><img class="responsive-img" src="' . $img . '" alt="' . $logo_name . ' logo"></a></div>';
 	endwhile;
 	echo '</div>';
 	else :

@@ -45,4 +45,35 @@ if (  is_home() || is_category() || is_post_type_archive('publications') || is_t
 	<?php
  }?>
 
+ <!-- <?php
+ if ( is_post_type_archive('news_events') || is_tax('news_type') ) {?> -->
+
+ 	<div id="filter" class="modal bottom-sheet">
+ 	    <div class="modal-content col s4">
+
+ 				<?php //	$my_search->the_form();
+ 						// echo do_shortcode( '[searchandfilter taxonomies="resource-category,category" show_count="1,1" types="checkbox,checkbox" headings="Categories,Types" hide_empty="0,0"]' );
+
+ 							echo '<h6>Filter News and Events by Type</h6>';
+ 							$terms = get_terms( 'news_type', array(
+ 							    'hide_empty' => 0
+ 							) );
+
+
+ 							    foreach ( $terms as $term ) {
+ 							        echo '<a href="' . esc_url( get_term_link( $term ) ) . '">' . $term->name . '</a><span class=" round-badge">' . $term->count . '</span>';
+ 							    }
+
+
+
+
+ 			 ?>
+ 	    </div>
+ 	    <div class="modal-footer">
+ 	      <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+ 	    </div>
+ 	  </div>
+ 	<!-- <?php
+  }?> -->
+
 </aside>

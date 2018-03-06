@@ -14,21 +14,26 @@
 		</main> <!-- end .wrapper -->
 
 		<footer id="contact" class="page-footer center">
+
+
 			<?php
 			// check if the repeater field has rows of data
 			if( have_rows('logos_footer', 'option') ):
-				echo '<div class="row">';
-			  while ( have_rows('logos_footer', 'option') ) : the_row();
+				$count = count(get_field('logos_footer', 'option')); // count number of rows in the repeater field
+				$col_count = 12 / $count; // divide no of rows by 12 to get number of columns
+				echo '<div class="row center">';
+				while ( have_rows('logos_footer', 'option') ) : the_row();
 				$url = get_sub_field('logo_img');
 				$logo_name = get_sub_field('logo_name');
 				$logo_link = get_sub_field('logo_link');
-				echo '<div class="col s4"><a href="' . $logo_link . '" target="_blank"><img class="responsive-img" src="' . $url . '" alt="' . $logo_name . ' logo"></a></div>';
+				echo '<div class="col s' . $col_count . '"><a href="' . $logo_link . '" target="_blank"><img class="responsive-img" src="' . $url . '" alt="' . $logo_name . ' logo"></a></div>';
 				endwhile;
 				echo '</div>';
 				else :
-				    // no rows found
+						// no rows found
 				endif;
 			?>
+
 
 			<div id="inner-footer" class="container" role="navigation">
 

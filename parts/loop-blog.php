@@ -3,8 +3,11 @@
 <div id="post-<?php the_ID(); ?>" <?php post_class('grey-text text-darken-4 col s12 m6 l4'); ?>>
 	<article class="card">
 		<div class="card-image">
-				<?php the_post_thumbnail('thumb', array('class' => 'responsive-img')); ?>
-
+			<?php
+			$tile = get_field('image_tile');
+			 if ( $tile ) : ?>
+	<img class="responsive-img" src="<?php echo $tile['sizes']['large']; ?>" alt="<?php echo $tile['alt']; ?>"/>
+			<?php endif;?>
 		</div>
 
 		<div class="card-content">

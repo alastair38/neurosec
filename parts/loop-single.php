@@ -44,8 +44,9 @@
     <section class="entry-content" itemprop="articleBody">
 
 		<?php if(is_singular('projects')) {
-			 if ( has_post_thumbnail() ) : ?>
-	<img class="aligncenter featured-img" src="<?php the_post_thumbnail_url('full'); ?>"/>
+			$projectLogo = get_field('project_logo');
+			 if ( $projectLogo ) : ?>
+	<img class="aligncenter featured-img" src="<?php echo $projectLogo['sizes']['large']; ?>" alt="<?php echo $projectLogo['alt']; ?>"/>
 <?php endif;
 		}
 
@@ -96,6 +97,31 @@ if( $images ): ?>
 
 <?php endif; ?>
 <?php
+if( have_rows('project_links') ):
+	echo '<aside id="project_links" class="row"><h2 class="center light">For more information about specific projects</h2>';
+	while ( have_rows('project_links') ) : the_row();
+	$link_text = get_sub_field('link_text');
+	$link_url = get_sub_field('link_url');
+?>
+<div class="col s12 m6">
+	<div class="s12 card large z-depth-0 oxford-blue">
+		<div class="card-content center">
+			<h3 class="card-title"><a class="white-text" href="<?php echo $link_url; ?>"><?php echo $link_text;?></a></h3>
+
+		</div>
+
+	</div>
+</div>
+
+<?php
+	endwhile;
+	echo '</aside>';
+	else :
+			// no rows found
+	endif;
+?>
+<?php get_template_part( 'parts/content', 'contact' );?>
+<?php
 // check if the repeater field has rows of data
 if( have_rows('logos_funder') ):
 	$count = get_post_meta(get_the_ID(), 'logos_funder', true);
@@ -112,37 +138,14 @@ if( have_rows('logos_funder') ):
 			// no rows found
 	endif;
 ?>
- 	<?php get_template_part( 'parts/content', 'contact' );?>
+
 
 
 
 	</section> <!-- end article section -->
 
 
-		<?php
-		if( have_rows('project_links') ):
-			echo '<aside id="project_links" class="row"><h2 class="center light">For more information about specific projects</h2>';
-		  while ( have_rows('project_links') ) : the_row();
-			$link_text = get_sub_field('link_text');
-			$link_url = get_sub_field('link_url');
-		?>
-		<div class="col s12 m6">
-			<div class="s12 card large z-depth-0 teal">
-				<div class="card-content center">
-					<h3 class="card-title"><a class="white-text" href="<?php echo $link_url; ?>"><?php echo $link_text;?></a></h3>
 
-				</div>
-
-			</div>
-		</div>
-
-		<?php
-			endwhile;
-			echo '</aside>';
-			else :
-			    // no rows found
-			endif;
-		?>
 
 
 	<footer class="article-footer">

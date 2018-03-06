@@ -27,18 +27,41 @@
 	<div style="background: url(<?php echo $thumb_url;?>) no-repeat center center; background-size: cover;">
 
 		 <article class="col s12 l6 waves-effect">
-			 <a href="<?php the_permalink() ?>">
-			 <h3 class="light"><?php the_title(); ?></h3>
-			 <label class="grey-text lighten-3">
-				Published <?php echo the_time('F j, Y');?>
-			</label><br / />
-			<p>
-				<?php
-				$content = get_the_content();
-				echo wp_trim_words($content, 10);?>
-			</p>
 
-			 </a>
+
+			 <div class="card-content">
+	 			<?php if( strtotime( $post->post_date ) > strtotime('-8 day') ) {
+	 					echo '<span class="badge new"></span>';
+	 					}
+	 			?>
+
+	 				<a href="<?php the_permalink();?>"><h2 class="cardtitle"><?php the_title(); ?></h2></a>
+
+	 				<label class="authors"><?php echo the_time('F j, Y') . '.';?>
+	 				<?php
+
+	 					echo 'Posted in '. get_the_category_list(', ');
+
+	 				?>
+	 				<?php
+
+	 				 ?>
+	 			</label>
+
+
+				<p>
+					<?php
+
+					$content = get_the_content();
+					echo wp_trim_words($content, 15);?>
+				</p>
+
+	 			</div>
+
+
+
+
+
 		 </article>
 	</div>
 

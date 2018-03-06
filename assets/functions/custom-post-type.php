@@ -190,7 +190,26 @@ function neurosec_publications() {
 
     add_action( 'init', 'neurosec_events');
 
-
+    register_taxonomy( 'news_type',
+    	array('news_events'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+    	array('hierarchical' => true,    /* if this is false, it acts like tags */
+    		'labels' => array(
+    			'name' => __( 'News Types', 'neurosectheme' ), /* name of the custom taxonomy */
+    			'singular_name' => __( 'News Type', 'neurosectheme' ), /* single taxonomy name */
+    			'search_items' =>  __( 'Search News Types', 'neurosectheme' ), /* search title for taxomony */
+    			'all_items' => __( 'All News Types', 'neurosectheme' ), /* all title for taxonomies */
+    			'parent_item' => __( 'Parent News Type', 'neurosectheme' ), /* parent title for taxonomy */
+    			'parent_item_colon' => __( 'Parent News Type:', 'neurosectheme' ), /* parent taxonomy title */
+    			'edit_item' => __( 'Edit News Type', 'neurosectheme' ), /* edit custom taxonomy title */
+    			'update_item' => __( 'Update News Type', 'neurosectheme' ), /* update title for taxonomy */
+    			'add_new_item' => __( 'Add New News Type', 'neurosectheme' ), /* add new title for taxonomy */
+    			'new_item_name' => __( 'New News Type Name', 'neurosectheme' ) /* name title for taxonomy */
+    		),
+    		'show_admin_column' => true,
+    		'show_ui' => true,
+    		'query_var' => true,
+    	)
+    );
 
 
     /*

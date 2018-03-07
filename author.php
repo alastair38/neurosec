@@ -12,7 +12,7 @@ $begood_project = get_field('begood_subproject', 'user_' . $author_id  . '');
 $aewg_position = get_field('aewg_position', 'user_' . $author_id  . '');
 $biog = get_field('work_biog', 'user_' . $author_id  . '');
 $user_image = get_field('user_image', 'user_' . $author_id  . '');
-$idNum = get_field('orcid_id', 'user_' . $author_id  . '');
+
 ?>
 
 <div class="container">
@@ -93,7 +93,7 @@ $idNum = get_field('orcid_id', 'user_' . $author_id  . '');
 // , '0000-0002-1363-5027' 0000-0003-4883-1375
 
 
-
+$idNum = get_field('orcid_id', 'user_' . $author_id  . '');
 $orcidID = array();
 array_push($orcidID, $idNum);
 
@@ -141,7 +141,9 @@ function fetch($orcidID, $elementID, $pubLimit, $ordem) {
 	$z++;
 
 	$jsonInput = json_decode($output, true);
-
+	$response = $jsonInput['response-code'];
+	//print_r($response);
+	if (empty($response)){
 	if ($sliceProfile == 1) {
 
 		// Biografia
@@ -169,6 +171,7 @@ function fetch($orcidID, $elementID, $pubLimit, $ordem) {
 				array_push($arrayPublica, $entry1);
 			}
 	}
+}
 }
 	// Chamar a função para escrever HTML
 				escreve($arrayPublica, $ordem);
@@ -289,7 +292,7 @@ function fetchPubArray(&$orcidID, &$pubIDs, &$pubLimit) {
 
 function escreve($arrayPublica, $ordem) {
 	echo '<meta charset="UTF-8">';
-
+//print_r($arrayPublica);
 	if ($ordem == 'data') {
 		uasort($arrayPublica, 'cmpData');
 	} elseif ($ordem == 'tipo') {
@@ -297,7 +300,7 @@ function escreve($arrayPublica, $ordem) {
 	} elseif ($ordem == 'pessoa') {
 		uasort($arrayPublica, 'cmpPessoa');
 	}
-
+	if(!empty($arrayPublica)) {
 	echo '<h3 class="col s12 light center">Publications</h3><ul id="publications" class="collection">';
 	foreach ($arrayPublica as $entry1) {
 
@@ -335,6 +338,7 @@ function escreve($arrayPublica, $ordem) {
 
 	}
 	echo '</ul>';
+}
 }
 
 

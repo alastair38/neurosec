@@ -21,14 +21,14 @@ function site_scripts() {
 
     wp_enqueue_script( 'cookie-js', 'https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js', array(), '', true );
 
-    if(is_author()) {
-        wp_enqueue_script( 'swagger-js', get_template_directory_uri() . '/assets/swagger-js/browser/swagger-client.js', array( 'jquery' ), '', true );
-        wp_enqueue_script( 'citeproc-js1', get_template_directory_uri() . '/assets/citeproc-js/xmle4x.js', array( 'jquery' ), '', true );
-        wp_enqueue_script( 'citeproc-js2', get_template_directory_uri() . '/assets/citeproc-js/xmldom.js', array( 'jquery' ), '', true );
-        wp_enqueue_script( 'citeproc-js', get_template_directory_uri() . '/assets/citeproc-js/citeproc.js', array( 'jquery' ), '', true );
-        wp_enqueue_script( 'orcid-js', get_template_directory_uri() . '/assets/lib/orcid.js', array( 'jquery' ), '', true );
-        wp_enqueue_script( 'styles-js', get_template_directory_uri() . '/assets/lib/styles.js', array( 'jquery' ), '', true );
-    }
+    // if(is_author()) {
+    //     wp_enqueue_script( 'swagger-js', get_template_directory_uri() . '/assets/swagger-js/browser/swagger-client.js', array( 'jquery' ), '', true );
+    //     wp_enqueue_script( 'citeproc-js1', get_template_directory_uri() . '/assets/citeproc-js/xmle4x.js', array( 'jquery' ), '', true );
+    //     wp_enqueue_script( 'citeproc-js2', get_template_directory_uri() . '/assets/citeproc-js/xmldom.js', array( 'jquery' ), '', true );
+    //     wp_enqueue_script( 'citeproc-js', get_template_directory_uri() . '/assets/citeproc-js/citeproc.js', array( 'jquery' ), '', true );
+    //     wp_enqueue_script( 'orcid-js', get_template_directory_uri() . '/assets/lib/orcid.js', array( 'jquery' ), '', true );
+    //     wp_enqueue_script( 'styles-js', get_template_directory_uri() . '/assets/lib/styles.js', array( 'jquery' ), '', true );
+    // }
 
     // Adding scripts file in the footer
     wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );

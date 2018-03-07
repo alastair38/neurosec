@@ -1,10 +1,8 @@
-<div class="col s12">
-
 <?php
 // , '0000-0002-1363-5027' 0000-0003-4883-1375
 
-$idNum = get_field('orcid_id', 'user_' . $author_id  . '');
 
+$idNum = get_field('orcid_id', 'user_' . $author_id  . '');
 $orcidID = array();
 array_push($orcidID, $idNum);
 
@@ -56,10 +54,10 @@ function fetch($orcidID, $elementID, $pubLimit, $ordem) {
 	if ($sliceProfile == 1) {
 
 		// Biografia
-		if ($elementID == 'bio'){
-			echo '<h2>Biografia</h2>';
-			echo $jsonInput['biography']['content'];
-		}
+		// if ($elementID == 'bio'){
+		// 	echo '<h2>Biografia</h2>';
+		// 	echo $jsonInput['biography']['content'];
+		// }
 
 	} else {
 		$pubIDs = [];
@@ -106,16 +104,16 @@ function fetchPubArray(&$orcidID, &$pubIDs, &$pubLimit) {
 	}
 
 
-	$out = cURL('https://pub.orcid.org/v2.0/' . $orcidID . '/person');
-	$jsonInputNome = json_decode($out, true);
-
-	if (!is_null($jsonInputNome['name']['credit-name'])) {
-		$pessoa = $jsonInputNome['name']['credit-name']['value'];
-	} else {
-		$nome1 = $jsonInputNome['name']['given-names']['value'];
-		$nome2 = $jsonInputNome['name']['family-name']['value'];
-		$pessoa = $nome1 . ' ' . $nome2;
-	}
+	// $out = cURL('https://pub.orcid.org/v2.0/' . $orcidID . '/person');
+	// $jsonInputNome = json_decode($out, true);
+	//
+	// if (!is_null($jsonInputNome['name']['credit-name'])) {
+	// 	$pessoa = $jsonInputNome['name']['credit-name']['value'];
+	// } else {
+	// 	$nome1 = $jsonInputNome['name']['given-names']['value'];
+	// 	$nome2 = $jsonInputNome['name']['family-name']['value'];
+	// 	$pessoa = $nome1 . ' ' . $nome2;
+	// }
 
 
 	for ($i=1; $i <= $varNum ; $i++) {
@@ -300,4 +298,3 @@ function cmpPessoa($a, $b) {
     }
 }
 ?>
-</div>

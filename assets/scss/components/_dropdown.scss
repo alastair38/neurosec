@@ -219,7 +219,6 @@
 // }
 
 nav > ul#menu-main {
-  color: red;
   margin: 0rem;
   padding: 0;
   display: flex;
@@ -230,7 +229,7 @@ nav > ul#menu-main {
 }
 
 nav > ul > li {
-  width: 100%;
+  flex-grow: 1;
 }
 
 .dropdown li {

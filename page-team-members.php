@@ -30,10 +30,13 @@ $hide_projects = get_field('hide_projects');
 
 					 	// loop through the rows of data
 					    while ( have_rows('members_layout') ) : the_row();?>
-								<?php $members = get_sub_field('section_members');?>
+								<?php $members = get_sub_field('section_members');
+								$pi_text = get_sub_field('section_text');
+								$row = get_row_index();
+								?>
 								<div class="col s12">
 								<h2 class="light center"><?php the_sub_field('section_title');?></h2>
-								<?php if(count($members) === 1) {
+								<?php if(count($members) === 1 && $row === 1) {
 									foreach($members as $member) {
 										$user_image = get_field('user_image', 'user_' . $member['ID'] . '');
 										$work_title = get_field('work_title', 'user_' . $member['ID'] . '');
@@ -49,7 +52,7 @@ $hide_projects = get_field('hide_projects');
 
 											<h3 class="card-title"><a href="<?php echo get_author_posts_url($member['ID'], $member['user_nicename']);?>"><?php echo $member['display_name'];?></a></h3>
 											<span class="work-title block"><?php echo $work_title;?></span>
-											<?php echo $work_biog;?>
+											<?php echo $pi_text;?>
 										</div>
 
 											</div>

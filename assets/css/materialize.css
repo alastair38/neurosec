@@ -3866,7 +3866,6 @@ button.btn-floating {
   display: block; }
 
 nav > ul#menu-main {
-  color: red;
   margin: 0rem;
   padding: 0;
   display: flex;
@@ -3875,7 +3874,7 @@ nav > ul#menu-main {
     background: whitesmoke; }
 
 nav > ul > li {
-  width: 100%; }
+  flex-grow: 1; }
 
 .dropdown li {
   display: flex;

@@ -189,3 +189,21 @@
     }
   }
 }
+
+#team-layout {
+  h2 {
+    font-size: $h5-fontsize;
+  }
+  .card-content {
+    .card-title {
+      line-height: 1rem;
+    }
+    p {
+      font-weight: 400;
+      font-size: 1rem;
+    }
+    .work-title {
+      padding-bottom: .5rem;
+    }
+  }
+}

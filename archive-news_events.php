@@ -1,6 +1,6 @@
 <?php get_header();?>
 
-<div>
+<div class="container">
 
 		<div class="row" role="main">
 			<div class="col s12">
@@ -13,7 +13,7 @@
 
 
 		    <div class="col s12">
-					<div class="col s12">
+					<div class="col s12 filter-controls">
 						<a class="chip" href="#filter">Filter <?php post_type_archive_title(); ?><i class="filter material-icons">filter_list</i></a>
 					</div>
 

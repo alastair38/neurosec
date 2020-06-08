@@ -26,6 +26,8 @@ get_header();
 			curl_close($curl);
 
 			var_dump($response);
+
+				endwhile; endif;
 				?>
 
 			</div> <!-- end #main -->

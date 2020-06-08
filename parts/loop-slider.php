@@ -11,7 +11,7 @@
 		'post_type' => $post_type,
 		// 'meta_key'=>'event_date',
 		// 'orderby' => 'meta_value',
-		'order' => DESC
+		'order' => 'DESC'
 	);
 
 	$slider_posts = get_posts( $args );

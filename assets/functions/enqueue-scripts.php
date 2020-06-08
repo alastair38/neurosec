@@ -15,7 +15,7 @@ function site_scripts() {
   wp_enqueue_script( 'materialize-js', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js', array( 'jquery' ), '', true );
 
     if(is_front_page()){
-      wp_enqueue_script( 'slick-js', 'http://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js', array('jquery'), '', true );
+      wp_enqueue_script( 'slick-js', 'https://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js', array('jquery'), '', true );
       wp_enqueue_script( 'slickinit-js', get_template_directory_uri() . '/assets/js/slickinit.js', array( 'jquery' ), '', true );
     }
 
@@ -36,10 +36,10 @@ function site_scripts() {
     // Register main stylesheet
 
     // Register material icons stylesheet
-    wp_enqueue_style( 'material-icons', 'http://fonts.googleapis.com/icon?family=Material+Icons', array(), '', 'all' );
+    wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), '', 'all' );
 
     // Register main stylesheet
-    wp_enqueue_style( 'slick-css', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css', array(), '', 'all' );
+    wp_enqueue_style( 'slick-css', 'https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css', array(), '', 'all' );
 
     // Register main stylesheet
     wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/materialize.css', array(), '', 'all' );

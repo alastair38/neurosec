@@ -31,7 +31,7 @@ get_header();
 			});
 
 				</script>
-
+<?php 	endwhile; endif;?>
 			</div> <!-- end #main -->
 
 

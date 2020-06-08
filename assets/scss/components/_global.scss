@@ -514,7 +514,7 @@ td, th{
   .collection-item {
     background-color: $collection-bg-color;
     line-height: 1.5rem;
-    padding: 10px 20px;
+    padding: 2rem;
     margin: 0;
     border-bottom: 1px solid $collection-border-color;
 
@@ -541,9 +541,13 @@ td, th{
         text-align: center;
       }
 
-
       .title {
-        font-size: 16px;
+        font-size: $h5-fontsize;
+        margin-top: 0.5rem;
+      }
+
+      a:hover, a:focus {
+        color: #1366e8;
       }
 
       p {

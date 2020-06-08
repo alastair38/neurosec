@@ -174,9 +174,13 @@ nav {
   position: relative;
   height: $navbar-height-mobile;
   z-index: 997;
+  width: 100%;
 
   nav {
-    position: fixed;
+    position: initial;
+    &.fixed {
+      position: fixed;
+    }
   }
 }
 @media #{$medium-and-up} {

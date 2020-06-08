@@ -38,6 +38,7 @@ MEDIA QUERIES
   100% { opacity: 1; }
 }
 
+
 #menu-main {
   animation: show 2s 1;
 }
@@ -401,7 +402,7 @@ a.dropdown-button.active {
 
 
 
-a.active + ul {display:block; opacity: 1;}
+a.active ~ ul {display:block; opacity: 1;}
 
 .block {
 	display: block;
@@ -703,6 +704,17 @@ article section {
 }
 .resource-page-title {
   font-size: $h3-fontsize;
+}
+
+.author {
+  h2 {
+    font-size: $h4-fontsize;
+    font-weight: 300;
+  }
+  h3 {
+    font-size: $h5-fontsize;
+    font-weight: 300;
+  }
 }
 
 label.authors {

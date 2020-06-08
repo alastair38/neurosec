@@ -5,7 +5,7 @@
 ?>
 <div class="navbar-fixed">
 
-<nav>
+<nav id="nav-container" class="fixed">
 	<div class="logo_wrapper" style="background: url(<?php echo $header_logo; ?>)
 	no-repeat; background-size: 20%; background-position: 98% center;"><a id="log_link" href="<?php bloginfo('url'); ?>"><img id="logo" class="center"
 		<?php
@@ -22,18 +22,18 @@
 <h1 class="screen-reader-text"><?php bloginfo('name'); ?></h1>
 
 
-			<div class="center hide-on-med-and-down">
+			<div class="hide-on-med-and-down">
 				<?php joints_top_nav(); ?>
 
 			</div>
 
 
-	<ul id="slide-out" class="side-nav">
-		<div class="center teal white-text">
+
+		<!-- <div class="center teal white-text">
 			<?php bloginfo('name'); ?>
-      </div>
-		<?php joints_top_nav(); ?>
-  </ul>
+      </div> -->
+		<?php joints_off_canvas_nav(); ?>
+
   <a href="" data-activates="slide-out" class="button-collapse right"><i class="material-icons">menu</i></a>
 		</div>
 </nav>

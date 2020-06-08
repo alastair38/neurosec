@@ -194,9 +194,19 @@
   h2 {
     font-size: $h5-fontsize;
   }
+  .card.large {
+    .work-title {
+      font-size: 0.9rem;
+    }
+    .card-image img {
+      height: 250px;
+      object-fit: cover;
+    }
+  }
   .card-content {
+    height: 150px;
     .card-title {
-      line-height: 1rem;
+      line-height: 1.15rem;
     }
     p {
       font-weight: 400;

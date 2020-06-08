@@ -72,7 +72,7 @@ $hide_projects = get_field('hide_projects');
 										<div class="card-content">
 
 											<h3 class="card-title"><a href="<?php echo get_author_posts_url($member['ID'], $member['user_nicename']);?>"><?php echo $member['display_name'];?></a></h3>
-											<span class="block"><?php echo $work_title;?></span>
+											<span class="work-title block"><?php echo $work_title;?></span>
 
 										</div>
 

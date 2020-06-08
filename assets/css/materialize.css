@@ -3492,13 +3492,20 @@ small {
 
 #team-layout h2 {
   font-size: 1.64rem; }
-#team-layout .card-content .card-title {
-  line-height: 1rem; }
-#team-layout .card-content p {
-  font-weight: 400;
-  font-size: 1rem; }
-#team-layout .card-content .work-title {
-  padding-bottom: .5rem; }
+#team-layout .card.large .work-title {
+  font-size: 0.9rem; }
+#team-layout .card.large .card-image img {
+  height: 250px;
+  object-fit: cover; }
+#team-layout .card-content {
+  height: 150px; }
+  #team-layout .card-content .card-title {
+    line-height: 1.15rem; }
+  #team-layout .card-content p {
+    font-weight: 400;
+    font-size: 1rem; }
+  #team-layout .card-content .work-title {
+    padding-bottom: .5rem; }
 
 #toast-container {
   display: block;

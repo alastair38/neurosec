@@ -180,6 +180,7 @@ nav {
     position: initial;
     &.fixed {
       position: fixed;
+      top: 0;
     }
   }
 }

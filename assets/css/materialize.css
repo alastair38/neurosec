@@ -2058,13 +2058,13 @@ a {
   -webkit-tap-highlight-color: transparent;
   border-bottom: 1px dotted transparent; }
 
-article a:not(.btn):not(.btn-large):hover, #sidebar1 a:not(.btn):not(.btn-large):hover, .profile-details a:hover {
+article a:not(.btn):not(.btn-large):hover, article a:not(.btn):not(.btn-large):focus, #sidebar1 a:not(.btn):not(.btn-large):hover, #sidebar1 a:not(.btn):not(.btn-large):focus, .profile-details a:hover, .profile-details a:focus, #user_biog a:hover, #user_biog a:focus {
   color: #1366e8;
   border-bottom: 1px dotted; }
 
-.share-links a:hover {
+.share-links a:hover, .share-links a:focus {
   border-bottom: 1px dotted transparent !important; }
-  .share-links a:hover ~ svg {
+  .share-links a:hover ~ svg, .share-links a:focus ~ svg {
     fill: #444; }
 
 .valign-wrapper {
@@ -2396,6 +2396,15 @@ td, th {
     padding: 2rem;
     margin: 0;
     border-bottom: 1px solid #e0e0e0; }
+    .collection .collection-item details:focus {
+      outline: none; }
+    .collection .collection-item summary:focus {
+      outline: none; }
+    .collection .collection-item summary.chip {
+      margin-bottom: 1rem; }
+    .collection .collection-item details[open] summary {
+      background: white;
+      border: 1px solid; }
     .collection .collection-item.avatar {
       min-height: 84px;
       padding-left: 72px;
@@ -3196,7 +3205,8 @@ nav {
   .navbar-fixed nav {
     position: initial; }
     .navbar-fixed nav.fixed {
-      position: fixed; }
+      position: fixed;
+      top: 0; }
 
 @media only screen and (min-width: 601px) {
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
@@ -4168,7 +4178,8 @@ nav > ul > li {
   border-radius: 16px;
   background-color: #e4e4e4;
   margin-bottom: 5px;
-  margin-right: 5px; }
+  margin-right: 5px;
+  border: 1px solid transparent; }
   .chip img {
     float: left;
     margin: 0 8px 0 -12px;
@@ -4187,8 +4198,9 @@ nav > ul > li {
     font-size: 16px;
     line-height: 32px;
     padding-left: 8px; }
-  .chip:hover {
-    background: white; }
+  .chip:hover, .chip:focus {
+    background: white;
+    border: 1px solid; }
 
 .chips {
   border: none;
@@ -5262,7 +5274,7 @@ input[type=range]:focus::-ms-fill-upper {
   height: 100%;
   height: calc(100% + 60px);
   height: -moz-calc(100%);
-  padding-bottom: 60px;
+  padding: 1rem;
   background-color: #fff;
   z-index: 999;
   overflow-y: auto;
@@ -5278,7 +5290,7 @@ input[type=range]:focus::-ms-fill-upper {
     margin: 0; }
   .side-nav li {
     float: none;
-    line-height: 48px; }
+    padding: 0 .5rem; }
     .side-nav li.active {
       background-color: rgba(0, 0, 0, 0.05); }
   .side-nav a {
@@ -5286,9 +5298,8 @@ input[type=range]:focus::-ms-fill-upper {
     display: block;
     font-size: 14px;
     font-weight: 500;
-    height: 48px;
-    line-height: 48px;
-    padding: 0 32px; }
+    line-height: 1.25;
+    padding: .5rem; }
     .side-nav a:hover {
       background-color: rgba(0, 0, 0, 0.05); }
     .side-nav a.btn, .side-nav a.btn-large, .side-nav a.btn-large, .side-nav a.btn-flat, .side-nav a.btn-floating {
@@ -5305,8 +5316,6 @@ input[type=range]:focus::-ms-fill-upper {
   .side-nav li > a > [class^="mdi-"], .side-nav li > a > [class*="mdi-"],
   .side-nav li > a > i.material-icons {
     float: left;
-    height: 48px;
-    line-height: 48px;
     margin: 0 32px 0 0;
     width: 24px;
     color: rgba(0, 0, 0, 0.54); }
@@ -5374,8 +5383,6 @@ input[type=range]:focus::-ms-fill-upper {
     transform: translateX(-105%); }
     .side-nav.fixed.right-aligned {
       transform: translateX(105%); }
-  .side-nav a {
-    padding: 0 16px; }
   .side-nav .userView {
     padding: 16px 16px 0; } }
 .side-nav .collapsible-body > ul:not(.collapsible) > li.active,
@@ -5394,6 +5401,9 @@ input[type=range]:focus::-ms-fill-upper {
   background-color: rgba(0, 0, 0, 0.5);
   will-change: opacity; }
 
+@media only screen and (min-width: 993px) {
+  #slide-out {
+    display: none; } }
 /*
     @license
     Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
@@ -6686,6 +6696,9 @@ MEDIA QUERIES
     opacity: 0; }
   100% {
     opacity: 1; } }
+html {
+  scroll-behavior: smooth; }
+
 #menu-main {
   animation: show 2s 1; }
 
@@ -6697,6 +6710,12 @@ body {
 main {
   flex: 1 0 auto;
   font-size: 1.2rem; }
+
+.flex-center {
+  display: flex;
+  justify-content: center; }
+  .flex-center .col.s6.m4.l3 {
+    margin-left: initial; }
 
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
@@ -6957,13 +6976,6 @@ i.mdi.mdi-menu {
 .is_stuck {
   margin-top: 4rem;
   transition: 350ms; }
-
-@media only screen and (max-width: 992px) {
-  .side-nav li {
-    padding: 0; } }
-@media only screen and (max-width: 992px) {
-  .side-nav li .dropdown-content {
-    width: 100% !important; } }
 
 ul#dropdown-1 li {
   width: 100%; }

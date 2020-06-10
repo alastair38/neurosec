@@ -90,9 +90,15 @@ $user_image = get_field('user_image', 'user_' . $author_id  . '');
 														<h3 class="title"><a href="<?php echo get_permalink( $publication->ID ); ?>">
 															<?php echo get_the_title( $publication->ID ); ?>
 														</a></h3>
-														<p>
-															<?php echo get_the_content(null, false, $publication->ID);?>
-														</p>
+														<details>
+															<summary class="chip">
+																<?php _e( 'View Abstract', 'neurosec' ); ?>
+															</summary>
+															<p>
+																<?php echo get_the_content(null, false, $publication->ID);?>
+															</p>
+														</details>
+
 													</li>
 												<?php endforeach; ?>
 												</ul>

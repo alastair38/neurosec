@@ -10,6 +10,7 @@
   background-color: $chip-bg-color;
   margin-bottom: $chip-margin;
   margin-right: $chip-margin;
+  border: 1px solid transparent;
 
   img {
     float: left;
@@ -34,8 +35,9 @@
     padding-left: 8px;
 
 }
-&:hover {
+&:hover, &:focus {
   background: white;
+  border: 1px solid;
 }
 }
 

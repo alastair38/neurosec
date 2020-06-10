@@ -5,7 +5,7 @@
 ?>
 <div class="navbar-fixed">
 
-<nav id="nav-container" class="fixed">
+<nav id="nav-container">
 	<div class="logo_wrapper" style="background: url(<?php echo $header_logo; ?>)
 	no-repeat; background-size: 20%; background-position: 98% center;"><a id="log_link" href="<?php bloginfo('url'); ?>"><img id="logo" class="center"
 		<?php
@@ -16,7 +16,9 @@
 			} else {?>
 			src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt=""
 			<?php }?>
-				/></a></div>
+				/></a>
+			<a href="#" data-activates="slide-out" class="button-collapse right hide-on-large"><i class="material-icons">menu</i></a>
+			</div>
 
 	<div class="nav-wrapper">
 <h1 class="screen-reader-text"><?php bloginfo('name'); ?></h1>
@@ -32,9 +34,14 @@
 		<!-- <div class="center teal white-text">
 			<?php bloginfo('name'); ?>
       </div> -->
+
+		<div id="slide-out" class="side-nav">
+		<span class="block center"><?php bloginfo('name'); ?></span>
 		<?php joints_off_canvas_nav(); ?>
 
-  <a href="" data-activates="slide-out" class="button-collapse right"><i class="material-icons">menu</i></a>
+	</div>
+
+
 		</div>
 </nav>
 </div>

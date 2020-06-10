@@ -39,6 +39,10 @@ MEDIA QUERIES
 }
 
 
+html {
+  scroll-behavior: smooth;
+}
+
 #menu-main {
   animation: show 2s 1;
 }
@@ -54,8 +58,13 @@ main {
   font-size: 1.2rem;
 }
 
-
-
+.flex-center {
+  display: flex;
+  justify-content: center;
+  .col.s6.m4.l3 {
+    margin-left: initial;
+  }
+}
 
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
@@ -378,17 +387,6 @@ button.btn-floating.btn.green.modal-trigger.waves-effect.waves-light {
 .is_stuck {
 margin-top: 4rem;
 transition: 350ms;
-}
-
-.side-nav li {
-	@media #{$medium-and-down} {
-		padding: 0;
-	}
-	.dropdown-content {
-		@media #{$medium-and-down} {
-			width: 100% !important;
-		}
-	}
 }
 
 

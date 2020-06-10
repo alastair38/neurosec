@@ -27,15 +27,43 @@ and Materialize play nice together.
 //
 // });
 
+// When the user scrolls the page, execute myFunction
+window.onscroll = function() {stickyFunction()};
+
+// Get the header
+var header = document.getElementById("nav");
+
+// Get the offset position of the navbar
+var sticky = 150;
+
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function stickyFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("fixed");
+  } else {
+    header.classList.remove("fixed");
+  }
+}
+
+
 $(document).ready(function () {
-    $(".dropdown-button").click(function () {
+    $(".dropdown-button").click(function (event) {
         //$('#nav-container').toggleClass('fixed');
+        event.preventDefault();
         var isActive = ($(this).hasClass('js-open')) ? true : false; // checks if it is already active
-        console.log("isActive: " + isActive);
+
         $('.dropdown-button').removeClass('js-open');
         if (!isActive) $(this).addClass('js-open'); // set active only if it was not active
     });
+    $(".dropdown-button + .dropdown-content > li:last-child").focusout(function () {
+    //This will check if any main dropdown-content last li loses focus. If it does, the dropdown-content closes when tabbing through the menu items
+
+    $(".dropdown-button").removeClass('js-open');
+
 });
+});
+
+
 
 
 // $(document).ready(function() {
@@ -161,13 +189,13 @@ $(document).ready(function () {
 // })
 
 
-$('body').on('click','a[href^="#"]',function(event){
-    event.preventDefault();
-    var target_offset = $(this.hash).offset() ? $(this.hash).offset().top : 0;
-    //change this number to create the additional off set
-    var customoffset = $("header").height();
-    $('html, body').animate({scrollTop:target_offset - customoffset}, 900);
-});
+// $('body').on('click','a[href^="#"]',function(event){
+//     event.preventDefault();
+//     var target_offset = $(this.hash).offset() ? $(this.hash).offset().top : 0;
+//     //change this number to create the additional off set
+//     var customoffset = $("header").height();
+//     $('html, body').animate({scrollTop:target_offset - customoffset}, 900);
+// });
 
 var options = [
     {selector: '#more', offset: 50, callback: 'Materialize.fadeInImage("#starting")' }
@@ -181,7 +209,7 @@ $('.modal-action').click(function(){
   // Initialize collapse button
   $(".button-collapse").sideNav();
   // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-  //$('.collapsible').collapsible();
+  $('.collapsible').collapsible();
   // $('.dropdown-button').dropdown({
   //     inDuration: 300,
   //     outDuration: 225,

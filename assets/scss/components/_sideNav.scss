@@ -8,7 +8,7 @@
   height: 100%;
   height: calc(100% + 60px);
   height: -moz-calc(100%); //Temporary Firefox Fix
-  padding-bottom: 60px;
+  padding: 1rem;
   background-color: $sidenav-bg-color;
   z-index: 999;
   overflow-y: auto;
@@ -33,7 +33,8 @@
 
   li {
     float: none;
-    line-height: $sidenav-item-height;
+    padding: 0 .5rem;
+    //line-height: $sidenav-item-height;
 
     &.active { background-color: rgba(0,0,0,.05); }
   }
@@ -43,9 +44,9 @@
     display: block;
     font-size: $sidenav-font-size;
     font-weight: 500;
-    height: $sidenav-item-height;
-    line-height: $sidenav-item-height;
-    padding: 0 ($sidenav-padding * 2);
+    // height: $sidenav-item-height;
+    line-height: 1.25;
+    padding: .5rem;
 
     &:hover { background-color: rgba(0,0,0,.05);}
 
@@ -67,8 +68,8 @@
   li > a > [class^="mdi-"], li > a > [class*="mdi-"],
   li > a > i.material-icons {
     float: left;
-    height: $sidenav-item-height;
-    line-height: $sidenav-item-height;
+    // height: $sidenav-item-height;
+    // line-height: $sidenav-item-height;
     margin: 0 ($sidenav-padding * 2) 0 0;
     width: $sidenav-item-height / 2;
     color: rgba(0,0,0,.54);
@@ -173,11 +174,6 @@
         transform: translateX(105%);
       }
     }
-
-    a {
-      padding: 0 $sidenav-padding;
-    }
-
     .userView {
       padding: $sidenav-padding $sidenav-padding 0;
     }
@@ -204,4 +200,10 @@
   background-color: rgba(0,0,0,.5);
 
   will-change: opacity;
+}
+
+@media #{$large-and-up} {
+#slide-out {
+  display: none;
+}
 }

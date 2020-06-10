@@ -40,15 +40,15 @@ class Topbar_Menu_Walker extends Walker_Nav_Menu {
 class Off_Canvas_Menu_Walker extends Walker_Nav_Menu {
   function start_lvl(&$output, $depth = 0, $args = Array() ) {
       $indent = str_repeat("\t", $depth);
-      $output .= "\n$indent<ul class=\"ollapsible-body\">\n";
+      $output .= "\n$indent<ul class=\"\">\n";
   }
   function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
      $item_html = '';
      parent::start_el($item_html, $item, $depth, $args);
 
      if ( $item->is_dropdown && $depth === 0 ) {
-         $item_html = str_replace( '<a', '<a class="ollapsible-header"', $item_html );
-        // $item_html = str_replace( '</a>', '<i class="mdi mdi-menu-down"></i></a>', $item_html );
+         $item_html = str_replace( '<a', '<a class=""', $item_html );
+         //$item_html = str_replace( '</a>', '<i class="mdi mdi-menu-down"></i></a>', $item_html );
      }
 
      $output .= $item_html;
@@ -66,7 +66,7 @@ class Off_Canvas_Menu_Walker extends Walker_Nav_Menu {
           } elseif ( $depth === 1 ) {
               // Extra level of dropdown menu,
               // as seen in http://twitter.github.com/bootstrap/components.html#dropdowns
-              $element->classes[] = 'ollapsible-body';
+              $element->classes[] = '';
           }
       }
 

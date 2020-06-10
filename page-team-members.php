@@ -34,10 +34,11 @@ $hide_projects = get_field('hide_projects');
 								$pi_text = get_sub_field('section_text');
 								$row = get_row_index();
 								?>
-								<div class="col s12">
-								<h2 class="light center"><?php the_sub_field('section_title');?></h2>
-								<?php if(count($members) === 1 && $row === 1) {
-									foreach($members as $member) {
+
+								<?php if(count($members) === 1 && $row === 1) {?>
+									<div class="col s12">
+									<h2 class="light center"><?php the_sub_field('section_title');?></h2>
+								<?php	foreach($members as $member) {
 										$user_image = get_field('user_image', 'user_' . $member['ID'] . '');
 										$work_title = get_field('work_title', 'user_' . $member['ID'] . '');
 										$work_biog = get_field('work_biog', 'user_' . $member['ID'] . '');
@@ -59,8 +60,11 @@ $hide_projects = get_field('hide_projects');
 										</div>
 									</div>
 									<?php }
-								} else {
-									foreach($members as $member) {
+								} else {?>
+									<div class="col s12">
+									<h2 class="light center"><?php the_sub_field('section_title');?></h2>
+									<div class="flex-center">
+									<?php foreach($members as $member) {
 										$user_image = get_field('user_image', 'user_' . $member['ID'] . '');
 										$work_title = get_field('work_title', 'user_' . $member['ID'] . '');
 										?>
@@ -81,6 +85,7 @@ $hide_projects = get_field('hide_projects');
 									</div>
 
 									<?php }
+									echo '</div>';
 								}
 								echo '</div>';
 					    endwhile;

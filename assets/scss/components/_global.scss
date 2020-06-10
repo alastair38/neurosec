@@ -37,12 +37,14 @@ a {
   border-bottom: 1px dotted transparent;
 }
 
-article a:not(.btn):hover, #sidebar1 a:not(.btn):hover, .profile-details a:hover {
-  color: $link-color-hover;
-  border-bottom: 1px dotted;
+article a:not(.btn), #sidebar1 a:not(.btn), .profile-details a, #user_biog a {
+  &:hover, &:focus {
+    color: $link-color-hover;
+    border-bottom: 1px dotted;
+  }
 }
 
-.share-links a:hover {
+.share-links a:hover, .share-links a:focus {
     border-bottom: 1px dotted transparent !important;
     ~ svg {
       fill: #444;
@@ -517,6 +519,19 @@ td, th{
     padding: 2rem;
     margin: 0;
     border-bottom: 1px solid $collection-border-color;
+    details:focus {
+    outline: none;
+    }
+    summary:focus {
+    outline:none;
+    }
+    summary.chip {
+    margin-bottom: 1rem;
+    }
+    details[open] summary {
+    background: white;
+    border: 1px solid;
+    }
 
     // Avatar Collection
     &.avatar {

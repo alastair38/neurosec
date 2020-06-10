@@ -6713,7 +6713,8 @@ main {
 
 .flex-center {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  flex-wrap: wrap; }
   .flex-center .col.s6.m4.l3 {
     margin-left: initial; }
 

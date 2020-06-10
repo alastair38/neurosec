@@ -61,6 +61,7 @@ main {
 .flex-center {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   .col.s6.m4.l3 {
     margin-left: initial;
   }

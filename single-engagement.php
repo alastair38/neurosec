@@ -12,28 +12,28 @@ get_header(); ?>
 
 		    	<?php get_template_part( 'parts/loop', 'single' );
 
-					$sibling_args = array(
-						'sort_order' => 'asc',
-						'sort_column' => 'post_title',
-						'hierarchical' => 1,
-						'exclude' => $post->ID,
-						'include' => '',
-						'meta_key' => '',
-						'meta_value' => '',
-						'authors' => '',
-						'child_of' => $post->post_parent,
-						'parent' => $post->post_parent,
-						'exclude_tree' => '',
-						'number' => '',
-						'offset' => 0,
-						'post_type' => 'engagement',
-						'post_status' => 'publish'
-					);
-					$siblings = get_pages($sibling_args);
+					// $sibling_args = array(
+					// 	'sort_order' => 'asc',
+					// 	'sort_column' => 'post_title',
+					// 	'hierarchical' => 1,
+					// 	'exclude' => $post->ID,
+					// 	'include' => '',
+					// 	'meta_key' => '',
+					// 	'meta_value' => '',
+					// 	'authors' => '',
+					// 	'child_of' => $post->post_parent,
+					// 	'parent' => $post->post_parent,
+					// 	'exclude_tree' => '',
+					// 	'number' => '',
+					// 	'offset' => 0,
+					// 	'post_type' => 'engagement',
+					// 	'post_status' => 'publish'
+					// );
+					// $siblings = get_pages($sibling_args);
 
 				$children_args = array(
-					'sort_order' => 'asc',
-					'sort_column' => 'post_title',
+					'sort_order' => 'DESC',
+					'sort_column' => 'post_date',
 					'hierarchical' => 1,
 					'exclude' => '',
 					'include' => '',
@@ -60,28 +60,39 @@ get_header(); ?>
 		?>
 
 		</div>
-		<aside id="sidebar1" class="col white s12 l4 valign" role="complementary">
-		<ul class="col center card s12 z-depth-0"><h5 class="light">Links</h5>
-			<?php if($post->post_parent){?>
-	<li class="links"><a class="" href="<?php echo get_the_permalink($post->post_parent); ?>"><?php echo ' ' . get_the_title($post->post_parent); ?></a></li>
-	<?php }?>
 
-<?php
-		if ($siblings) {
-		foreach ($siblings as $sibling) {
-		 echo '<li class="links"><a href="' . $sibling->guid . '">' . $sibling->post_title . '</a></li>';
-		}
-	}
-?>
+		<?php
+		$related = get_field('related_content');
 
-</ul>
-</aside>
+		$featured_posts = $related['related_pages'];
+		if( $featured_posts ): ?>
+		<aside id="sidebar1" class="col white s12 l4" role="complementary">
+			<h2 class="light center h5"><?php echo $related['sidebar_heading'];?> </h2>
+			<ul class="card z-depth-0 center">
+
+			<?php foreach( $featured_posts as $post ):
+					// Setup this post for WP functions (variable must be named $post).
+				setup_postdata($post); ?>
+
+				<li>
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				</li>
+
+			<?php endforeach; ?>
+
+			</ul>
+		</aside>
+		<?php
+		// Reset the global post object so that the rest of the page works correctly.
+		wp_reset_postdata(); ?>
+
+	<?php endif; ?>
 
 	<?php endwhile; ?>
 
 	<?php endif; ?>
 
-</div> <!-- end row -->
+	</div> <!-- end row -->
 </div> <!-- end container -->
 
 <?php get_footer(); ?>

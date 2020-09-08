@@ -157,33 +157,34 @@ $terms = get_terms( 'publication_type', array(
 			<?php }
 
 }
-if (is_page_template( 'ypag-template.php' )) {
-	$children_args = array(
-		'sort_order' => 'asc',
-		'sort_column' => 'post_title',
-		'hierarchical' => 1,
-		'exclude' => '',
-		'include' => '',
-		'meta_key' => '',
-		'meta_value' => '',
-		'authors' => '',
-		'child_of' => $post->ID,
-		'parent' => $post->ID,
-		'exclude_tree' => '',
-		'number' => '',
-		'offset' => 0,
-		'post_type' => 'engagement',
-		'post_status' => 'publish'
-	);
-	$children = get_pages($children_args);
-	if ($children) {
-	echo '<ul class="col card s12 z-depth-0 center"><h5 class="light">Links</h5>';
-	foreach ($children as $child) {
-	$trimmed = wp_trim_words( $child->post_content, $num_words = 20, $more = null );
-	 echo '<li class=""><a href="' . $child->guid . '">' . $child->post_title . '</a></li>';
- } echo '</ul>';
-}
-};
+// if (is_page_template( 'ypag-template.php' )) {
+// 	$children_args = array(
+// 		'sort_order' => 'asc',
+// 		'sort_column' => 'post_title',
+// 		'hierarchical' => 1,
+// 		'exclude' => '',
+// 		'include' => '',
+// 		'meta_key' => '',
+// 		'meta_value' => '',
+// 		'authors' => '',
+// 		'child_of' => $post->ID,
+// 		'parent' => $post->ID,
+// 		'exclude_tree' => '',
+// 		'number' => '',
+// 		'offset' => 0,
+// 		'post_type' => 'engagement',
+// 		'post_status' => 'publish'
+// 	);
+// 	$children = get_pages($children_args);
+// 	print_r($children);
+// 	if ($children) {
+// 	echo '<ul class="col card s12 z-depth-0 center"><h5 class="light">Links</h5>';
+// 	foreach ($children as $child) {
+// 	$trimmed = wp_trim_words( $child->post_content, $num_words = 20, $more = null );
+// 	 echo '<li class=""><a href="' . $child->guid . '">' . $child->post_title . '</a></li>';
+//  } echo '</ul>';
+// }
+// };
 
 if (is_singular( 'projects' )) {
 	$children_args = array(

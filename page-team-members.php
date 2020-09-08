@@ -47,7 +47,7 @@ $hide_projects = get_field('hide_projects');
 										<div class="col s12">
 										<div class="card horizontal">
 
-										<div class="card-image"><img src="<?php echo $user_image['url'];?>" alt="<?php $user_image['alt'];?>" /></div>
+										<div class="card-image"><img src="<?php echo $user_image['url'];?>" alt="<?php _e( 'Photograph of ', 'neurosec' ); ?><?php echo $member['display_name'];?>" /></div>
 										<div class="card-stacked">
 										<div class="card-content">
 
@@ -71,7 +71,7 @@ $hide_projects = get_field('hide_projects');
 										<div class="col s6 m4 l3">
 										<div class="card large">
 
-										<div class="card-image"><img src="<?php echo $user_image['url'];?>" alt="<?php $user_image['alt'];?>" /></div>
+										<div class="card-image"><img src="<?php echo $user_image['url'];?>" alt="<?php _e( 'Photograph of ', 'neurosec' ); ?><?php echo $member['display_name'];?>" /></div>
 										<div class="card-stacked">
 										<div class="card-content">
 

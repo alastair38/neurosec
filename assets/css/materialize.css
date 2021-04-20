@@ -6944,6 +6944,10 @@ HEADER STYLES
     .header .brand-logo {
       font-size: 1.25rem; } }
 
+@media only screen and (max-width: 992px) {
+  nav .logo_wrapper {
+    background: none !important; } }
+
 .lean-overlay {
   height: 0; }
 
@@ -7101,7 +7105,7 @@ POSTS & CONTENT STYLES
 .um-member-name a {
   color: #0D47A1; }
 
-.page-template-page-team h5 {
+.page-template-page-team h5, .page-template-page-team .h5 {
   background: #002147;
   color: white;
   padding: .5rem;

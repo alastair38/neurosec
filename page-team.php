@@ -46,12 +46,12 @@ $hide_projects = get_field('hide_projects');
 $admins = get_field('admins');
 
 if($admins){
-	echo "<div id='admins' class='col s12'><h5 class='light center'>Admins</h5>";
+	echo "<div id='admins' class='col s12'><h2 class='h5 light center'>Admins</h2>";
 	foreach ( $admins as $admin ) {
 	$user_image = get_field('user_image', 'user_' . $admin['ID'] . '');
 	$work_title = get_field('work_title', 'user_' . $admin['ID'] . '');
 	echo '<div class="col s6 m4 l3"><article class="card large"><div class="card-image"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content">
-		<h6><a href="' . get_author_posts_url($admin['ID'], $admin['user_nicename']) . '">' . $admin['display_name'] . '</a></h6><label class="block">' . $work_title . '</label></div></article></div>' ;
+		<h3 class="h6"><a href="' . get_author_posts_url($admin['ID'], $admin['user_nicename']) . '">' . $admin['display_name'] . '</a></h3><label class="block">' . $work_title . '</label></div></article></div>' ;
 
 	}
 	echo '</div>';
@@ -107,14 +107,14 @@ foreach ($posts_array as $posts) {
 	if($members){
 
 		echo "<div class='col s12 projects'>
-		<h5 class='light center'><a class='white-text' href='" . $link . "'>" . $title . "</a></h5>";
+		<h2 class='h5 light center'><a class='white-text' href='" . $link . "'>" . $title . "</a></h2>";
 		foreach ( $members as $user ) {
 		if ($user['ID'] != $pi['ID']) {
 		$user_image = get_field('user_image', 'user_' . $user['ID'] . '');
 		$work_title = get_field('work_title', 'user_' . $user['ID'] . '');
 		$begood_project = get_field('begood_subproject', 'user_' . $user['ID'] . '');
 		echo '<div class="col s6 m4 l3"><article class="card large"><div class="card-image waves-effect waves-block waves-light"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content">
-			<h6><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a></h6><label class="block">' . $work_title . '</label>';
+			<h3 class="h6"><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a></h3><label class="block">' . $work_title . '</label>';
 			if ($begood_project) {
 				echo '<label class="block">' . implode(', ', $begood_project) . '</label>';
 			}

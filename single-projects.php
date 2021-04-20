@@ -83,7 +83,7 @@ if ( $post->post_parent == $post->ID ) {
 
 <?php $members = get_field("team_member");
 if($members){
-	echo '<div class="col card s12 z-depth-0"><h5 class="light center">Project Members</h5>';
+	echo '<div class="col card s12 z-depth-0"><h2 class="h5 light center">Project Members</h2>';
 	foreach ( $members as $user ) {
 	$user_image = get_field('user_image', 'user_' . $user['ID'] . '');
 	$work_title = get_field('work_title', 'user_' . $user['ID'] . '');

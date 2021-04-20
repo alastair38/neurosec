@@ -27,7 +27,7 @@ $user_image = get_field('user_image', 'user_' . $author_id  . '');
 
 								<?php
 									if ($user_image) {
-										echo '<div class="col s12"><img class="responsive-img circle col s2 offset-s5" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div>';
+										echo '<div class="col s12"><img class="responsive-img circle" width="200" height="200" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div>';
 									}
 									if ($work_title){
 										echo '<p><strong>Position: </strong>' . $work_title . '</p>';

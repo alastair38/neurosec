@@ -330,7 +330,13 @@ HEADER STYLES
   	}
   }
 }
-;
+
+nav .logo_wrapper {
+  @media #{$medium-and-down} {
+    background: none !important;
+  }
+}
+
 .lean-overlay {
   height: 0;
 }
@@ -543,7 +549,7 @@ POSTS & CONTENT STYLES
   color: $link-color;
 }
 
-.page-template-page-team h5 {
+.page-template-page-team h5, .page-template-page-team .h5 {
   background: $secondary-color;
   color: white;
   padding: .5rem;

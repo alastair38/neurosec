@@ -7182,7 +7182,10 @@ body.home {
 .author .container header {
   padding: 1rem; }
   .author .container header img.circle {
-    padding: 2rem; }
+    padding: 2rem;
+    height: 200px;
+    width: 200px;
+    object-fit: cover; }
 
 .card-content h2 {
   font-size: 1.64rem; }

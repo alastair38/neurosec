@@ -650,6 +650,9 @@ body.home {
   padding: 1rem;
   img.circle {
     padding: 2rem;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
   }
 }
 

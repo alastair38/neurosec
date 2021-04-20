@@ -37,10 +37,19 @@ a {
   border-bottom: 1px dotted transparent;
 }
 
-article a:not(.btn), #sidebar1 a:not(.btn), .profile-details a, #user_biog a {
+article a:not(.btn), #sidebar1 a:not(.btn), .profile-details a, #user_biog a, .modal-content a {
   &:hover, &:focus {
     color: $link-color-hover;
     border-bottom: 1px dotted;
+    + span.round-badge {
+      background: $link-color-hover;
+    }
+  }
+}
+
+.card-title a {
+  &:hover, &:focus {
+    border-bottom: 1px dotted currentColor;
   }
 }
 
@@ -642,7 +651,7 @@ span.round-badge {
   line-height: 1.5rem;
   color: #fafafa;
   box-sizing: border-box;
-  background: tomato;
+  background: color("grey", "darken-4");
   border-radius: 50%;
 }
 span.badge {

@@ -42,7 +42,7 @@
 			</div>
 
 
-			<a href="<?php the_field('publication_link');?>" class="btn oxford-blue tooltipped" data-position="top" data-delay="50" data-tooltip="This link takes you to an external website">View Details </a>
+			<a href="<?php the_field('publication_link');?>" class="btn oxford-blue tooltipped" data-position="top" data-delay="50" aria-label="<?php the_title(); ?>" data-tooltip="This link takes you to an external website">View Details </a>
 
 			</div>
 

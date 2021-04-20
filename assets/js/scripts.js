@@ -47,18 +47,25 @@ function stickyFunction() {
 
 
 $(document).ready(function () {
+
+    //$('.dropdown-button').attr("aria-expanded", "false");
+    //$('.dropdown-button').attr("aria-haspopup", "true");
+
     $(".dropdown-button").click(function (event) {
         //$('#nav-container').toggleClass('fixed');
         event.preventDefault();
         var isActive = ($(this).hasClass('js-open')) ? true : false; // checks if it is already active
 
         $('.dropdown-button').removeClass('js-open');
-        if (!isActive) $(this).addClass('js-open'); // set active only if it was not active
+        $('.dropdown-button').attr("aria-expanded", "false");
+        if (!isActive) $(this).addClass('js-open');
+        if (!isActive) $(this).attr("aria-expanded", "true"); // set active only if it was not active
     });
     $(".dropdown-button + .dropdown-content > li:last-child").focusout(function () {
     //This will check if any main dropdown-content last li loses focus. If it does, the dropdown-content closes when tabbing through the menu items
 
     $(".dropdown-button").removeClass('js-open');
+    $('.dropdown-button').attr("aria-expanded", "false");
 
 });
 });

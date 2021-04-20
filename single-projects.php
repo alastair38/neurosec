@@ -6,7 +6,7 @@ get_header(); ?>
 
 	<div class="row">
 
-		<div class="col s12 l8" role="main">
+		<div class="col s12 l8">
 
 		    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -34,7 +34,8 @@ if ( $post->post_parent == $post->ID ) {
 		?>
 
 		</div>
-		<aside id="sidebar1" class="col white s12 l4 valign" role="complementary">
+
+		<div id="sidebar1" class="col white s12 l4 valign">
 		<?php
 		$children_args = array(
 			'sort_order' => 'asc',
@@ -55,7 +56,7 @@ if ( $post->post_parent == $post->ID ) {
 		);
 		$children = get_pages($children_args);
 		if ($children || $siblings || $post->post_parent) {
-			echo '<div class="col center card s12 z-depth-0"><h5 class="center light">Links</h5>';
+			echo '<div class="col center card s12 z-depth-0"><h2 class="center h5 light">Links</h2>';
 		}
 		if ($children) {
 			echo '<ul>';
@@ -101,7 +102,7 @@ if($members){
 	echo '</div>';
 }
 ?>
-</aside>
+</div>
 
 	<?php endwhile; ?>
 

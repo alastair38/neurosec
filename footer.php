@@ -10,7 +10,7 @@
 <?php }?>
 
 
-</div>
+			</div>
 		</main> <!-- end .wrapper -->
 
 		<footer id="contact" class="page-footer center">
@@ -35,7 +35,7 @@
 			?>
 
 
-			<div id="inner-footer" class="container" role="navigation">
+			<div id="inner-footer" class="container" aria-label="Contact links" role="navigation">
 
 			<?php //joints_footer_links(); ?>
 

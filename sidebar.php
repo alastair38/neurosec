@@ -1,14 +1,14 @@
 <?php
 $title = single_cat_title("", false);
 ?>
-<aside id="sidebar1" class="col s12 l4 valign" role="complementary">
+<div id="sidebar1" class="col s12 l4 valign">
 
 	<div class="row search-related">
 <div role="search">
 <?php
 if (  is_home() || is_category() || is_singular('post') ) {?>
 
-	<h3 class="search-title grey darken-3 white-text center">Filter Articles</h3>
+	<h2 class="search-title h3 grey darken-3 white-text center">Filter Articles</h2>
 	<?php //	$my_search->the_form();
 			// echo do_shortcode( '[searchandfilter taxonomies="resource-category,category" show_count="1,1" types="checkbox,checkbox" headings="Categories,Types" hide_empty="0,0"]' );
 			$cats = get_terms( 'category', array(
@@ -24,7 +24,7 @@ if (  is_home() || is_category() || is_singular('post') ) {?>
  }?>
 <?php
 if ( is_post_type_archive('publications') || is_tax('publication_type') || is_singular('publications') ) {
-echo '<h3 class="search-title grey darken-3 white-text  center">Filter Publications</h3>';
+echo '<h2 class="search-title h3 grey darken-3 white-text  center">Filter Publications</h2>';
 $terms = get_terms( 'publication_type', array(
     'hide_empty' => 0
 ) );
@@ -73,7 +73,7 @@ $terms = get_terms( 'publication_type', array(
 	// $blogusers = get_users( $args );
 	$members = get_field("team_member");
 	if($members){
-		echo '<div class="col card s12 z-depth-0"><h5 class="light center">Project Members</h5>';
+		echo '<div class="col card s12 z-depth-0"><h2 class="light h5 center">Project Members</h2>';
 		foreach ( $members as $user ) {
 		$user_image = get_field('user_image', 'user_' . $user['ID'] . '');
 		$work_title = get_field('work_title', 'user_' . $user['ID'] . '');
@@ -148,12 +148,8 @@ $terms = get_terms( 'publication_type', array(
 			// and if it has children
 			if($parent == 0 && !is_null($args))
 			{?>
-
-
-					 <?php
+		 <?php
 					 wp_list_pages($args);  ?>
-
-
 			<?php }
 
 }
@@ -206,7 +202,7 @@ if (is_singular( 'projects' )) {
 	);
 	$children = get_pages($children_args);
 	if ($children) {
-	echo '<ul class="col card s12 z-depth-0 center"><h5 class="light">Links</h5>';
+	echo '<ul class="col card s12 z-depth-0 center"><h2 class="light h5">Links</h2>';
 	foreach ($children as $child) {
 	$trimmed = wp_trim_words( $child->post_content, $num_words = 20, $more = null );
 	 echo '<li class=""><a href="' . $child->guid . '">' . $child->post_title . '</a></li>';
@@ -220,4 +216,4 @@ if (is_singular( 'projects' )) {
 
 	</div>
 
-</aside>
+</div>

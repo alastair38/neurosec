@@ -2,7 +2,7 @@
 
 <div class="container">
 
-		<div class="row" role="main">
+		<div class="row">
 			<div class="col s12">
 
 				<header>

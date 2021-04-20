@@ -17,7 +17,7 @@ $user_image = get_field('user_image', 'user_' . $author_id  . '');
 
 <div class="container">
 
-		<div class="row" role="main">
+		<div class="row">
 
 					<header class="col s12 center">
 						<h1 class="page-title light"><?php echo get_the_author_meta( 'display_name', $author_id );?> </h1>
@@ -86,7 +86,7 @@ $user_image = get_field('user_image', 'user_' . $author_id  . '');
 
 													$photo = get_field('photo', $publication->ID);
 													?>
-													<li class="collection-item avatar"><i class="material-icons circle pink">bookmark_border</i>
+													<li class="collection-item avatar"><i class="material-icons circle pink darken-2" aria-hidden="true">bookmark_border</i>
 														<h3 class="title"><a href="<?php echo get_permalink( $publication->ID ); ?>">
 															<?php echo get_the_title( $publication->ID ); ?>
 														</a></h3>

@@ -83,7 +83,7 @@ $images = get_field('meeting_photos');
 if( $images ): ?>
  <div class="divider"></div>
     <div class="row">
-			<h5 class="center light">Meeting photos</h5>
+			<h2 class="h5 center light">Meeting photos</h2>
         <?php foreach( $images as $image ): ?>
             <div class="col s6 m4 l4">
 
@@ -98,7 +98,7 @@ if( $images ): ?>
 <?php endif; ?>
 <?php
 if( have_rows('project_links') ):
-	echo '<aside id="project_links" class="row"><h2 class="center light">For more information about specific projects</h2>';
+	echo '<div id="project_links" class="row"><h2 class="center light">For more information about specific projects</h2>';
 	while ( have_rows('project_links') ) : the_row();
 	$link_text = get_sub_field('link_text');
 	$link_url = get_sub_field('link_url');
@@ -115,7 +115,7 @@ if( have_rows('project_links') ):
 
 <?php
 	endwhile;
-	echo '</aside>';
+	echo '</div>';
 	else :
 			// no rows found
 	endif;

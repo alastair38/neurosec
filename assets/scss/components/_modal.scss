@@ -87,4 +87,14 @@
   max-height: 45%;
   border-radius: 0;
   will-change: bottom, opacity;
+  .modal-footer {
+    .modal-action {
+      background: color("grey", "darken-4");
+      color: #ffffff;
+      &:hover, :focus {
+        background: color("grey", "lighten-3");
+        color: #000000;
+      }
+    }
+  }
 }

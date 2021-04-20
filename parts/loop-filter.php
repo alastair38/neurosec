@@ -1,7 +1,7 @@
 <?php
 $title = single_cat_title("", false);
 ?>
-<aside role="complementary">
+<div>
 
 <?php
 if (  is_home() || is_category() || is_post_type_archive('publications') || is_tax('publication_type') ) {?>
@@ -12,7 +12,7 @@ if (  is_home() || is_category() || is_post_type_archive('publications') || is_t
 				<?php //	$my_search->the_form();
 						// echo do_shortcode( '[searchandfilter taxonomies="resource-category,category" show_count="1,1" types="checkbox,checkbox" headings="Categories,Types" hide_empty="0,0"]' );
 						if (  is_home() || is_category()){
-							echo '<h6>Filter Articles by Category</h6>';
+							echo '<p>Filter Articles by Category</p>';
 							$cats = get_terms( 'category', array(
 									'hide_empty' => 0
 							) );
@@ -23,7 +23,7 @@ if (  is_home() || is_category() || is_post_type_archive('publications') || is_t
 									}
 
 						} else {
-							echo '<h6>Filter Publications by Type</h6>';
+							echo '<p>Filter Publications by Type</p>';
 							$terms = get_terms( 'publication_type', array(
 							    'hide_empty' => 0
 							) );
@@ -39,7 +39,7 @@ if (  is_home() || is_category() || is_post_type_archive('publications') || is_t
 			 ?>
 	    </div>
 	    <div class="modal-footer">
-	      <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+	      <button class=" modal-action modal-close waves-effect btn-flat">Close</button>
 	    </div>
 	  </div>
 	<?php
@@ -54,7 +54,7 @@ if (  is_home() || is_category() || is_post_type_archive('publications') || is_t
  				<?php //	$my_search->the_form();
  						// echo do_shortcode( '[searchandfilter taxonomies="resource-category,category" show_count="1,1" types="checkbox,checkbox" headings="Categories,Types" hide_empty="0,0"]' );
 
- 							echo '<h6>Filter News and Events by Type</h6>';
+ 							echo '<p>Filter News and Events by Type</p>';
  							$terms = get_terms( 'news_type', array(
  							    'hide_empty' => 0
  							) );
@@ -70,10 +70,10 @@ if (  is_home() || is_category() || is_post_type_archive('publications') || is_t
  			 ?>
  	    </div>
  	    <div class="modal-footer">
- 	      <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+ 	      <button class="modal-action modal-close waves-effect grey darken-4 white-text btn-flat">Close</button>
  	    </div>
  	  </div>
  	<!-- <?php
   }?> -->
 
-</aside>
+</div>

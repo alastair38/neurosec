@@ -16,7 +16,7 @@ if( have_rows('key_pages') ):
 
        </div>
        <div class="center">
-          <h3 class="card-title"><a class="white-text" href="<?php the_sub_field('page_name'); ?>"><?php echo $link_text ;?></a></h3>
+          <h2 class="card-title h3"><a class="white-text" href="<?php the_sub_field('page_name'); ?>"><?php echo $link_text ;?></a></h2>
        </div>
      </div>
    </div>

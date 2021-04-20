@@ -395,8 +395,7 @@ ul#dropdown-1 li {width: 100%;}
 
 a.dropdown-button.active {
     @extend .white;
-		@extend .teal-text, .lighten-1;
-
+		font-weight: 600;
 }
 
 
@@ -555,7 +554,7 @@ POSTS & CONTENT STYLES
   padding-bottom: 1em;
 }
 
-h3.side-title {
+h3.side-title, .side-title.h3 {
   font-size: 1.25em;
   padding: 1rem .5rem;
   line-height: 2rem;
@@ -564,7 +563,7 @@ h3.side-title {
   text-transform: uppercase;
 }
 
-h3.search-title {
+h3.search-title, .search-title.h3 {
   font-size: $h6-fontsize;
   padding: .5rem 0;
   font-weight: 300;

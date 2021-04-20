@@ -13,7 +13,7 @@ get_header(); ?>
 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-		<div class="col s12 l8" role="main">
+		<div class="col s12 l8">
 		    	<?php get_template_part( 'parts/loop', 'ypag' );?>
 		</div>
 
@@ -22,7 +22,7 @@ get_header(); ?>
 
 		$featured_posts = $related['related_pages'];
 		if( $featured_posts ): ?>
-		<aside id="sidebar1" class="col white s12 l4" role="complementary">
+		<div id="sidebar1" class="col white s12 l4">
 			<h2 class="light center h5"><?php echo $related['sidebar_heading'];?> </h2>
 			<ul class="card z-depth-0 center">
 
@@ -37,7 +37,7 @@ get_header(); ?>
 			<?php endforeach; ?>
 
 			</ul>
-		</aside>
+		</div>
 		<?php
 		// Reset the global post object so that the rest of the page works correctly.
 		wp_reset_postdata(); ?>

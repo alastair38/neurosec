@@ -6,7 +6,7 @@ get_header(); ?>
 
 	<div class="row valign-wrapper">
 
-		<div class="col s10 offset-s1" role="main">
+		<div class="col s10 offset-s1">
 
 		    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

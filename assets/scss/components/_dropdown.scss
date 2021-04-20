@@ -261,6 +261,7 @@ nav > ul > li {
   margin-top: .5rem;
   background: white;
  opacity: 0;
+ display: none;
  position: absolute;
  width: 200%;
  text-align: left;
@@ -298,4 +299,5 @@ nav > ul > li {
 .dropdown-button.js-open + .dropdown-content, .drpdown-button:hover + .dropdown-content  {
    opacity: 1;
    transform: translateX(0);
+   display: block;
 }

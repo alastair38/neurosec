@@ -4,7 +4,7 @@ $title = single_cat_title("", false);
 ?>
 
 <div>
-		<div class="row" role="main">
+		<div class="row">
 			<div class="col s12">
 
 				<header>

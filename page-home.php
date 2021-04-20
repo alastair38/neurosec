@@ -6,7 +6,7 @@ Template Name: Home
 get_header(); ?>
 
 	<div>
-			<div class="row" role="main">
+			<div class="row">
 				<?php
 
 							get_template_part( 'parts/loop', 'slider' );

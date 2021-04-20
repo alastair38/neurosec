@@ -22,7 +22,7 @@ foreach ($items as $item) {
 
             echo '<li class="collection-item avatar"><i class="material-icons circle green">event</i>
 						<label class="secondarycontent"> ' . $upm_date . ' at ' . $upm_address . '</label>
-						<h3 class="title">' . $upm_title . '</h3>';
+						<h2 class="h3 title">' . $upm_title . '</h2>';
 						if($upm_description) {
 							echo '<p>' . $upm_description . '<img src="' . $upm_image .  '"></p>';
 						}

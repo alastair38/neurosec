@@ -17,12 +17,12 @@ $hide_projects = get_field('hide_projects');
 				<header class="article-header col s12">
 
 
-					<h2 class="page-title center"><?php the_title(); ?></h2>
+					<h1 class="h2 page-title center"><?php the_title(); ?></h1>
 
 
 				</header> <!-- end article header -->
 				<div id="pi" class="col s12">
-					<h5 class="light center"><?php echo $pi_title;?></h5>
+					<h2 class="h5 light center"><?php echo $pi_title;?></h2>
 				<div class="col s12">
 				<div class="card horizontal">
 				<?php $pi_image = get_field('user_image', 'user_' . $pi['ID'] . '');

@@ -1,7 +1,7 @@
 <article id="post-<?php the_ID(); ?>" class="<?php echo $post->post_name;?>" itemscope itemtype="http://schema.org/WebPage">
 
 	<header class="article-header">
-		<h2 class="page-title center"><?php the_title(); ?></h2>
+		<h1 class="h2 page-title center"><?php the_title(); ?></h1>
 	</header> <!-- end article header -->
 
 
@@ -15,7 +15,7 @@
 
 </article> <!-- end article -->
 
-<aside id="child_pages" class="row">
+<div id="child_pages" class="row">
 	<?php
 	  $children = get_pages('parent=' . $posts[0]->ID . '&child_of=' . $posts[0]->ID);
 	  if ($children) {
@@ -24,4 +24,4 @@
 	   echo '<section class="col s6"><div class="grey card large darken-3"><h3 class="center"><a href="' . $child->guid . '">' . $child->post_title . '</a></h3>' . $trimmed . '</div></section>';
 		}
 	} ?>
-</aside>
+</div>

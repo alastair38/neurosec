@@ -4,7 +4,7 @@
 
 		<div id="inner-content" class="row">
 
-			<main id="main" class="col s12 m8" role="main">
+			<div id="main" class="col s12 m8">
 				<header>
 					<h1 class="archive-title"><?php _e('Search Results for:', 'jointstheme'); ?> <?php echo esc_attr(get_search_query()); ?></h1>
 				</header>
@@ -24,7 +24,7 @@
 
 			    <?php endif; ?>
 
-		    </main> <!-- end #main -->
+		    </div> <!-- end #main -->
 
 		    <?php get_sidebar(); ?>
 

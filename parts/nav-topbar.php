@@ -5,9 +5,9 @@
 ?>
 <div class="navbar-fixed">
 
-<nav id="nav-container">
+<nav id="nav-container" aria-label="Main site navigation">
 	<div class="logo_wrapper" style="background: url(<?php echo $header_logo; ?>)
-	no-repeat; background-size: 20%; background-position: 98% center;"><a id="log_link" href="<?php bloginfo('url'); ?>"><img id="logo" class="center"
+	no-repeat; background-size: 20%; background-position: 98% center;"><a id="log_link" aria-label="Neurosec home page" href="<?php bloginfo('url'); ?>"><img id="logo" class="center"
 		<?php
 		$logo_image = get_theme_mod( 'tcx_logo_image' );
 		if ($logo_image){?>
@@ -17,7 +17,7 @@
 			src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt=""
 			<?php }?>
 				/></a>
-			<a href="#" data-activates="slide-out" class="button-collapse right hide-on-large"><i class="material-icons">menu</i></a>
+			<button aria-label="Open mobile menu" data-activates="slide-out" class="button-collapse right hide-on-large-only btn-flat"><i class="material-icons">menu</i></button>
 			</div>
 
 	<div class="nav-wrapper">
@@ -34,7 +34,6 @@
 		<!-- <div class="center teal white-text">
 			<?php bloginfo('name'); ?>
       </div> -->
-
 		<div id="slide-out" class="side-nav">
 		<span class="block center"><?php bloginfo('name'); ?></span>
 		<?php joints_off_canvas_nav(); ?>

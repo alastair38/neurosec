@@ -1,8 +1,8 @@
 <?php get_header();?>
 
-<main>
+<div>
 
-		<div class="row" role="main">
+		<div class="row">
 			<div class="col s12">
 
 				<header>
@@ -10,7 +10,7 @@
 				</header>
 
 		    <div class="col s12">
-					<div class="col s12">
+					<div class="col s12 filter-controls">
 						<a class="chip" href="#filter">Filter Articles<i class="filter material-icons">filter_list</i></a>
 					</div>
 
@@ -37,7 +37,7 @@
 		</div> <!-- end .col s12 -->
 	</div> <!-- end .row -->
 
-</main> <!-- end main -->
+</div> <!-- end main -->
 
 	<?php get_template_part( 'parts/loop', 'filter' ); ?>
 

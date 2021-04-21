@@ -1673,7 +1673,7 @@
 .black-text {
   color: #000000 !important; }
 
-.white, a.dropdown-button.active, .page-footer li a:hover .mdi, .page-footer li a:focus .mdi {
+.white, .page-footer li a:hover .mdi, .page-footer li a:focus .mdi {
   background-color: #ffffff !important; }
 
 .white-text, a#cancel-comment-reply-link, .page-footer, .page-footer li a, .page-footer .copyright a {
@@ -2084,7 +2084,7 @@ article a:not(.btn):not(.btn-large):hover, article a:not(.btn):not(.btn-large):f
 .z-depth-0, .commentlist li.depth-2, .commentlist li.depth-3, .commentlist li.depth-4, .commentlist li.depth-5 {
   box-shadow: none !important; }
 
-.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .collapsible, .side-nav, .inside {
+.z-depth-1, nav#nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .collapsible, .side-nav, .inside {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
 
 .z-depth-1-half, .btn:hover, .btn-large:hover, .btn-floating:hover {
@@ -2406,7 +2406,8 @@ td, th {
     .collection .collection-item summary:focus {
       outline: none; }
     .collection .collection-item summary.chip {
-      margin-bottom: 1rem; }
+      margin-bottom: 1rem;
+      cursor: pointer; }
     .collection .collection-item details[open] summary {
       background: white;
       border: 1px solid; }
@@ -3091,129 +3092,128 @@ input[type=range] + .thumb {
       .row .col.push-l12 {
         left: 100%; } }
 
-nav {
+.nav-wrapper {
+  height: auto; }
+
+nav#nav {
   color: #414141;
   background-color: white;
   width: 100%;
   height: 56px;
   line-height: 56px; }
-  nav.nav-extended {
+  nav#nav.nav-extended {
     height: auto; }
-    nav.nav-extended .nav-wrapper {
-      height: auto; }
-  nav a {
+  nav#nav a {
     color: #414141; }
-  nav i,
-  nav [class^="mdi-"], nav [class*="mdi-"],
-  nav i.material-icons {
+  nav#nav i,
+  nav#nav [class^="mdi-"], nav#nav [class*="mdi-"],
+  nav#nav i.material-icons {
     display: block;
     font-size: 24px;
     height: 56px;
     line-height: 56px; }
-  nav .nav-wrapper {
+  nav#nav .nav-wrapper {
     position: relative;
     height: 100%; }
   @media only screen and (min-width: 993px) {
-    nav a.button-collapse {
+    nav#nav a.button-collapse {
       display: none; } }
-  nav .button-collapse {
+  nav#nav .button-collapse {
     float: left;
     position: relative;
     z-index: 1;
     height: 56px;
     margin: 0; }
-    nav .button-collapse i {
+    nav#nav .button-collapse i {
       height: 56px;
       line-height: 56px; }
-  nav .brand-logo {
+  nav#nav .brand-logo {
     position: absolute;
     color: #414141;
     display: inline-block;
     font-size: 2.1rem;
     padding: 0;
     white-space: nowrap; }
-    nav .brand-logo.center {
+    nav#nav .brand-logo.center {
       left: 50%;
       transform: translateX(-50%); }
     @media only screen and (max-width: 992px) {
-      nav .brand-logo {
+      nav#nav .brand-logo {
         left: 50%;
         transform: translateX(-50%); }
-        nav .brand-logo.left, nav .brand-logo.right {
+        nav#nav .brand-logo.left, nav#nav .brand-logo.right {
           padding: 0;
           transform: none; }
-        nav .brand-logo.left {
+        nav#nav .brand-logo.left {
           left: 0.5rem; }
-        nav .brand-logo.right {
+        nav#nav .brand-logo.right {
           right: 0.5rem;
           left: auto; } }
-    nav .brand-logo.right {
+    nav#nav .brand-logo.right {
       right: 0.5rem;
       padding: 0; }
-    nav .brand-logo i,
-    nav .brand-logo [class^="mdi-"], nav .brand-logo [class*="mdi-"],
-    nav .brand-logo i.material-icons {
+    nav#nav .brand-logo i,
+    nav#nav .brand-logo [class^="mdi-"], nav#nav .brand-logo [class*="mdi-"],
+    nav#nav .brand-logo i.material-icons {
       float: left;
       margin-right: 15px; }
-  nav ul {
-    margin: 0; }
-    nav ul li {
-      transition: background-color .3s;
-      float: left;
-      padding: 0; }
-      nav ul li.active a {
-        color: #002147; }
-    nav ul a {
-      transition: background-color .3s;
-      font-size: 1rem;
-      color: #414141;
-      display: block;
-      padding: 0 15px;
-      cursor: pointer; }
-      nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
-        margin-top: -2px;
-        margin-left: 15px;
-        margin-right: 15px; }
-      nav ul a:hover {
-        color: #002147; }
-    nav ul.left {
-      float: left; }
-  nav form {
+  nav#nav ul li {
+    transition: background-color .3s;
+    float: left; }
+    nav#nav ul li.active a {
+      color: #002147; }
+  nav#nav ul a {
+    transition: background-color .3s;
+    font-size: 1rem;
+    color: #414141;
+    display: block;
+    padding: 0 15px;
+    cursor: pointer; }
+    nav#nav ul a.btn, nav#nav ul a.btn-large, nav#nav ul a.btn-large, nav#nav ul a.btn-flat, nav#nav ul a.btn-floating {
+      margin-top: -2px;
+      margin-left: 15px;
+      margin-right: 15px; }
+    nav#nav ul a:hover {
+      color: #0D47A1; }
+  nav#nav ul.left {
+    float: left; }
+  nav#nav form {
     height: 100%; }
-  nav .input-field {
+  nav#nav .input-field {
     margin: 0;
     height: 100%; }
-    nav .input-field input {
+    nav#nav .input-field input {
       height: 100%;
       font-size: 1.2rem;
       border: none;
       padding-left: 2rem; }
-      nav .input-field input:focus, nav .input-field input[type=text]:valid, nav .input-field input[type=password]:valid, nav .input-field input[type=email]:valid, nav .input-field input[type=url]:valid, nav .input-field input[type=date]:valid {
+      nav#nav .input-field input:focus, nav#nav .input-field input[type=text]:valid, nav#nav .input-field input[type=password]:valid, nav#nav .input-field input[type=email]:valid, nav#nav .input-field input[type=url]:valid, nav#nav .input-field input[type=date]:valid {
         border: none;
         box-shadow: none; }
-    nav .input-field label {
+    nav#nav .input-field label {
       top: 0;
       left: 0; }
-      nav .input-field label i {
+      nav#nav .input-field label i {
         color: rgba(255, 255, 255, 0.7);
         transition: color .3s; }
-      nav .input-field label.active i {
+      nav#nav .input-field label.active i {
         color: #414141; }
-      nav .input-field label.active {
+      nav#nav .input-field label.active {
         transform: translateY(0); }
 
 .navbar-fixed {
   position: relative;
   height: 56px;
   z-index: 997;
-  width: 100%; }
+  width: 100%;
+  background: #ffffff; }
   .navbar-fixed nav {
     position: initial; }
     .navbar-fixed nav.fixed {
       position: fixed;
       top: 0; }
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 993px) {
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     height: auto; }
 
@@ -3894,6 +3894,8 @@ nav > ul#menu-main {
   text-align: center; }
   nav > ul#menu-main li a:hover {
     background: whitesmoke; }
+  nav > ul#menu-main ul.dropdown-content li a:hover {
+    background: none; }
 
 nav > ul > li {
   flex-grow: 1; }
@@ -3934,9 +3936,6 @@ nav > ul > li {
 #menu-main ul ul {
   font-weight: 300;
   padding-left: 1rem; }
-
-.dropdown-content li a:hover {
-  background: white !important; }
 
 .dropdown-button.js-open > i {
   transform: rotate(90deg); }
@@ -6932,12 +6931,9 @@ HEADER STYLES
   margin-right: .5rem;
   height: 98%;
   width: auto; }
-  @media only screen and (max-width: 600px) {
-    .header #logo {
-      height: 25px; } }
 .header a#logo_link {
   display: inline-block;
-  height: auto; }
+  height: 100%; }
 .header .brand-logo {
   animation: show 1000ms 1; }
   @media only screen and (max-width: 600px) {
@@ -6945,8 +6941,13 @@ HEADER STYLES
       font-size: 1.25rem; } }
 
 @media only screen and (max-width: 992px) {
-  nav .logo_wrapper {
-    background: none !important; } }
+  .logo_wrapper {
+    background: none !important;
+    height: 100%;
+    padding-left: 1rem; } }
+
+.button-collapse.btn-flat {
+  height: 56px; }
 
 .lean-overlay {
   height: 0; }
@@ -7239,7 +7240,7 @@ footer.card-content {
 
 label.authors {
   display: block;
-  padding: 1rem 0;
+  padding: 0;
   font-style: italic; }
 
 .video-container {
@@ -7562,6 +7563,12 @@ a#cancel-comment-reply-link {
 
 .nocomments {
   margin: 0 20px 1.1em; }
+
+/*********************
+Filter button for bottom modal
+*********************/
+.filter-controls {
+  margin: 2rem 0 1rem 0; }
 
 /*********************
 SIDEBARS & ASIDES

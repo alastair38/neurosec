@@ -10,7 +10,7 @@
 				</header>
 
 		    <div class="col s12">
-					<div class="col s12">
+					<div class="col s12 filter-controls">
 						<a class="chip" href="#filter">Filter Articles<i class="filter material-icons">filter_list</i></a>
 					</div>
 

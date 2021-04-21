@@ -5,9 +5,9 @@
 ?>
 <div class="navbar-fixed">
 
-<nav id="nav-container" aria-label="Main site navigation">
+
 	<div class="logo_wrapper" style="background: url(<?php echo $header_logo; ?>)
-	no-repeat; background-size: 20%; background-position: 98% center;"><a id="log_link" aria-label="Neurosec home page" href="<?php bloginfo('url'); ?>"><img id="logo" class="center"
+	no-repeat; background-size: 20%; background-position: 98% center;"><a id="logo_link" aria-label="Neurosec home page" href="<?php bloginfo('url'); ?>"><img id="logo" class="center"
 		<?php
 		$logo_image = get_theme_mod( 'tcx_logo_image' );
 		if ($logo_image){?>
@@ -42,7 +42,7 @@
 
 
 		</div>
-</nav>
+
 </div>
 
 		 <!-- Comment this line out if using a slide-out side nav menu on mobile. You will also need to uncomment the relevant <span> in nav-topbar.php to activate this.   -->

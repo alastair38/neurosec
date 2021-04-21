@@ -316,12 +316,12 @@ HEADER STYLES
     height: 98%;
     width: auto;
     @media #{$small-and-down} {
-    	height: 25px;
+
   	}
   }
   a#logo_link {
     display: inline-block;
-    height: $navbar-height;
+    height: 100%;
   }
   .brand-logo {
     animation: show 1000ms 1;
@@ -331,10 +331,16 @@ HEADER STYLES
   }
 }
 
-nav .logo_wrapper {
+.logo_wrapper {
   @media #{$medium-and-down} {
     background: none !important;
+    height: 100%;
+    padding-left: 1rem;
   }
+}
+
+.button-collapse.btn-flat {
+  height: $navbar-height-mobile;
 }
 
 .lean-overlay {
@@ -400,7 +406,6 @@ transition: 350ms;
 ul#dropdown-1 li {width: 100%;}
 
 a.dropdown-button.active {
-    @extend .white;
 		font-weight: 600;
 }
 
@@ -726,7 +731,7 @@ article section {
 
 label.authors {
   display: block;
-  padding: 1rem 0;
+  padding: 0;
   font-style: italic;
 }
 
@@ -1307,6 +1312,13 @@ a#cancel-comment-reply-link {
 	margin: 0 20px 1.1em;
 }
 
+/*********************
+Filter button for bottom modal
+*********************/
+
+.filter-controls {
+  margin: 2rem 0 1rem 0;
+}
 /*********************
 SIDEBARS & ASIDES
 *********************/

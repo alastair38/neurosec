@@ -12,7 +12,7 @@ function joints_top_nav() {
 	 wp_nav_menu(array(
         'container' => false,                           // Remove nav container
         'menu_class' => '',       // Adding custom nav class
-        'items_wrap' => '<nav id="nav"><ul id="%1$s" class="">%3$s</ul></nav>',
+        'items_wrap' => '<nav id="nav" aria-label="Main site navigation"><ul id="%1$s">%3$s</ul></nav>',
         'theme_location' => 'main-nav',        			// Where it's located in the theme
         'depth' => 5,                                   // Limit the depth of the nav
         'fallback_cb' => false,                         // Fallback function (see below)
@@ -25,7 +25,7 @@ function joints_off_canvas_nav() {
 	 wp_nav_menu(array(
         'container' => false,                           // Remove nav container
         'menu_class' => 'collapsible collapsible-accordion z-depth-0',       // Adding custom nav class
-        'items_wrap' => '<ul id="slideout" class="sidenav">%3$s</ul>',
+        'items_wrap' => '<nav id="mobile-nav" aria-label="Main site navigation"><ul id="slideout" class="sidenav">%3$s</ul></nav>',
         'theme_location' => 'main-nav',        			// Where it's located in the theme
         'depth' => 5,                                   // Limit the depth of the nav
         'fallback_cb' => false,                         // Fallback function (see below)

@@ -1,10 +1,11 @@
-nav {
+.nav-wrapper {
+  height: auto;
+}
+
+nav#nav {
   &.nav-extended {
     height: auto;
 
-    .nav-wrapper {
-      height: auto;
-    }
   }
 
   color: $navbar-font-color;
@@ -96,12 +97,12 @@ nav {
 
   // Navbar Links
   ul {
-    margin: 0;
+
 
     li {
       transition: background-color .3s;
       float: left;
-      padding: 0;
+
 
       &.active a {
         color: $secondary-color;
@@ -122,7 +123,7 @@ nav {
       }
 
       &:hover {
-        color: $secondary-color;
+        color: #0D47A1;
       }
     }
 
@@ -175,7 +176,7 @@ nav {
   height: $navbar-height-mobile;
   z-index: 997;
   width: 100%;
-
+  background: #ffffff;
   nav {
     position: initial;
     &.fixed {
@@ -184,7 +185,7 @@ nav {
     }
   }
 }
-@media #{$medium-and-up} {
+@media #{$large-and-up} {
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     height: auto;
     //line-height: $navbar-height;

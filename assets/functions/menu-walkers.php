@@ -3,7 +3,7 @@
 class Topbar_Menu_Walker extends Walker_Nav_Menu {
     function start_lvl(&$output, $depth = 0, $args = Array() ) {
         $indent = str_repeat("\t", $depth);
-        $output .= "\n$indent<ul class=\"dropdown-content\" aria-label=\"submenu\">\n";
+        $output .= "\n$indent<ul class=\"dropdown-content\">\n";
     }
     function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
        $item_html = '';

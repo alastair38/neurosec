@@ -226,6 +226,9 @@ nav > ul#menu-main {
   li a:hover {
     background: whitesmoke;
   }
+  ul.dropdown-content li a:hover {
+    background: none;
+  }
 }
 
 nav > ul > li {
@@ -277,10 +280,6 @@ nav > ul > li {
 #menu-main ul ul {
   font-weight: 300;
   padding-left: 1rem;
-}
-
-.dropdown-content li a:hover {
-  background: white !important;
 }
 
 .dropdown-button.js-open + .dropdown-content, .dropdown-button:focus + .dropdown-content {

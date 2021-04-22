@@ -2065,7 +2065,7 @@ article a:not(.btn):not(.btn-large):hover, article a:not(.btn):not(.btn-large):f
     background: #1366e8; }
 
 .card-title a:hover, .card-title a:focus {
-  border-bottom: 1px dotted currentColor; }
+  color: #1366e8; }
 
 .share-links a:hover, .share-links a:focus {
   border-bottom: 1px dotted transparent !important; }
@@ -3400,7 +3400,7 @@ small {
   transition: box-shadow .25s;
   border-radius: 2px; }
   .card .card-title {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 300; }
     .card .card-title.activator {
       cursor: pointer; }
@@ -3435,8 +3435,14 @@ small {
       overflow: visible; }
       .card.horizontal.small .card-image img, .card.horizontal.medium .card-image img, .card.horizontal.large .card-image img {
         height: 100%; }
+    @media only screen and (max-width: 992px) {
+      .card.horizontal {
+        flex-direction: column; } }
     .card.horizontal .card-image {
       max-width: 50%; }
+      @media only screen and (max-width: 992px) {
+        .card.horizontal .card-image {
+          max-width: 100%; } }
       .card.horizontal .card-image img {
         border-radius: 2px 0 0 2px;
         max-width: 100%;
@@ -3514,8 +3520,11 @@ small {
   object-fit: cover; }
 #team-layout .card-content {
   height: 150px; }
+  @media only screen and (max-width: 992px) {
+    #team-layout .card-content {
+      height: auto; } }
   #team-layout .card-content .card-title {
-    line-height: 1.15rem; }
+    line-height: 1.25rem; }
   #team-layout .card-content p {
     font-weight: 400;
     font-size: 1rem; }
@@ -6727,7 +6736,7 @@ main {
   display: flex;
   justify-content: center;
   flex-wrap: wrap; }
-  .flex-center .col.s6.m4.l3 {
+  .flex-center .col.s12.m6.l3 {
     margin-left: initial; }
 
 .screen-reader-text {
@@ -7623,7 +7632,8 @@ footer img {
 
 #twitter_feed {
   padding: 2rem;
-  font-size: 1rem !important; }
+  font-size: 1rem !important;
+  overflow: hidden; }
   #twitter_feed .rotatingtweet.cycle-slide {
     width: 100%; }
   #twitter_feed .rtw_icon img {

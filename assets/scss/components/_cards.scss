@@ -19,7 +19,7 @@
 
 
   .card-title {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 300;
     &.activator {
       cursor: pointer;
@@ -81,8 +81,15 @@
 
     display: flex;
 
+    @media #{$medium-and-down} {
+      flex-direction: column;
+    }
+
     .card-image {
       max-width: 50%;
+      @media #{$medium-and-down} {
+        max-width: 100%;
+      }
       img {
         border-radius: 2px 0 0 2px;
         max-width: 100%;
@@ -205,8 +212,11 @@
   }
   .card-content {
     height: 150px;
+    @media #{$medium-and-down} {
+      height: auto;
+    }
     .card-title {
-      line-height: 1.15rem;
+      line-height: 1.25rem;
     }
     p {
       font-weight: 400;

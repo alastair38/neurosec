@@ -49,7 +49,7 @@ article a:not(.btn), #sidebar1 a:not(.btn), .profile-details a, #user_biog a, .m
 
 .card-title a {
   &:hover, &:focus {
-    border-bottom: 1px dotted currentColor;
+    color: $link-color-hover;
   }
 }
 

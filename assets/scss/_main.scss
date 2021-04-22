@@ -62,7 +62,7 @@ main {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  .col.s6.m4.l3 {
+  .col.s12.m6.l3 {
     margin-left: initial;
   }
 }
@@ -1407,6 +1407,7 @@ FOOTER STYLES
 #twitter_feed {
   padding: 2rem;
   font-size: 1rem !important;
+  overflow: hidden;
   .rotatingtweet.cycle-slide {
     width: 100%;
   }

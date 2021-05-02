@@ -7,16 +7,16 @@
 			<h1><?php _e("Sorry, No Results.", "jointswp");?></h1>
 		</header>
 
-		<section class="entry-content">
+		<div class="entry-content">
 			<p><?php _e("Try your search again.", "jointswp");?></p>
-		</section>
+		</div>
 
 
 	<?php else: ?>
 
-		<section class="entry-content center">
+		<div class="entry-content center">
 			<p><?php _e("No content published in this section. Please check back shortly.", "jointswp");?></p>
-		</section>
+		</div>
 
 
 

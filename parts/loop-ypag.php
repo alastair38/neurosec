@@ -8,14 +8,14 @@
 		<?php get_template_part( 'parts/content', 'share' ); ?></label>
     </header> <!-- end article header -->
 
-    <section class="entry-content" itemprop="articleBody">
+    <div class="entry-content" itemprop="articleBody">
 		<?php
 		the_content();
 
 
 		?>
 		<?php get_template_part( 'parts/content', 'contact' );?>
-	</section> <!-- end article section -->
+	</div> <!-- end article section -->
 
 	<footer class="article-footer">
 		<p class="tags"><?php // the_category(); ?></p>	</footer>

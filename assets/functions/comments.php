@@ -29,12 +29,12 @@ function joints_comments($comment, $args, $depth) {
 							<p><?php _e('Your comment is awaiting moderation.', 'jointswp') ?></p>
 						</div>
 					<?php endif; ?>
-					<section class="comment_content clearfix">
+					<div class="comment_content clearfix">
 						<?php comment_text() ?>
             <span class="hide-on-med-and-up">
               <?php comment_reply_link(array_merge( $args, array('reply_text' => '<i class="mdi mdi-reply-all"></i> Reply ', 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?></a>
             </span>
-					</section>
+					</div>
 
 
 				</article>

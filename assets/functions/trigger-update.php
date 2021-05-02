@@ -96,7 +96,7 @@ add_action('draft_engagement', 'begood_trigger', 10, 1);
 // 		 if($item){
 // 		 for ($i = 0, $l = count($item); $i < $l; $i++ ) {
 //             echo '<div class="resources-links"><h3>' . $item[$i]->upcoming_meeting_title . '</h3>
-// 						<label><i class="fa fa-calendar"></i> ' . $item[$i]->upcoming_meeting_date . ' at ' . $item[$i]->upcoming_meeting_address . '</label>
+// 						<i class="fa fa-calendar"></i> ' . $item[$i]->upcoming_meeting_date . ' at ' . $item[$i]->upcoming_meeting_address . '
 // 						<p>' . $item[$i]->upcoming_meeting_description . '<img src="' . $item[$i]->upcoming_meeting_image .  '"></p>
 // 						<p>Contact for more information</p>';
 //

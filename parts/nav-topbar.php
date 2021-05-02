@@ -11,10 +11,10 @@
 		<?php
 		$logo_image = get_theme_mod( 'tcx_logo_image' );
 		if ($logo_image){?>
-			src="<?php echo $logo_image;?>" alt=""
+			src="<?php echo $logo_image;?>" alt="Neurosec logo"
 			<?php
 			} else {?>
-			src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt=""
+			src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt="Neurosec logo"
 			<?php }?>
 				/></a>
 			<button aria-label="Open mobile menu" data-activates="slide-out" class="button-collapse right hide-on-large-only btn-flat"><i class="material-icons">menu</i></button>

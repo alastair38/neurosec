@@ -21,7 +21,7 @@
 	  if ($children) {
 		foreach ($children as $child) {
 		$trimmed = wp_trim_words( $child->post_content, $num_words = 20, $more = null );
-	   echo '<section class="col s6"><div class="grey card large darken-3"><h3 class="center"><a href="' . $child->guid . '">' . $child->post_title . '</a></h3>' . $trimmed . '</div></section>';
+	   echo '<div class="col s6"><div class="grey card large darken-3"><h3 class="center"><a href="' . $child->guid . '">' . $child->post_title . '</a></h3>' . $trimmed . '</div></div>';
 		}
 	} ?>
 </div>

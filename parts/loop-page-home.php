@@ -1,6 +1,6 @@
 <div class="container">
 
-<section id="more" class="row">
+<div id="more" class="row">
 <?php
 // check if the repeater field has rows of data
 if( have_rows('key_pages') ):
@@ -29,9 +29,9 @@ if( have_rows('key_pages') ):
 	    // no rows found
 	endif;
 ?>
-</section>
 </div>
-<section id="starting" class="row">
+</div>
+<div id="starting" class="row">
 <?php
 // check if the repeater field has rows of data
 if( have_rows('secondary_pages') ):
@@ -45,7 +45,7 @@ if( have_rows('secondary_pages') ):
 				<p>
 					<?php the_sub_field('secondary_page_byline');?>
 				</p>
-			<img src="<?php the_sub_field('secondary_page_image');?>"/>
+			<img alt="" src="<?php the_sub_field('secondary_page_image');?>"/>
 
 		</div>
 		<div class="card-action blue-grey darken-1">
@@ -60,4 +60,4 @@ if( have_rows('secondary_pages') ):
 	    // no rows found
 	endif;
 ?>
-</section>
+</div>

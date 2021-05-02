@@ -41,7 +41,7 @@
 		<?php get_template_part( 'parts/content', 'share' ); ?></label>
 	</header> <!-- end article header -->
 
-    <section class="entry-content" itemprop="articleBody">
+    <div class="entry-content" itemprop="articleBody">
 
 		<?php if(is_singular('projects')) {
 			$projectLogo = get_field('project_logo');
@@ -142,7 +142,7 @@ if( have_rows('logos_funder') ):
 
 
 
-	</section> <!-- end article section -->
+</div> <!-- end article section -->
 
 
 

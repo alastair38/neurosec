@@ -24,7 +24,7 @@ foreach ($items as $item) {
 						<label class="secondarycontent"> ' . $upm_date . ' at ' . $upm_address . '</label>
 						<h2 class="h3 title">' . $upm_title . '</h2>';
 						if($upm_description) {
-							echo '<p>' . $upm_description . '<img src="' . $upm_image .  '"></p>';
+							echo '<p>' . $upm_description . '<img src="' . $upm_image .  '" alt=""></p>';
 						}
 						if($upm_contact) {
 							echo '<label>Contact <a href="mailto:' . $upm_contact . '" target="_blank">' . $upm_contact . '</a> for more information</label>';

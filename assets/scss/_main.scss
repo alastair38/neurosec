@@ -67,7 +67,7 @@ main {
   }
 }
 
-.screen-reader-text {
+.screen-reader-text, .slick-sr-only {
 	clip: rect(1px, 1px, 1px, 1px);
 	height: 1px;
 	overflow: hidden;

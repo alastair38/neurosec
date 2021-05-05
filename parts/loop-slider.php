@@ -24,9 +24,10 @@
 	// 	$currentDate = new DateTime();
 	// // this should only show an event if the event_date is either today or in the future
 	// 	if ( $eventDate >= $currentDate ) : ?>
-	<div style="background: url(<?php echo $thumb_url;?>) no-repeat center center; background-size: cover;">
+	<div class="slide-bg" style="background: url(<?php echo $thumb_url;?>) no-repeat center center; background-size: cover;">
 
-		 <article class="col s12 l6 waves-effect">
+
+		 <article class="col s12 l6">
 
 
 			 <div class="card-content">
@@ -55,6 +56,8 @@
 					$content = get_the_content();
 					echo wp_trim_words($content, 15);?>
 				</p>
+
+
 
 	 			</div>
 

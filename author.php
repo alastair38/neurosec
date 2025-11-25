@@ -17,15 +17,15 @@ $user_image = get_field('user_image', 'user_' . $author_id  . '');
 
 <div class="container">
 
-		<div class="row">
+  <div class="row">
 
-					<header class="col s12 center">
-						<h1 class="page-title light"><?php echo get_the_author_meta( 'display_name', $author_id );?> </h1>
+    <header class="col s12 center">
+      <h1 class="page-title light"><?php echo get_the_author_meta( 'display_name', $author_id );?> </h1>
 
 
-							<div class="profile-details">
+      <div class="profile-details">
 
-								<?php
+        <?php
 									if ($user_image) {
 										echo '<div class="col s12"><img class="responsive-img circle" width="200" height="200" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div>';
 									}
@@ -40,8 +40,8 @@ $user_image = get_field('user_image', 'user_' . $author_id  . '');
 										echo '<p><strong>Phone: </strong>' . $work_phone . '</p>';
 									} if( $work_projects): ?>
 
-									<?php foreach( $work_projects as $post): // variable must be called $post (IMPORTANT) ?>
-											<?php
+        <?php foreach( $work_projects as $post): // variable must be called $post (IMPORTANT) ?>
+        <?php
 
 											$new_arr[] = '<a href="' . $post->guid .'">' . $post->post_title . '</a>';
 											endforeach;
@@ -51,21 +51,21 @@ $user_image = get_field('user_image', 'user_' . $author_id  . '');
 										}
 									?>
 
-					<?php wp_reset_postdata();
+        <?php wp_reset_postdata();
 
 					// IMPORTANT - reset the $post object so the rest of the page works correctly ?>
-			<?php endif; ?>
+        <?php endif; ?>
 
 
 
-							</div>
+      </div>
 
-						</header>
-					<?php
+    </header>
+    <?php
 						echo '<hr /><div id="user_biog" class="col s12">' . $biog . '</div>';
 					?>
 
-					<?php
+    <?php
 					$publications = get_posts(array(
 												'post_type' => 'publications',
 												'meta_query' => array(
@@ -78,35 +78,36 @@ $user_image = get_field('user_image', 'user_' . $author_id  . '');
 											));
 
 											?>
-											<?php if( $publications ): ?>
-												<h2 class="col s12 light center">Publications</h2>
-												<ul class="collection">
-												<?php foreach( $publications as $publication ): ?>
-													<?php
+    <?php if( $publications ): ?>
+    <h2 class="col s12 light center">Outputs</h2>
+    <ul class="collection">
+      <?php foreach( $publications as $publication ): ?>
+      <?php
 
 													$photo = get_field('photo', $publication->ID);
 													?>
-													<li class="collection-item avatar"><i class="material-icons circle pink darken-2" aria-hidden="true">bookmark_border</i>
-														<h3 class="title"><a href="<?php echo get_permalink( $publication->ID ); ?>">
-															<?php echo get_the_title( $publication->ID ); ?>
-														</a></h3>
-														<details>
-															<summary class="chip">
-																<?php _e( 'View Abstract', 'neurosec' ); ?>
-															</summary>
-															<p>
-																<?php echo get_the_content(null, false, $publication->ID);?>
-															</p>
-														</details>
+      <li class="collection-item avatar"><i class="material-icons circle pink darken-2"
+          aria-hidden="true">bookmark_border</i>
+        <h3 class="title"><a href="<?php echo get_permalink( $publication->ID ); ?>">
+            <?php echo get_the_title( $publication->ID ); ?>
+          </a></h3>
+        <details>
+          <summary class="chip">
+            <?php _e( 'View Abstract', 'neurosec' ); ?>
+          </summary>
+          <p>
+            <?php echo get_the_content(null, false, $publication->ID);?>
+          </p>
+        </details>
 
-													</li>
-												<?php endforeach; ?>
-												</ul>
-											<?php endif; ?>
+      </li>
+      <?php endforeach; ?>
+    </ul>
+    <?php endif; ?>
 
-<div class="col s12">
+    <div class="col s12">
 
-<!-- <?php
+      <!-- <?php
 // , '0000-0002-1363-5027' 0000-0003-4883-1375
 
 
@@ -410,9 +411,9 @@ function cmpPessoa($a, $b) {
     }
 }
 ?> -->
-</div>
+    </div>
 
-		</div> <!-- end main -->
+  </div> <!-- end main -->
 
 </div> <!-- end container-->
 

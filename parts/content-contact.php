@@ -1,5 +1,9 @@
+<?php
+	
+	if(function_exists('get_field')):
+  
+  // check if ACF is activated to before grabbing field values
 
-	<?php
 	$contactName = get_field('project_contact');
 	$contactEmail = get_field('project_email');
 	$contactPhone = get_field('project_phone');
@@ -13,4 +17,7 @@
 		echo '<strong>Address: </strong>' . $contactAddress . '<br />';
 	} if($contactEmail) {
 		echo '</div>';
-	}?>
+	}
+	
+	endif;
+	?>

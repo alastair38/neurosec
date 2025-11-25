@@ -1,17 +1,17 @@
 <?php
 /*
-Template Name: Symplectic 1
+
 */
 
 get_header();
 
 ?>
 
-	<div class="container">
-			<div class="row">
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<div class="container">
+  <div class="row">
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-				<?php
+    <?php
 				$service_url = 'https://oxris-qa.bsp.ox.ac.uk:8091/elements-api/v4.9';
 			$curl = curl_init($service_url);
 			curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
@@ -30,11 +30,11 @@ get_header();
 				endwhile; endif;
 				?>
 
-			</div> <!-- end #main -->
+  </div> <!-- end #main -->
 
 
 
-	</div> <!-- end container -->
+</div> <!-- end container -->
 
 
 

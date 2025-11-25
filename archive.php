@@ -4,11 +4,11 @@ $title = single_cat_title("", false);
 ?>
 
 <div>
-		<div class="row">
-			<div class="col s12">
+  <div class="row container">
+    <div class="col s12">
 
-				<header>
-					<?php if(is_author()) {
+      <header>
+        <?php if(is_author()) {
 						echo '<h1 class="page-title center">' . get_the_author() . '</h1>';
 					} elseif(is_category()) {
 						echo '<h1 class="page-title center">' . $title . '</h1>';
@@ -19,12 +19,12 @@ $title = single_cat_title("", false);
 					}?>
 
 
-				</header>
+      </header>
 
-		    <div class="col s12">
+      <div class="col s12 grid grid-auto-fit-md">
 
 
-			    <?php if (have_posts()) : while (have_posts()) : the_post();
+        <?php if (have_posts()) : while (have_posts()) : the_post();
 
 					get_template_part( 'parts/loop', 'archive' );
 
@@ -40,12 +40,12 @@ $title = single_cat_title("", false);
 
 					?>
 
-				</div>
+      </div>
 
 
 
-		</div>
-	</div> <!-- end main -->
+    </div>
+  </div> <!-- end main -->
 </div> <!-- end div -->
-	<?php get_template_part( 'parts/loop', 'filter' ); ?>
+<?php get_template_part( 'parts/loop', 'filter' ); ?>
 <?php get_footer(); ?>

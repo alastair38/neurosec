@@ -6,6 +6,7 @@
             "key": "field_5a8c31aa0b0a7",
             "label": "Publication Link",
             "name": "publication_link",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_5edd3baad206c",
             "label": "Associated Neurosec team members",
             "name": "neurosec_members",
+            "aria-label": "",
             "type": "user",
             "instructions": "",
             "required": 0,
@@ -34,7 +36,42 @@
             "role": "",
             "allow_null": 1,
             "multiple": 1,
-            "return_format": "array"
+            "return_format": "array",
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_691c93735ed19",
+            "label": "Associated team members",
+            "name": "neurosec_team_members",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "people"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 1,
+            "bidirectional_target": [
+                "field_691c978da7e4c"
+            ]
         }
     ],
     "location": [
@@ -52,7 +89,9 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1591558451
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1763486568
 }

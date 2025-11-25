@@ -6,7 +6,8 @@
             "key": "field_59d2687d67ba6",
             "label": "Your details",
             "name": "",
-            "type": "tab",
+            "aria-label": "",
+            "type": "accordion",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,13 +16,15 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "open": 1,
+            "multi_expand": 1,
             "endpoint": 0
         },
         {
             "key": "field_58021f1b3906c",
             "label": "User Image",
             "name": "user_image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -46,6 +49,7 @@
             "key": "field_580217ba44710",
             "label": "Work Title",
             "name": "work_title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -62,9 +66,48 @@
             "maxlength": ""
         },
         {
+            "key": "field_69243e1bee1cc",
+            "label": "Work Email",
+            "name": "work_email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69243e3337ffe",
+            "label": "University of Oxford Profile",
+            "name": "work_profile_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Use this to link to an external University of Oxford profile page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_599ff93c18876",
             "label": "Work Phone",
             "name": "work_phone",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -84,6 +127,7 @@
             "key": "field_59d268bb762d1",
             "label": "Biography",
             "name": "work_biog",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -103,6 +147,7 @@
             "key": "field_5a9d47ff21a30",
             "label": "ORCiD ID",
             "name": "orcid_id",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -119,25 +164,10 @@
             "maxlength": ""
         },
         {
-            "key": "field_59d2673a1a2b7",
-            "label": "Your Projects",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
             "key": "field_588f2eb554b24",
-            "label": "Your Projects",
+            "label": "Your Projects [OLD]",
             "name": "your_projects",
+            "aria-label": "",
             "type": "post_object",
             "instructions": "",
             "required": 0,
@@ -150,17 +180,22 @@
             "post_type": [
                 "projects"
             ],
-            "taxonomy": [],
-            "allow_null": 0,
-            "multiple": 1,
+            "post_status": "",
+            "taxonomy": "",
             "return_format": "object",
-            "ui": 1
+            "multiple": 1,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
         },
         {
-            "key": "field_59d26780f43d2",
-            "label": "For BeGOOD Members",
-            "name": "",
-            "type": "tab",
+            "key": "field_691ef7276b8ff",
+            "label": "Projects",
+            "name": "person_projects",
+            "aria-label": "",
+            "type": "relationship",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -169,13 +204,67 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
-            "endpoint": 0
+            "post_type": [
+                "projects"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": [
+                "project-status:current"
+            ],
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 1,
+            "bidirectional_target": [
+                "field_691ef6143e547"
+            ]
+        },
+        {
+            "key": "field_691c978da7e4c",
+            "label": "Publications",
+            "name": "person_publications",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "publications"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 1,
+            "bidirectional_target": [
+                "field_691c93735ed19"
+            ]
         },
         {
             "key": "field_59ccf6b45b1a1",
             "label": "BeGOOD Sub-project",
             "name": "begood_subproject",
+            "aria-label": "",
             "type": "select",
             "instructions": "If you are a member of the BeGOOD project, please select the sub-project that you work on here",
             "required": 0,
@@ -196,28 +285,15 @@
             "ui": 1,
             "ajax": 0,
             "return_format": "value",
-            "placeholder": ""
-        },
-        {
-            "key": "field_59d266e659607",
-            "label": "For AEWG Members",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_59d2665359606",
             "label": "AEWG Position",
             "name": "aewg_position",
+            "aria-label": "",
             "type": "select",
             "instructions": "If you are a member of the Africa Ethics Working Group please select you position",
             "required": 0,
@@ -232,13 +308,15 @@
                 "AEWG Co-Chair": "AEWG Co-Chair",
                 "AEWG Member": "AEWG Member"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 1,
             "multiple": 0,
             "ui": 0,
             "ajax": 0,
             "return_format": "value",
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         }
     ],
     "location": [
@@ -248,6 +326,13 @@
                 "operator": "==",
                 "value": "all"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "people"
+            }
         ]
     ],
     "menu_order": 0,
@@ -256,7 +341,9 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1591608647
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1764071577
 }

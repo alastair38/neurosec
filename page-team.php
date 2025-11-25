@@ -6,42 +6,44 @@ Template Name: Users
 
 get_header();
 
-$pi = get_field('pi');
-$pi_description = get_field('pi_description');
-$pi_title = get_field('pi_title');
-$hide_projects = get_field('hide_projects');
+if(function_exists('get_field')):
+  
+  // check if ACF is activated to before grabbing field values
+  $pi = get_field('pi');
+	$pi_description = get_field('pi_description');
+	$pi_title = get_field('pi_title');
+
 ?>
 
-	<div class="container">
-			<div class="row">
-				<header class="article-header col s12">
+<div class="container">
+  <div class="row">
+    <header class="article-header col s12">
 
+      <h1 class="h2 page-title center"><?php the_title(); ?></h1>
 
-					<h1 class="h2 page-title center"><?php the_title(); ?></h1>
-
-
-				</header> <!-- end article header -->
-				<div id="pi" class="col s12">
-					<h2 class="h5 light center"><?php echo $pi_title;?></h2>
-				<div class="col s12">
-				<div class="card horizontal">
-				<?php $pi_image = get_field('user_image', 'user_' . $pi['ID'] . '');
+    </header> <!-- end article header -->
+    <div id="pi" class="col s12">
+      <h2 class="h5 light center"><?php echo $pi_title;?></h2>
+      <div class="col s12">
+        <div class="card horizontal">
+          <?php $pi_image = get_field('user_image', 'user_' . $pi['ID'] . '');
 				echo '<div class="card-image"><img src="' . $pi_image['url'] . '" alt="' . $pi_image['alt'] . '" /></div>';
 				?>
-				<div class="card-stacked">
-        <div class="card-content">
+          <div class="card-stacked">
+            <div class="card-content">
 
-          <p><a href="<?php echo get_author_posts_url($pi['ID'], $pi['user_nicename']);?>"><?php echo $pi['display_name'];?></a>
-					<?php echo $pi_description;?>
-					</p>
+              <p><a
+                  href="<?php echo get_author_posts_url($pi['ID'], $pi['user_nicename']);?>"><?php echo $pi['display_name'];?></a>
+                <?php echo $pi_description;?>
+              </p>
+            </div>
+
+          </div>
         </div>
+      </div>
+    </div>
 
-		      </div>
-				</div>
-			</div>
-		</div>
-
-<?php
+    <?php
 
 $admins = get_field('admins');
 
@@ -55,9 +57,10 @@ if($admins){
 
 	}
 	echo '</div>';
-}?>
+}
+?>
 
-	<?php $args = array(
+    <?php $args = array(
 	'posts_per_page'   => 10,
 	'offset'           => 0,
 	'category'         => '',
@@ -65,7 +68,6 @@ if($admins){
 	'orderby'          => 'title',
 	'order'            => 'ASC',
 	'include'          => '',
-	'exclude'          => $hide_projects,
 	'meta_key'         => '',
 	'meta_value'       => '',
 	'post_type'        => 'projects',
@@ -81,28 +83,7 @@ $posts_array = get_posts( $args );
 foreach ($posts_array as $posts) {
 	$title = $posts->post_title;
 	$link = $posts->guid;
-	// $args = array(
-	// 	'blog_id'      => $GLOBALS['blog_id'],
-	// 	'role'         => '',
-	// 	'role__in'     => array(),
-	// 	'role__not_in' => array(),
-	// 	'meta_key'     => 'your_projects',
-	// 	'meta_value'   => $posts->ID,
-	// 	'meta_compare' => 'LIKE',
-	// 	'meta_query'   => array(),
-	// 	'date_query'   => array(),
-	// 	'include'      => $user_order,
-	// 	'exclude'      => array(),
-	// 	'orderby'      => 'include',
-	// 	'order'        => 'ASC',
-	// 	'offset'       => '',
-	// 	'search'       => '',
-	// 	'number'       => '',
-	// 	'count_total'  => false,
-	// 	'fields'       => 'all',
-	// 	'who'          => ''
-	//  );
-	// $blogusers = get_users( $args );
+  
 	$members = get_field("team_member", $posts->ID);
 	if($members){
 
@@ -124,13 +105,16 @@ foreach ($posts_array as $posts) {
 		}
 		echo '</div>';
 	}
+
 }
  ?>
 
-		</div> <!-- end #row -->
+  </div> <!-- end #row -->
 
 
-	</div> <!-- end container -->
+</div> <!-- end container -->
 
 
-<?php get_footer(); ?>
+<?php endif;
+
+get_footer(); ?>

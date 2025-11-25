@@ -4,111 +4,160 @@ get_header(); ?>
 
 <div class="container">
 
-	<div class="row">
+  <div class="row">
 
-		<div class="col s12 l8">
+    <div class="col s12 l8 grid">
 
-		    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+      <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-		    	<?php get_template_part( 'parts/loop', 'single' );
-if ( $post->post_parent == $post->ID ) {
+      <?php get_template_part( 'parts/loop', 'single' );
+
+		?>
+
+    </div>
+
+    <?php
+		
+		// get any sibling or child pages to display
+		$siblings = [];
+		
+		if ( $post->post_parent !== 0 && ($post->post_parent !== $post->ID) ) {
 					$sibling_args = array(
 						'sort_order' => 'asc',
 						'sort_column' => 'post_title',
 						'hierarchical' => 1,
 						'exclude' => $post->ID,
-						'include' => '',
-						'meta_key' => '',
-						'meta_value' => '',
-						'authors' => '',
 						'child_of' => $post->post_parent,
 						'parent' => $post->post_parent,
-						'exclude_tree' => '',
-						'number' => '',
 						'offset' => 0,
 						'post_type' => 'projects',
 						'post_status' => 'publish'
 					);
 					$siblings = get_pages($sibling_args);
-}
-		?>
-
-		</div>
-
-		<div id="sidebar1" class="col white s12 l4 valign">
-		<?php
+					
+					
+		}
+		
 		$children_args = array(
 			'sort_order' => 'asc',
 			'sort_column' => 'post_title',
 			'hierarchical' => 1,
-			'exclude' => '',
-			'include' => '',
-			'meta_key' => '',
-			'meta_value' => '',
-			'authors' => '',
 			'child_of' => $post->ID,
 			'parent' => -1,
-			'exclude_tree' => '',
-			'number' => '',
 			'offset' => 0,
 			'post_type' => 'projects',
 			'post_status' => 'publish'
 		);
+		
 		$children = get_pages($children_args);
-		if ($children || $siblings || $post->post_parent) {
-			echo '<div class="col center card s12 z-depth-0"><h2 class="center h5 light">Links</h2>';
-		}
-		if ($children) {
-			echo '<ul>';
-		foreach ($children as $child) {
-		$trimmed = wp_trim_words( $child->post_content, $num_words = 20, $more = null );
-		 echo '<li><a href="' . $child->guid . '">' . $child->post_title . '</a></li>';
-	 } echo '</ul>';
-	}
-?>
-			<?php if($post->post_parent){?>
-	<ul><li><a class="" href="<?php echo get_the_permalink($post->post_parent); ?>"><?php echo ' ' . get_the_title($post->post_parent); ?></a></li></ul>
-	<?php }?>
+		?>
 
-<?php
-		if ($siblings) {
-			echo "<ul>";
-		foreach ($siblings as $sibling) {
-		 echo '<li><a href="' . $sibling->guid . '">' . $sibling->post_title . '</a></li>';
-		}
-		echo "</ul>";
-	}
-?>
+    <div id="sidebar1" class="col white s12 l4 valign">
+      <div class="p-4">
+
+        <?php
+				
+				if(function_exists('get_field')):
+  
+					$website = get_field('project_website');
+					
+					if($website):?>
+
+        <div class="py-4 center text-base">
+
+          <h2 class="center text-lg">Project Website</h2>
+
+          <a href="<?php echo $website; ?>" target="_blank">
+            <?php the_title();?>
+          </a>
+
+        </div>
+
+        <?php endif; 
+				
+				endif;
+
+		
+		if ($children || $siblings || $post->post_parent):?>
+        <div class="py-4 text-base center">
+          <h2 class="center text-lg">Links</h2>
+          <ul>
+
+            <?php if($post->post_parent):?>
+
+            <li>
+              <a href="<?php echo get_the_permalink($post->post_parent); ?>">
+                <?php echo get_the_title($post->post_parent); ?>
+              </a>
+            </li>
+
+            <?php endif;?>
+
+            <?php if ($children):?>
+
+            <?php foreach ($children as $child):?>
+            <!-- $trimmed = wp_trim_words( $child->post_content, $num_words = 20, $more = null ); -->
+            <li><a href="<?php echo get_the_permalink($child->ID); ?>"><?php echo $child->post_title; ?></a></li>
+            <?php endforeach;?>
+
+            <?php endif;?>
+
+            <?php if (!empty($siblings)):?>
 
 
-<?php $members = get_field("team_member");
-if($members){
-	echo '<div class="col card s12 z-depth-0"><h2 class="h5 light center">Project Members</h2>';
-	foreach ( $members as $user ) {
-	$user_image = get_field('user_image', 'user_' . $user['ID'] . '');
-	$work_title = get_field('work_title', 'user_' . $user['ID'] . '');
-	$begood_project = get_field('begood_subproject', 'user_' . $user['ID'] . '');
-	$aewg_position = get_field('aewg_position', 'user_' . $user['ID'] . '');
+            <?php foreach ($siblings as $sibling) {?>
+            <li>
+              <a href="<?php echo get_the_permalink($sibling->ID); ?>">
+                <?php echo $sibling->post_title; ?>
+              </a>
+            </li>
+            <?php }?>
 
-	echo '<div class="col s12 m6 l12"><div class="card z-depth-1 white"><div class="card-image"><img class="" src="' . $user_image['url'] . '" alt="' . $user_image['alt'] . '" /></div><div class="card-content"><a href="' . get_author_posts_url($user['ID'], $user['user_nicename']) . '">' . $user['display_name'] . '</a><label class="block">' . $work_title . '</label>';
-	if ($begood_project) {
-		echo '<label class="block">BeGOOD: ' . implode(', ', $begood_project) . '</label>';
-	}
-	if ($aewg_position) {
-		echo '<label class="block"><strong>' . $aewg_position . '</strong></label>';
-	}
-	echo '</div></div></div>' ;
-	}
-	echo '</div>';
-}
-?>
-</div>
 
-	<?php endwhile; ?>
+            <?php endif;?>
+          </ul>
+        </div>
 
-	<?php endif; ?>
+        <?php endif;?>
 
-</div> <!-- end row -->
+        <?php 
+				
+				if(function_exists('get_field')):
+  
+					$team_members = get_field('project_team_members');
+					
+				endif;
+
+				if($team_members):?>
+        <div class="py-4 text-base center">
+          <h2 class="text-lg center">Project Members</h2>
+          <ul>
+
+            <?php foreach($team_members as $team_member):?>
+
+            <li class="card">
+              <a class="flex items-center p-4 gap-2" href="<?php echo get_the_permalink($team_member->ID);?>">
+                <?php echo get_the_post_thumbnail( $team_member->ID, array( 40, 40), array( 'class' => 'responsive-img circle' ) );?>
+                <?php echo get_the_title( $team_member->ID );?>
+              </a>
+            </li>
+
+            <?php endforeach;?>
+
+          </ul>
+        </div>
+
+        <?php endif;?>
+
+      </div>
+
+    </div>
+
+    <?php endwhile; ?>
+
+    <?php endif; ?>
+
+  </div> <!-- end row -->
 </div> <!-- end container -->
 
 <?php get_footer(); ?>

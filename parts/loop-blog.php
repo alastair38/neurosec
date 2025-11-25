@@ -1,41 +1,44 @@
 <?php //if(  has_term( 'writing', 'category' ) ) { - this will be to output different styles depending on whether a video etc is being shown ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class('grey-text text-darken-4 col s12 m6 l4'); ?>>
-	<article class="card">
-		<div class="card-image">
-			<?php
-			$tile = get_field('image_tile');
+<div id="post-<?php the_ID(); ?>" <?php post_class('grey-text text-darken-4 w-full col s12 m6l4'); ?>>
+  <article class="card w-full h-full">
+    <div class="card-image">
+      <?php
+			
+			$tile = get_the_post_thumbnail($post->post_id, 'large', array( 'class' => 'responsive-img' ) ); get_field('image_tile');
 			 if ( $tile ) : ?>
-	<img class="responsive-img" src="<?php echo $tile['sizes']['large']; ?>" alt="<?php echo $tile['alt']; ?>"/>
-			<?php endif;?>
-		</div>
+      <?php echo $tile;?>
+      <?php endif;?>
+    </div>
 
-		<div class="card-content">
-			<?php if( strtotime( $post->post_date ) > strtotime('-8 day') ) {
+    <div class="card-content">
+      <?php if( strtotime( $post->post_date ) > strtotime('-8 day') ) {
 					echo '<span class="badge new"></span>';
 					}
 			?>
 
-				<a href="<?php the_permalink();?>"><h2 class="cardtitle"><?php the_title(); ?></h2></a>
+      <a href="<?php the_permalink();?>">
+        <h2 class="card-title"><?php the_title(); ?></h2>
+      </a>
 
-				<label class="authors"><?php echo the_time('F j, Y') . '.';?>
-				<?php
+      <label class="authors"><?php echo the_time('F j, Y') . '.';?>
+        <?php
 
 					echo 'Posted in '. get_the_category_list(', ');
 
 				?>
-				<?php
+        <?php
 
 				 ?>
-			</label>
+      </label>
 
 
 
 
-			</div>
+    </div>
 
-	</article>
+  </article>
 
-	<?php //get_template_part( 'parts/content', 'share' ); ?>
+  <?php //get_template_part( 'parts/content', 'share' ); ?>
 
 </div>

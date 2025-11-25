@@ -3,13 +3,13 @@ $title = single_cat_title("", false);
 ?>
 <div id="sidebar1" class="col s12 l4 valign">
 
-	<div class="row search-related">
-<div role="search">
-<?php
+  <div class="row search-related">
+    <div role="search">
+      <?php
 if (  is_home() || is_category() || is_singular('post') ) {?>
 
-	<h2 class="search-title h3 grey darken-3 white-text center">Filter Articles</h2>
-	<?php //	$my_search->the_form();
+      <h2 class="search-title h3 grey darken-3 white-text center">Filter Articles</h2>
+      <?php //	$my_search->the_form();
 			// echo do_shortcode( '[searchandfilter taxonomies="resource-category,category" show_count="1,1" types="checkbox,checkbox" headings="Categories,Types" hide_empty="0,0"]' );
 			$cats = get_terms( 'category', array(
 			    'hide_empty' => 0
@@ -22,9 +22,9 @@ if (  is_home() || is_category() || is_singular('post') ) {?>
 			    echo '</ul>';
 
  }?>
-<?php
+      <?php
 if ( is_post_type_archive('publications') || is_tax('publication_type') || is_singular('publications') ) {
-echo '<h2 class="search-title h3 grey darken-3 white-text  center">Filter Publications</h2>';
+echo '<h2 class="search-title h3 grey darken-3 white-text  center">Filter Outputs</h2>';
 $terms = get_terms( 'publication_type', array(
     'hide_empty' => 0
 ) );
@@ -38,7 +38,7 @@ $terms = get_terms( 'publication_type', array(
 
 ?>
 
-<?php if(is_singular('projects')) {
+      <?php if(is_singular('projects')) {
 	// $members = get_field("team_member");
 	//
 	// foreach ($members as $member) {
@@ -148,9 +148,9 @@ $terms = get_terms( 'publication_type', array(
 			// and if it has children
 			if($parent == 0 && !is_null($args))
 			{?>
-		 <?php
+      <?php
 					 wp_list_pages($args);  ?>
-			<?php }
+      <?php }
 
 }
 // if (is_page_template( 'ypag-template.php' )) {
@@ -212,8 +212,8 @@ if (is_singular( 'projects' )) {
 
 ?>
 
-</div>
+    </div>
 
-	</div>
+  </div>
 
 </div>

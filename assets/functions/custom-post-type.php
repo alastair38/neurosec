@@ -24,7 +24,7 @@ function neurosec_project() {
       'parent_item_colon' => ''
       ), /* end of arrays */
       'description' => __( 'Neurosec Projects', 'neurosectheme' ), /* Custom Type Description */
-
+      'show_in_rest' => true,
       'public' => true,
       'publicly_queryable' => true,
       'exclude_from_search' => false,
@@ -91,21 +91,21 @@ function neurosec_publications() {
 	register_post_type( 'publications', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 	 	// let's now add all the options for this post type
 		array('labels' => array(
-			'name' => __('Publications', 'neurosectheme'), /* This is the Title of the Group */
-			'singular_name' => __('Publication', 'neurosectheme'), /* This is the individual type */
-			'all_items' => __('All Publications', 'neurosectheme'), /* the all items menu item */
-			'add_new' => __('Add New Publication', 'neurosectheme'), /* The add new menu item */
-			'add_new_item' => __('Add New Publication', 'neurosectheme'), /* Add New Display Title */
+			'name' => __('Outputs', 'neurosectheme'), /* This is the Title of the Group */
+			'singular_name' => __('Output', 'neurosectheme'), /* This is the individual type */
+			'all_items' => __('All Outputs', 'neurosectheme'), /* the all items menu item */
+			'add_new' => __('Add New Output', 'neurosectheme'), /* The add new menu item */
+			'add_new_item' => __('Add New Output', 'neurosectheme'), /* Add New Display Title */
 			'edit' => __( 'Edit', 'neurosectheme' ), /* Edit Dialog */
-			'edit_item' => __('Edit Publication', 'neurosectheme'), /* Edit Display Title */
-			'new_item' => __('New Publication', 'neurosectheme'), /* New Display Title */
-			'view_item' => __('View Publication', 'neurosectheme'), /* View Display Title */
-			'search_items' => __('Search Publications', 'neurosectheme'), /* Search Custom Type Title */
+			'edit_item' => __('Edit Output', 'neurosectheme'), /* Edit Display Title */
+			'new_item' => __('New Output', 'neurosectheme'), /* New Display Title */
+			'view_item' => __('View Output', 'neurosectheme'), /* View Display Title */
+			'search_items' => __('Search Outputs', 'neurosectheme'), /* Search Custom Type Title */
 			'not_found' =>  __('Nothing found in the Database.', 'neurosectheme'), /* This displays if there are no entries yet */
 			'not_found_in_trash' => __('Nothing found in Trash', 'neurosectheme'), /* This displays if there is nothing in the trash */
 			'parent_item_colon' => ''
 			), /* end of arrays */
-			'description' => __( 'Neurosec Publications', 'neurosectheme' ), /* Custom Type Description */
+			'description' => __( 'Neurosec Outputs', 'neurosectheme' ), /* Custom Type Description */
 
 			'public' => true,
 			'publicly_queryable' => true,
@@ -132,16 +132,16 @@ function neurosec_publications() {
     	array('publications'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
     	array('hierarchical' => true,    /* if this is false, it acts like tags */
     		'labels' => array(
-    			'name' => __( 'Publication Types', 'neurosectheme' ), /* name of the custom taxonomy */
-    			'singular_name' => __( 'Publication Type', 'neurosectheme' ), /* single taxonomy name */
-    			'search_items' =>  __( 'Search Publication Types', 'neurosectheme' ), /* search title for taxomony */
-    			'all_items' => __( 'All Publication Types', 'neurosectheme' ), /* all title for taxonomies */
-    			'parent_item' => __( 'Parent Publication Type', 'neurosectheme' ), /* parent title for taxonomy */
-    			'parent_item_colon' => __( 'Parent Publication Type:', 'neurosectheme' ), /* parent taxonomy title */
-    			'edit_item' => __( 'Edit Publication Type', 'neurosectheme' ), /* edit custom taxonomy title */
-    			'update_item' => __( 'Update Publication Type', 'neurosectheme' ), /* update title for taxonomy */
-    			'add_new_item' => __( 'Add New Publication Type', 'neurosectheme' ), /* add new title for taxonomy */
-    			'new_item_name' => __( 'New Publication Type Name', 'neurosectheme' ) /* name title for taxonomy */
+    			'name' => __( 'Output Types', 'neurosectheme' ), /* name of the custom taxonomy */
+    			'singular_name' => __( 'Output Type', 'neurosectheme' ), /* single taxonomy name */
+    			'search_items' =>  __( 'Search Output Types', 'neurosectheme' ), /* search title for taxomony */
+    			'all_items' => __( 'All Output Types', 'neurosectheme' ), /* all title for taxonomies */
+    			'parent_item' => __( 'Parent Output Type', 'neurosectheme' ), /* parent title for taxonomy */
+    			'parent_item_colon' => __( 'Parent Output Type:', 'neurosectheme' ), /* parent taxonomy title */
+    			'edit_item' => __( 'Edit Output Type', 'neurosectheme' ), /* edit custom taxonomy title */
+    			'update_item' => __( 'Update Output Type', 'neurosectheme' ), /* update title for taxonomy */
+    			'add_new_item' => __( 'Add New Output Type', 'neurosectheme' ), /* add new title for taxonomy */
+    			'new_item_name' => __( 'New Output Type Name', 'neurosectheme' ) /* name title for taxonomy */
     		),
     		'show_admin_column' => true,
     		'show_ui' => true,

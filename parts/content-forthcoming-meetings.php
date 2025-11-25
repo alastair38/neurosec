@@ -1,8 +1,12 @@
 <?php
 
+
+if(function_exists('get_field')):
+  
+  // check if ACF is activated to before grabbing field values
+
 $upm_url = get_field('import_meetings_url', 'options');
 $json = file_get_contents($upm_url);
-
 
 $items = json_decode($json);
 $id = $items->parent; //
@@ -53,4 +57,6 @@ foreach ($items as $item) {
 			}
  		}
 		echo '</ul>';
+	
+endif;
 ?>

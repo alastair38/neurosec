@@ -1,49 +1,39 @@
+</main> <!-- end .wrapper -->
+
+<footer id="contact" class="page-footer center">
 
 
-<?php if(is_front_page()){?>
-	<div  id="twitter_feed" class="col s12 white">
-		<div class="container">
-		<?php
-		$twitter_handle = get_theme_mod('tcx_twitter_handle');
-		echo do_shortcode( '[rotatingtweets screen_name="' . $twitter_handle . '" official_format="1" rotation_type="scrollVert" links_in_new_window="1" timeout="6000"]' );?>
-		</div>
-		</div>
-<?php }?>
+  <?php
+	
+	if(function_exists('get_field')):
+  
+ // check if the repeater field has rows of data
+	if( have_rows('logos_footer', 'option') ):
+		$count = count(get_field('logos_footer', 'option')); // count number of rows in the repeater field
+		$col_count = 12 / $count; // divide no of rows by 12 to get number of columns
+		echo '<div class="row center">';
+		while ( have_rows('logos_footer', 'option') ) : the_row();
+		$url = get_sub_field('logo_img');
+		$logo_name = get_sub_field('logo_name');
+		$logo_link = get_sub_field('logo_link');
+		echo '<div class="col s' . $col_count . '"><a href="' . $logo_link . '" target="_blank"><img class="responsive-img" src="' . $url . '" alt="' . $logo_name . ' logo"></a></div>';
+		endwhile;
+		echo '</div>';
+		else :
+				// no rows found
+		endif;
+	
+	endif;?>
 
 
+  <div id="inner-footer" class="container" aria-label="Contact links" role="navigation">
 
-		</main> <!-- end .wrapper -->
+    <?php //joints_footer_links(); ?>
 
-		<footer id="contact" class="page-footer center">
-
-
-			<?php
-			// check if the repeater field has rows of data
-			if( have_rows('logos_footer', 'option') ):
-				$count = count(get_field('logos_footer', 'option')); // count number of rows in the repeater field
-				$col_count = 12 / $count; // divide no of rows by 12 to get number of columns
-				echo '<div class="row center">';
-				while ( have_rows('logos_footer', 'option') ) : the_row();
-				$url = get_sub_field('logo_img');
-				$logo_name = get_sub_field('logo_name');
-				$logo_link = get_sub_field('logo_link');
-				echo '<div class="col s' . $col_count . '"><a href="' . $logo_link . '" target="_blank"><img class="responsive-img" src="' . $url . '" alt="' . $logo_name . ' logo"></a></div>';
-				endwhile;
-				echo '</div>';
-				else :
-						// no rows found
-				endif;
-			?>
-
-
-			<div id="inner-footer" class="container" aria-label="Contact links" role="navigation">
-
-			<?php //joints_footer_links(); ?>
-
-				<div class="col s12">
-					<p class="source-org copyright">
-						<?php bloginfo('name');?> &copy; <?php echo date("Y");?>
-						<?php
+    <div class="col s12">
+      <p class="source-org copyright">
+        <?php bloginfo('name');?> &copy; <?php echo date("Y");?>
+        <?php
 						$twitter = get_theme_mod( 'tcx_twitter_handle' );
 						$email = get_theme_mod( 'tcx_email_contact' );
 
@@ -60,11 +50,12 @@
 						    </svg>Twitter </a></span>';
 						}
 						?>
-					</p>
-				</div>
+      </p>
+    </div>
 
-			</div> <!-- end #inner-footer -->
-		</footer> <!-- end .footer -->
-		<?php wp_footer(); ?>
-	</body>
+  </div> <!-- end #inner-footer -->
+</footer> <!-- end .footer -->
+<?php wp_footer(); ?>
+</body>
+
 </html> <!-- end page -->

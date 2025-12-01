@@ -133,7 +133,7 @@
 		if( have_rows('project_links') ):?>
 
     <div id="project_links" class="row grid grid-auto-fit-md gap-6">
-      <h2 class="center col-span-full light">For more information about specific projects</h2>
+      <h2 class="center col-span-full light">For more information about this project</h2>
       <?php while ( have_rows('project_links') ) : the_row();
 					$link_text = get_sub_field('link_text');
 					$link_url = get_sub_field('link_url');

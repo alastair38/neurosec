@@ -40,25 +40,29 @@
     <article class="col s12 l6">
 
       <div class="card-content">
-        <?php if( strtotime( $post->post_date ) > strtotime('-8 day') ) {
-	 					echo '<span class="badge new"></span>';
-	 					}
+        <?php 
+				
+				if($post_type === 'post'):
+				
+					if( strtotime( $post->post_date ) > strtotime('-8 day') ) {
+						echo '<span class="badge new"></span>';
+					}
+							
+				endif;
 	 			?>
 
         <a href="<?php the_permalink();?>">
           <h2 class="cardtitle"><?php the_title(); ?></h2>
         </a>
 
-        <label class="authors"><?php echo the_time('F j, Y') . '.';?>
-          <?php
+        <?php if($post_type === 'post'):?>
 
-	 					echo 'Posted in '. get_the_category_list(', ');
-
-	 				?>
-          <?php
-
-	 				 ?>
+        <label class="authors">
+          <?php echo the_time('F j, Y') . '.';?>
         </label>
+
+        <?php endif;?>
+
 
         <p>
           <?php
